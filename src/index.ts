@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { AwsCdkTypeScriptApp, AwsCdkTypeScriptAppOptions } from 'projen/lib/awscdk/awscdk-app-ts';
 import { Component } from 'projen/lib/component';
+import { TextFile } from 'projen/lib/textfile';
 import { execOrUndefined } from './util';
 
 export interface HugoPipelineAwsCdkTypeScriptAppOptions
@@ -48,6 +49,12 @@ export interface HugoPipelineAwsCdkTypeScriptAppOptions
   readonly hugoThemeDevCommand?: string;
 }
 
+/**
+ * External projen module to create a Hugo pipeline with AWS CDK
+ * from '@mavogel/cdk-hugo-pipeline'.
+ *
+ * @pjid cdk-hugo-pipeline
+ */
 export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
   constructor(options: HugoPipelineAwsCdkTypeScriptAppOptions) {
     super(options);
@@ -70,8 +77,22 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     // create config file structure
     execOrUndefined('mkdir -p blog/config/_default blog/config/development blog/config/production', { cwd: this.outdir });
     execOrUndefined('mv blog/config.toml blog/config/_default/config.toml', { cwd: this.outdir });
-    fs.writeFileSync(path.join(this.outdir, 'blog/config/development', 'config.toml'), `baseurl = "https://${subDomain}.${domain}"\npublishDir = "public-development"`);
-    fs.writeFileSync(path.join(this.outdir, 'blog/config/production', 'config.toml'), `baseurl = "https://${domain}"\npublishDir = "public-production"`);
+
+    // fs.writeFileSync(path.join(this.outdir, 'blog/config/development', 'config.toml'), `baseurl = "https://${subDomain}.${domain}"\npublishDir = "public-development"`);
+    // fs.writeFileSync(path.join(this.outdir, 'blog/config/production', 'config.toml'), `baseurl = "https://${domain}"\npublishDir = "public-production"`);
+    new TextFile(this, 'blog/config/development/config.toml', {
+      lines: [
+        `baseurl = "https://${subDomain}.${domain}"`,
+        'publishDir = "public-development"',
+      ],
+    });
+
+    new TextFile(this, 'blog/config/production/config.toml', {
+      lines: [
+        `baseurl = "https://${domain}"`,
+        'publishDir = "public-production"',
+      ],
+    });
 
     // gitignore
     this.gitignore.exclude(`blog/themes/${hugoThemeName}/public*`);

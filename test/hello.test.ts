@@ -55,6 +55,8 @@ describe('default configuration', () => {
     const snap = synthSnapshot(project);
     expect(snap['src/main.ts']).not.toBeUndefined();
     expect(snap['test/main.test.ts']).not.toBeUndefined();
+    expect(snap['blog/config/development/config.toml']).not.toBeUndefined();
+    expect(snap['blog/config/production/config.toml']).not.toBeUndefined();
   });
 
   test.skip('debug: main and main.test.ts files written', () => {
