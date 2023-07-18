@@ -1,4 +1,25 @@
-# replace this
+# projen-cdk-hugo-pipeline
+
+## Themes
+You can have multiple themes, and use only one. Configure the `config.toml` accordingly.
+### Adding
+- see stackoverflow [post](https://stackoverflow.com/questions/1777854/how-can-i-specify-a-branch-tag-when-adding-a-git-submodule) for details.
+```sh
+git submodule add https://github.com/apvarun/blist-hugo-theme.git frontend/themes/blist
+git submodule set-branch --branch v2.1.0 frontend/themes/blist
+```
+
+### Updating
+```sh
+git submodule update frontend/themes/blist
+# set to new tag or branch
+git submodule set-branch --branch v2.1.0 frontend/themes/blist
+```
+### Removal
+```sh
+export PATH_TO_THEME=frontend/themes/blist
+git submodule deinit -f $PATH_TO_THEME && rm -rf .git/modules/$PATH_TO_THEME && git rm -f $PATH_TO_THEME
+```
 # API Reference <a name="API Reference" id="api-reference"></a>
 
 
@@ -178,6 +199,12 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 | <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaFunction` for each `.lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.domain">domain</a></code> | <code>string</code> | The domain name of the website. |
+| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeDevCommand">hugoThemeDevCommand</a></code> | <code>string</code> | The command to run to start the Hugo development server for the specified theme. |
+| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepo">hugoThemeGitRepo</a></code> | <code>string</code> | The URL of the Hugo theme Git repository. |
+| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepoBranch">hugoThemeGitRepoBranch</a></code> | <code>string</code> | The branch of the Hugo theme Git repository to use. |
+| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeName">hugoThemeName</a></code> | <code>string</code> | The name of the Hugo theme to use. |
+| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.subDomain">subDomain</a></code> | <code>string</code> | The subdomain of the website to use for the development environment. |
 
 ---
 
@@ -2446,6 +2473,85 @@ Common options for all AWS Lambda functions.
 
 ---
 
+##### `domain`<sup>Required</sup> <a name="domain" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.domain"></a>
+
+```typescript
+public readonly domain: string;
+```
+
+- *Type:* string
+
+The domain name of the website.
+
+---
+
+##### `hugoThemeDevCommand`<sup>Optional</sup> <a name="hugoThemeDevCommand" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeDevCommand"></a>
+
+```typescript
+public readonly hugoThemeDevCommand: string;
+```
+
+- *Type:* string
+- *Default:* npm --prefix blog run start
+
+The command to run to start the Hugo development server for the specified theme.
+
+---
+
+##### `hugoThemeGitRepo`<sup>Optional</sup> <a name="hugoThemeGitRepo" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepo"></a>
+
+```typescript
+public readonly hugoThemeGitRepo: string;
+```
+
+- *Type:* string
+- *Default:* https://github.com/apvarun/blist-hugo-theme.git
+
+The URL of the Hugo theme Git repository.
+
+---
+
+##### `hugoThemeGitRepoBranch`<sup>Optional</sup> <a name="hugoThemeGitRepoBranch" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepoBranch"></a>
+
+```typescript
+public readonly hugoThemeGitRepoBranch: string;
+```
+
+- *Type:* string
+- *Default:* main
+
+The branch of the Hugo theme Git repository to use.
+
+---
+
+##### `hugoThemeName`<sup>Optional</sup> <a name="hugoThemeName" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeName"></a>
+
+```typescript
+public readonly hugoThemeName: string;
+```
+
+- *Type:* string
+- *Default:* blist
+
+The name of the Hugo theme to use.
+
+Will also be the folder the theme is stored in under 'blog/themes/${hugoThemeName}
+
+---
+
+##### `subDomain`<sup>Optional</sup> <a name="subDomain" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.subDomain"></a>
+
+```typescript
+public readonly subDomain: string;
+```
+
+- *Type:* string
+- *Default:* dev
+
+The subdomain of the website to use for the development environment.
+
+---
+
 ## Classes <a name="Classes" id="Classes"></a>
 
 ### HugoPipelineAwsCdkTypeScriptApp <a name="HugoPipelineAwsCdkTypeScriptApp" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp"></a>
@@ -2504,7 +2610,6 @@ new HugoPipelineAwsCdkTypeScriptApp(options: HugoPipelineAwsCdkTypeScriptAppOpti
 | <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
 | <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
 | <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCdkDependency">addCdkDependency</a></code> | Adds an AWS CDK module dependencies. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.sayHello">sayHello</a></code> | *No description.* |
 
 ---
 
@@ -3033,12 +3138,6 @@ Adds an AWS CDK module dependencies.
 The list of modules to depend on.
 
 ---
-
-##### `sayHello` <a name="sayHello" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.sayHello"></a>
-
-```typescript
-public sayHello(): string
-```
 
 
 #### Properties <a name="Properties" id="Properties"></a>

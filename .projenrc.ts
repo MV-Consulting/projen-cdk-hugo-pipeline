@@ -1,4 +1,8 @@
 import { cdk } from 'projen';
+import { NpmAccess } from 'projen/lib/javascript';
+
+const dependencies = ['projen@~0'];
+
 const project = new cdk.JsiiProject({
   author: 'Manuel Vogel',
   authorAddress: 'mavogel@posteo.de',
@@ -6,14 +10,15 @@ const project = new cdk.JsiiProject({
   jsiiVersion: '~5.0.0',
   name: 'projen-cdk-hugo-pipeline',
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/mavogel/projen-cdk-hugo-pipeline.git',
+  repositoryUrl: 'git@github.com:mavogel/projen-cdk-hugo-pipeline.git',
+  releaseToNpm: true,
+  npmAccess: NpmAccess.PUBLIC,
+  majorVersion: 0,
 
-  deps: [ /* Runtime dependencies of this module. */
-    'projen',
-  ],
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  deps: dependencies,
+  peerDeps: dependencies,
+  // devDeps: dependencies,
+  description: 'A external projen component to create a Hugo pipeline with AWS CDK.',
 });
 project.gitignore.exclude('test/hugo-pipe-test-*');
 project.synth();
