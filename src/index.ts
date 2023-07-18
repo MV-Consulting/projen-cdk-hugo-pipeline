@@ -1,4 +1,7 @@
+import * as fs from 'fs';
+import * as path from 'path';
 import { AwsCdkTypeScriptApp, AwsCdkTypeScriptAppOptions } from 'projen/lib/awscdk/awscdk-app-ts';
+import { Component } from 'projen/lib/component';
 
 export interface HugoPipelineAwsCdkTypeScriptAppOptions
   extends AwsCdkTypeScriptAppOptions {
@@ -41,7 +44,11 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
   constructor(options: HugoPipelineAwsCdkTypeScriptAppOptions) {
     super(options);
 
+    const domain = options.domain;
+    const subDomain = options.subDomain ?? 'dev';
     const hugoThemeName = options.hugoThemeName ?? 'blist';
+    // const hugoThemeGitRepo = options.hugoThemeGitRepo ?? 'https://github.com/apvarun/blist-hugo-theme.git';
+    // const hugoThemeGitRepoBranch = options.hugoThemeGitRepoBranch ?? 'main';
 
     // checkout git repo
     // set branch
@@ -59,8 +66,112 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
 
     // add conditional dev task to package.json
 
-    // write sample code to main.ts
+    // add dependecies
 
-    // write sample code to main.test.ts
+    // write sample code to main.ts & to main.test.ts
+    if (options.sampleCode ?? true) {
+      new SampleCode(this, {
+        domain: domain,
+        subDomain: subDomain,
+      });
+    }
+  }
+}
+
+interface SampleCodeOptions {
+  domain: string;
+  subDomain: string;
+}
+
+class SampleCode extends Component {
+  private readonly appProject: AwsCdkTypeScriptApp;
+  private readonly options: SampleCodeOptions;
+  private readonly normalizedHugoBlogName: string;;
+
+  constructor(
+    project: AwsCdkTypeScriptApp,
+    options: SampleCodeOptions,
+  ) {
+    super(project);
+    this.appProject = project;
+    this.options = options;
+    this.normalizedHugoBlogName = options.domain.replace(/\./g, '-');
+  }
+
+  public synthesize() {
+    const outdir = this.project.outdir;
+    const srcdir = path.join(outdir, this.appProject.srcdir);
+    if (
+      fs.existsSync(srcdir) &&
+      fs.readdirSync(srcdir).filter((x) => x.endsWith('.ts'))
+    ) {
+      return;
+    }
+
+    const srcImports = new Array<string>();
+    srcImports.push("import { HugoPipeline } from '@mavogel/cdk-hugo-pipeline';");
+    srcImports.push("import { App, Stack, StackProps } from 'aws-cdk-lib';");
+    srcImports.push("import { Construct } from 'constructs';");
+
+    const srcCode = `${srcImports.join('\n')}
+  
+  interface MyStackProps extends StackProps {
+    domainName: string;
+  }
+  
+  export class MyStack extends Stack {
+    constructor(scope: Construct, id: string, props: MyStackProps) {
+      super(scope, id, props);
+  
+      // define resources here...
+      new HugoPipeline(this, '${this.normalizedHugoBlogName}', {
+        name: '${this.normalizedHugoBlogName}',
+        domainName: props.domainName,
+        siteSubDomain: '${this.options.subDomain}',
+        hugoProjectPath: '../../../../blog',
+        hugoBuildCommand: 'hugo --gc --cleanDestinationDir --minify',
+      });
+    }
+  }
+  
+  // for development, use account/region from cdk cli
+  const devEnv = {
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION,
+  };
+  
+  const app = new App();
+  
+  // we only need 1 stack as it creates dev and prod in the pipeline
+  new MyStack(app, '${this.project.name}-dev', { env: devEnv, domainName: '${this.options.domain}' });
+  // new MyStack(app, '${this.project.name}-prod', { env: prodEnv });
+  
+  app.synth();`;
+
+    fs.mkdirSync(srcdir, { recursive: true });
+    fs.writeFileSync(path.join(srcdir, this.appProject.appEntrypoint), srcCode);
+
+    const testdir = path.join(outdir, this.appProject.testdir);
+    if (
+      fs.existsSync(testdir) &&
+      fs.readdirSync(testdir).filter((x) => x.endsWith('.ts'))
+    ) {
+      return;
+    }
+
+    const appEntrypointName = path.basename(
+      this.appProject.appEntrypoint,
+      '.ts',
+    );
+    const testCode = `
+    test('Snapshot', () => {
+      expect(true).toBe(true);
+    });`;
+
+    fs.mkdirSync(testdir, { recursive: true });
+    fs.writeFileSync(
+      path.join(testdir, `${appEntrypointName}.test.ts`),
+      testCode,
+    );
   }
 }
