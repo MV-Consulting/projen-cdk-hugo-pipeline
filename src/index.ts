@@ -40,5 +40,27 @@ export interface HugoPipelineAwsCdkTypeScriptAppOptions
 export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
   constructor(options: HugoPipelineAwsCdkTypeScriptAppOptions) {
     super(options);
+
+    const hugoThemeName = options.hugoThemeName ?? 'blist';
+
+    // checkout git repo
+    // set branch
+
+    // copy example site
+    // create config file structure
+
+    // gitignore
+    this.gitignore.exclude(`blog/themes/${hugoThemeName}/public*`);
+    this.gitignore.exclude(`blog/themes/${hugoThemeName}/resources/_gen`);
+    this.gitignore.exclude(`blog/themes/${hugoThemeName}/.DS_Store`);
+    this.gitignore.exclude(`blog/themes/${hugoThemeName}/.hugo_build.lock`);
+
+    // copy optional package.jsons
+
+    // add conditional dev task to package.json
+
+    // write sample code to main.ts
+
+    // write sample code to main.test.ts
   }
 }
