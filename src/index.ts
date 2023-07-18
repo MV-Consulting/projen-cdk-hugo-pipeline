@@ -3,6 +3,8 @@ import { AwsCdkTypeScriptApp, AwsCdkTypeScriptAppOptions } from 'projen/lib/awsc
 export interface HugoPipelineAwsCdkTypeScriptAppOptions
   extends AwsCdkTypeScriptAppOptions {
   // Add your own options here
+  // domain
+  // hugoThemeGitRepo
 }
 
 export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
