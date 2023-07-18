@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { AwsCdkTypeScriptApp, AwsCdkTypeScriptAppOptions } from 'projen/lib/awscdk/awscdk-app-ts';
 import { Component } from 'projen/lib/component';
+import { execOrUndefined } from './util';
 
 export interface HugoPipelineAwsCdkTypeScriptAppOptions
   extends AwsCdkTypeScriptAppOptions {
@@ -47,14 +48,22 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     const domain = options.domain;
     const subDomain = options.subDomain ?? 'dev';
     const hugoThemeName = options.hugoThemeName ?? 'blist';
-    // const hugoThemeGitRepo = options.hugoThemeGitRepo ?? 'https://github.com/apvarun/blist-hugo-theme.git';
-    // const hugoThemeGitRepoBranch = options.hugoThemeGitRepoBranch ?? 'main';
+    const hugoThemeGitRepo = options.hugoThemeGitRepo ?? 'https://github.com/apvarun/blist-hugo-theme.git';
+    const hugoThemeGitRepoBranch = options.hugoThemeGitRepoBranch ?? 'main';
 
     // checkout git repo
+    execOrUndefined(`git submodule add ${hugoThemeGitRepo} blog/themes/${hugoThemeName}`, { cwd: this.outdir });
     // set branch
+    execOrUndefined(`git submodule set-branch --branch ${hugoThemeGitRepoBranch} ${this.outdir}/blog/themes/${hugoThemeName}`, { cwd: this.outdir });
 
     // copy example site
+    execOrUndefined(`cp -r blog/themes/${hugoThemeName}/exampleSite/*  blog/`, { cwd: this.outdir });
+
     // create config file structure
+    execOrUndefined('mkdir -p blog/config/_default blog/config/development blog/config/production', { cwd: this.outdir });
+    execOrUndefined('mv blog/config.toml blog/config/_default/config.toml', { cwd: this.outdir });
+    fs.writeFileSync(path.join(this.outdir, 'blog/config/development', 'config.toml'), `baseurl = "https://${subDomain}.${domain}"\npublishDir = "public-development"`);
+    fs.writeFileSync(path.join(this.outdir, 'blog/config/production', 'config.toml'), `baseurl = "https://${domain}"\npublishDir = "public-production"`);
 
     // gitignore
     this.gitignore.exclude(`blog/themes/${hugoThemeName}/public*`);
@@ -63,10 +72,18 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     this.gitignore.exclude(`blog/themes/${hugoThemeName}/.hugo_build.lock`);
 
     // copy optional package.jsons
+    if (fs.existsSync(path.join(this.outdir, `blog/themes/${hugoThemeName}`, 'package.json'))) {
+      execOrUndefined(`cp blog/themes/${hugoThemeName}/package.json blog/package.json`, { cwd: this.outdir });
+    }
+    if (fs.existsSync(path.join(this.outdir, `blog/themes/${hugoThemeName}`, 'package-lock.json'))) {
+      execOrUndefined(`cp blog/themes/${hugoThemeName}/package-lock.json blog/package-lock.json`, { cwd: this.outdir });
+    }
 
     // add conditional dev task to package.json
+    this.package.setScript('dev', 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender');
 
-    // add dependecies
+    // add dependencies
+    this.addDeps('@mavogel/cdk-hugo-pipeline');
 
     // write sample code to main.ts & to main.test.ts
     if (options.sampleCode ?? true) {

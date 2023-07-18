@@ -15,4 +15,5 @@ const project = new cdk.JsiiProject({
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
 });
+project.gitignore.exclude('test/hugo-pipe-test-*');
 project.synth();
