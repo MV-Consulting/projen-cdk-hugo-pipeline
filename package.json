@@ -56,6 +56,9 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   },
+  "dependencies": {
+    "projen": "^0.71.141"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "version": "0.0.0",
