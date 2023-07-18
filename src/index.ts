@@ -2,17 +2,43 @@ import { AwsCdkTypeScriptApp, AwsCdkTypeScriptAppOptions } from 'projen/lib/awsc
 
 export interface HugoPipelineAwsCdkTypeScriptAppOptions
   extends AwsCdkTypeScriptAppOptions {
-  // Add your own options here
-  // domain
-  // hugoThemeGitRepo
+
+  /**
+   * The domain name of the website.
+   */
+  readonly domain: string;
+
+  /**
+   * The subdomain of the website to use for the development environment.
+   *
+   * @default dev
+   */
+  readonly subDomain?: string;
+
+  /**
+   * The name of the Hugo theme to use. Will also be the folder the theme is stored in under 'blog/themes/${hugoThemeName}
+   *
+   * @default blist
+   */
+  readonly hugoThemeName?: string;
+
+  /**
+   * The URL of the Hugo theme Git repository.
+   *
+   * @default https://github.com/apvarun/blist-hugo-theme.git
+   */
+  readonly hugoThemeGitRepo?: string;
+
+  /**
+   * The branch of the Hugo theme Git repository to use.
+   *
+   * @default main
+   */
+  readonly hugoThemeGitRepoBranch?: string;
 }
 
 export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
   constructor(options: HugoPipelineAwsCdkTypeScriptAppOptions) {
     super(options);
-  }
-
-  public sayHello() {
-    return 'hello, world!';
   }
 }
