@@ -39,6 +39,13 @@ export interface HugoPipelineAwsCdkTypeScriptAppOptions
    * @default main
    */
   readonly hugoThemeGitRepoBranch?: string;
+
+  /**
+   * The command to run to start the Hugo development server for the specified theme.
+   *
+   * @default npm --prefix blog run start
+   */
+  readonly hugoThemeDevCommand?: string;
 }
 
 export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
@@ -50,6 +57,7 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     const hugoThemeName = options.hugoThemeName ?? 'blist';
     const hugoThemeGitRepo = options.hugoThemeGitRepo ?? 'https://github.com/apvarun/blist-hugo-theme.git';
     const hugoThemeGitRepoBranch = options.hugoThemeGitRepoBranch ?? 'main';
+    const hugoThemeDevCommand = options.hugoThemeDevCommand ?? 'npm --prefix blog run start';
 
     // checkout git repo
     execOrUndefined(`git submodule add ${hugoThemeGitRepo} blog/themes/${hugoThemeName}`, { cwd: this.outdir });
@@ -80,7 +88,7 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     }
 
     // add conditional dev task to package.json
-    this.package.setScript('dev', 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender');
+    this.package.setScript('dev', hugoThemeDevCommand);
 
     // add dependencies
     this.addDeps('@mavogel/cdk-hugo-pipeline');
