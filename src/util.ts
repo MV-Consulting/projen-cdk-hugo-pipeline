@@ -1,4 +1,6 @@
 import * as child_process from 'child_process';
+import * as fs from 'fs';
+import * as path from 'path';
 
 const MAX_BUFFER = 10 * 1024 * 1024;
 
@@ -26,4 +28,15 @@ export function execOrUndefined(
   } catch {
     return undefined;
   }
+}
+
+/**
+ * Check if the given directory is a git repository.
+ *
+ * @param dir the directory to check
+ * @returns true if the directory is a git repository, false otherwise
+ */
+export function isGitRepository(dir: string): boolean {
+  const gitDir = path.join(dir, '.git');
+  return fs.existsSync(gitDir);
 }
