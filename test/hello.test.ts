@@ -56,12 +56,15 @@ describe('default configuration', () => {
       subDomain: subDomain,
       // outdir: outdir,
     });
-    const snap = synthSnapshot(project);
+    const snap = synthSnapshot(project, { parseJson: false });
     expect(snap['src/main.ts']).not.toBeUndefined();
     expect(
-      snap['src/main.ts'].indexOf('HugoPipeline'),
+      snap['src/main.ts'].indexOf('@mavogel/cdk-hugo-pipeline'),
     ).not.toEqual(-1);
     expect(snap['test/main.test.ts']).not.toBeUndefined();
+    expect(
+      snap['test/main.test.ts'].indexOf('expect(true).toBe(true);'),
+    ).not.toEqual(-1);
     // expect(snap['blog/config/_default/config.toml']).not.toBeUndefined();
     expect(snap['blog/config/development/config.toml']).not.toBeUndefined();
     expect(

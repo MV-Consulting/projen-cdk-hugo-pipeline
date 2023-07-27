@@ -9,7 +9,7 @@ const MAX_BUFFER = 10 * 1024 * 1024;
  */
 export function execOrUndefined(
   command: string,
-  options: { cwd: string },
+  options: { cwd: string; ignoreEmptyReturnCode?: boolean },
 ): string | undefined {
   try {
     const value = child_process
@@ -17,15 +17,22 @@ export function execOrUndefined(
         stdio: ['inherit', 'pipe', 'pipe'], // "pipe" for STDERR means it appears in exceptions
         maxBuffer: MAX_BUFFER,
         cwd: options.cwd,
+        timeout: 1000 * 60 * 1, // 1 minute
+        shell: '/bin/bash',
       })
       .toString('utf-8')
       .trim();
 
     if (!value) {
+      if (options.ignoreEmptyReturnCode) {
+        return 'ignored';
+      }
+      console.error(`Error empty executing "${command}"`);
       return undefined;
     } // an empty string is the same as undefined
     return value;
-  } catch {
+  } catch (e: any) {
+    console.error(`Error catch executing "${command}": ${e.message}`);
     return undefined;
   }
 }

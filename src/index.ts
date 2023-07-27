@@ -3,7 +3,7 @@ import * as path from 'path';
 import { AwsCdkTypeScriptApp, AwsCdkTypeScriptAppOptions } from 'projen/lib/awscdk/awscdk-app-ts';
 import { Component } from 'projen/lib/component';
 import { TextFile } from 'projen/lib/textfile';
-import { execOrUndefined } from './util';
+import { execOrUndefined, isGitRepository } from './util';
 
 export interface HugoPipelineAwsCdkTypeScriptAppOptions
   extends AwsCdkTypeScriptAppOptions {
@@ -56,54 +56,72 @@ export interface HugoPipelineAwsCdkTypeScriptAppOptions
  * @pjid cdk-hugo-pipeline
  */
 export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
+  private isAlreadyGitRepo: boolean;
+
   constructor(options: HugoPipelineAwsCdkTypeScriptAppOptions) {
     super(options);
 
+    this.isAlreadyGitRepo = false;
     const domain = options.domain;
     const subDomain = options.subDomain || 'dev';
     const hugoThemeName = options.hugoThemeName || 'blist';
-    // const hugoThemeGitRepo = options.hugoThemeGitRepo || 'https://github.com/apvarun/blist-hugo-theme.git';
-    // const hugoThemeGitRepoBranch = options.hugoThemeGitRepoBranch || 'main';
+    const hugoThemeGitRepo = options.hugoThemeGitRepo || 'https://github.com/apvarun/blist-hugo-theme.git';
+    const hugoThemeGitRepoBranch = options.hugoThemeGitRepoBranch || 'v2.1.0';
     const hugoThemeDevCommand = options.hugoThemeDevCommand || 'npm --prefix blog run start';
 
 
-    // let ret = execOrUndefined(`echo "${hugoThemeGitRepo}"`, { cwd: this.outdir });
-    // if (ret === undefined) {
-    //   throw new Error('Could not echooo');
-    // }
+    let ret = execOrUndefined(`echo "${hugoThemeGitRepo}"`, { cwd: this.outdir });
+    if (ret === undefined) {
+      throw new Error('Could not echooo');
+    }
 
-    // if (!isGitRepository(this.outdir)) {
-    //   ret = execOrUndefined('git init', { cwd: this.outdir });
-    //   if (ret === undefined) {
-    //     throw new Error('Could not "git init"');
-    //   }
-    // }
+    this.isAlreadyGitRepo = isGitRepository(this.outdir);
+    if (!this.isAlreadyGitRepo) {
+      ret = execOrUndefined('git init', { cwd: this.outdir });
+      if (ret === undefined) {
+        throw new Error('Could not "git init"');
+      }
+      this.isAlreadyGitRepo = true;
+    }
 
     // // Note: as of now not possible with git lib such as 'https://github.com/isomorphic-git/isomorphic-git'
-    // // checkout git repo
-    // ret = execOrUndefined(`git submodule add ${hugoThemeGitRepo} blog/themes/${hugoThemeName}`, { cwd: this.outdir });
-    // if (ret === undefined) {
-    //   throw new Error(`Could not add git submodule ${hugoThemeGitRepo} to ${this.outdir}`);
-    // }
+    // // checkout theme git repo
+    ret = execOrUndefined(`git submodule add ${hugoThemeGitRepo} blog/themes/${hugoThemeName}`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+    if (ret === undefined) {
+      throw new Error(`Could not add git submodule ${hugoThemeGitRepo} to ${this.outdir}`);
+    }
     // // set branch
-    // ret = execOrUndefined(`git submodule set-branch --branch ${hugoThemeGitRepoBranch} ${this.outdir}/blog/themes/${hugoThemeName}`, { cwd: this.outdir });
-    // if (ret === undefined) {
-    //   throw new Error(`Could not set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} in ${this.outdir}`);
-    // }
+    ret = execOrUndefined(`git submodule set-branch --branch ${hugoThemeGitRepoBranch} blog/themes/${hugoThemeName}`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+    if (ret === undefined) {
+      throw new Error(`Could not set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} in ${this.outdir}`);
+    }
 
-    // // copy example site
-    // ret = execOrUndefined(`cp -r blog/themes/${hugoThemeName}/exampleSite/*  blog/`, { cwd: this.outdir });
-    // if (ret === undefined) {
-    //   throw new Error(`Could not copy example site from ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite to ${this.outdir}/blog`);
-    // }
+    // fix the file
+    new TextFile(this, '.gitmodules', {
+      lines: [
+        `[submodule "blog/themes/${hugoThemeName}"]`,
+        `  path = blog/themes/${hugoThemeName}`,
+        `  url = ${hugoThemeGitRepo}`,
+        `  branch = ${hugoThemeGitRepoBranch}`,
+      ],
+    });
+
+    // copy example site
+    ret = execOrUndefined(`cp -r ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite/*  ${this.outdir}/blog/`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+    if (ret === undefined) {
+      throw new Error(`Could not copy example site from ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite to ${this.outdir}/blog`);
+    }
 
     // create config file structure
-    execOrUndefined('mkdir -p blog/config/_default blog/config/development blog/config/production', { cwd: this.outdir });
+    ret = execOrUndefined('mkdir -p blog/config/_default blog/config/development blog/config/production', { cwd: this.outdir, ignoreEmptyReturnCode: true });
+    if (ret === undefined) {
+      throw new Error(`Could not create config file structure in ${this.outdir}/blog/config`);
+    }
 
-    // ret = execOrUndefined('mv blog/config.toml blog/config/_default/config.toml', { cwd: this.outdir });
-    // if (ret === undefined) {
-    //   throw new Error(`Could not move config.toml to ${this.outdir}/blog/config/_default/config.toml`);
-    // }
+    ret = execOrUndefined(`mv ${this.outdir}/blog/config.toml ${this.outdir}/blog/config/_default/config.toml`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+    if (ret === undefined) {
+      throw new Error(`Could not move config.toml to ${this.outdir}/blog/config/_default/config.toml`);
+    }
 
     // fs.writeFileSync(path.join(this.outdir, 'blog/config/development', 'config.toml'), `baseurl = "https://${subDomain}.${domain}"\npublishDir = "public-development"`);
     // fs.writeFileSync(path.join(this.outdir, 'blog/config/production', 'config.toml'), `baseurl = "https://${domain}"\npublishDir = "public-production"`);
@@ -137,13 +155,23 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
       'package-lock.json',
     ];
     for (const file of filesToCopyFromThemeDir) {
-      // if target file does not exist yet
-      if (!fs.existsSync(path.join(this.outdir, file))) {
-        // and source file exists, then copy it
-        if (fs.existsSync(path.join(this.outdir, `blog/themes/${hugoThemeName}`, 'package.json'))) {
-          execOrUndefined(`cp blog/themes/${hugoThemeName}/package.json blog/${file}`, { cwd: this.outdir });
-        }
+      // if target file exists yet
+      if (fs.existsSync(path.join(this.outdir, file))) {
+        console.log(`Target file ${this.outdir}/${file} already exists. Skipping copy from theme dir.`);
+        continue;
       }
+
+      // Source file does not exist
+      if (!fs.existsSync(path.join(this.outdir, `blog/themes/${hugoThemeName}`, file))) {
+        console.log(`Source file ${this.outdir}/blog/themes/${hugoThemeName}/${file} does not exist. Skipping copy from theme dir.`);
+        continue;
+      }
+
+      ret = execOrUndefined(`cp blog/themes/${hugoThemeName}/${file} blog/${file}`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+      if (ret === undefined) {
+        throw new Error(`Could not copy ${this.outdir}/blog/themes/${hugoThemeName}/${file} to ${this.outdir}/blog/${file}`);
+      }
+      console.log(`Copied ${this.outdir}/blog/themes/${hugoThemeName}/${file} to ${this.outdir}/blog/${file}`);
     }
 
     // add conditional dev task to package.json
@@ -158,6 +186,13 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
         domain: domain,
         subDomain: subDomain,
       });
+    }
+
+    if (this.isAlreadyGitRepo) {
+      ret = execOrUndefined('rm -rf .git', { cwd: this.outdir, ignoreEmptyReturnCode: true });
+      if (ret === undefined) {
+        throw new Error('Could not "rm -rf .git"');
+      }
     }
   }
 }
@@ -185,13 +220,20 @@ class SampleCode extends Component {
   public synthesize() {
     const outdir = this.project.outdir;
     const srcdir = path.join(outdir, this.appProject.srcdir);
-    // TODO
-    // if (
-    //   fs.existsSync(srcdir) &&
-    //   fs.readdirSync(srcdir).filter((x) => x.endsWith('main.ts'))
-    // ) {
-    //   return;
-    // }
+    console.log('test dir ls -lash', execOrUndefined(`ls -lash ${outdir}`, { cwd: this.project.outdir }));
+    console.log('test cat .gitmodules', execOrUndefined(`cat .gitmodules ${outdir}/.gitmodules`, { cwd: this.project.outdir }));
+    console.log('test dir ls -lash blog', execOrUndefined(`ls -lash ${outdir}/blog`, { cwd: this.project.outdir }));
+    // console.log(`srcdir: ${srcdir}`);
+    // console.log('src ls la', execOrUndefined(`ls -lash ${srcdir}`, { cwd: this.project.outdir }));
+    // console.log('cat', execOrUndefined(`cat ${srcdir}/main.ts`, { cwd: this.project.outdir }));
+    // Note: there is a main.ts, however with the default content
+    if (
+      fs.existsSync(srcdir) &&
+      fs.readdirSync(srcdir).filter((x) => x.endsWith('.ts')) &&
+      fs.readFileSync(path.join(srcdir, 'main.ts'), 'utf-8').includes('@mavogel/cdk-hugo-pipeline')
+    ) {
+      return;
+    }
 
     const srcImports = new Array<string>();
     srcImports.push("import { HugoPipeline } from '@mavogel/cdk-hugo-pipeline';");
@@ -241,7 +283,8 @@ class SampleCode extends Component {
     const testdir = path.join(outdir, this.appProject.testdir);
     if (
       fs.existsSync(testdir) &&
-      fs.readdirSync(testdir).filter((x) => x.endsWith('.ts'))
+      fs.readdirSync(testdir).filter((x) => x.endsWith('.ts')) &&
+      fs.readFileSync(path.join(testdir, 'main.test.ts'), 'utf-8').includes('expect(true).toBe(true);')
     ) {
       return;
     }
@@ -260,5 +303,8 @@ class SampleCode extends Component {
       path.join(testdir, `${appEntrypointName}.test.ts`),
       testCode,
     );
+
+    console.log('test ls la', execOrUndefined(`ls -lash ${testdir}`, { cwd: this.project.outdir }));
+    console.log('test cat', execOrUndefined(`cat ${testdir}/main.test.ts`, { cwd: this.project.outdir }));
   }
 }
