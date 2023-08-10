@@ -84,8 +84,9 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
       this.isAlreadyGitRepo = true;
     }
 
-    // // Note: as of now not possible with git lib such as 'https://github.com/isomorphic-git/isomorphic-git'
-    // // checkout theme git repo
+    // Note: as of now not possible with git lib such as 'https://github.com/isomorphic-git/isomorphic-git'
+    // checkout theme git repo
+    // TODO add check if already checked out
     ret = execOrUndefined(`git submodule add ${hugoThemeGitRepo} blog/themes/${hugoThemeName}`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
     if (ret === undefined) {
       throw new Error(`Could not add git submodule ${hugoThemeGitRepo} to ${this.outdir}`);
@@ -107,17 +108,20 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     });
 
     // copy example site
+    // TODO add check if already copied
     ret = execOrUndefined(`cp -r ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite/*  ${this.outdir}/blog/`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
     if (ret === undefined) {
       throw new Error(`Could not copy example site from ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite to ${this.outdir}/blog`);
     }
 
     // create config file structure
+    // TODO add check if already created
     ret = execOrUndefined('mkdir -p blog/config/_default blog/config/development blog/config/production', { cwd: this.outdir, ignoreEmptyReturnCode: true });
     if (ret === undefined) {
       throw new Error(`Could not create config file structure in ${this.outdir}/blog/config`);
     }
 
+    // TODO add check if already moved
     ret = execOrUndefined(`mv ${this.outdir}/blog/config.toml ${this.outdir}/blog/config/_default/config.toml`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
     if (ret === undefined) {
       throw new Error(`Could not move config.toml to ${this.outdir}/blog/config/_default/config.toml`);
