@@ -11,6 +11,7 @@ export function execOrUndefined(
   command: string,
   options: { cwd: string; ignoreEmptyReturnCode?: boolean },
 ): string | undefined {
+  console.log(`execOrUndefined for command\n"${command}"`);
   try {
     const value = child_process
       .execSync(command, {

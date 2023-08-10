@@ -19,28 +19,6 @@ describe('cdkVersion is >= 2.0.0', () => {
 });
 
 describe('default configuration', () => {
-  test('gitignores set', () => {
-    const project = new HugoPipelineAwsCdkTypeScriptApp({
-      cdkVersion: '2.0.0-rc.1',
-      defaultReleaseBranch: 'main',
-      name: 'test',
-      domain: 'example.com',
-    });
-    const snap = synthSnapshot(project);
-    expect(
-      snap['.gitignore'].indexOf('blog/themes/blist/public*'),
-    ).not.toEqual(-1);
-    expect(
-      snap['.gitignore'].indexOf('blog/themes/blist/resources/_gen'),
-    ).not.toEqual(-1);
-    expect(
-      snap['.gitignore'].indexOf('blog/themes/blist/.DS_Store'),
-    ).not.toEqual(-1);
-    expect(
-      snap['.gitignore'].indexOf('blog/themes/blist/.hugo_build.lock'),
-    ).not.toEqual(-1);
-  });
-
   test.only('main and main.test.ts files written', () => {
     // const outdir = mkdtemp({ cleanup: false, dir: `${process.cwd()}/test` });
     // mkdirSync(join(outdir, 'src'));
@@ -64,6 +42,22 @@ describe('default configuration', () => {
     expect(snap['test/main.test.ts']).not.toBeUndefined();
     expect(
       snap['test/main.test.ts'].indexOf('expect(true).toBe(true);'),
+    ).not.toEqual(-1);
+    expect(snap['.gitmodules']).not.toBeUndefined();
+    expect(
+      snap['.gitmodules'].indexOf('[submodule "blog/themes/blist"]'),
+    ).not.toEqual(-1);
+    expect(
+      snap['.gitignore'].indexOf('blog/themes/blist/public*'),
+    ).not.toEqual(-1);
+    expect(
+      snap['.gitignore'].indexOf('blog/themes/blist/resources/_gen'),
+    ).not.toEqual(-1);
+    expect(
+      snap['.gitignore'].indexOf('blog/themes/blist/.DS_Store'),
+    ).not.toEqual(-1);
+    expect(
+      snap['.gitignore'].indexOf('blog/themes/blist/.hugo_build.lock'),
     ).not.toEqual(-1);
     // expect(snap['blog/config/_default/config.toml']).not.toBeUndefined();
     expect(snap['blog/config/development/config.toml']).not.toBeUndefined();

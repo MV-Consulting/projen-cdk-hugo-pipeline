@@ -70,11 +70,7 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     const hugoThemeDevCommand = options.hugoThemeDevCommand || 'npm --prefix blog run start';
 
 
-    let ret = execOrUndefined(`echo "${hugoThemeGitRepo}"`, { cwd: this.outdir });
-    if (ret === undefined) {
-      throw new Error('Could not echooo');
-    }
-
+    let ret = undefined;
     this.isAlreadyGitRepo = isGitRepository(this.outdir);
     if (!this.isAlreadyGitRepo) {
       ret = execOrUndefined('git init', { cwd: this.outdir });
@@ -97,15 +93,15 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
       throw new Error(`Could not set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} in ${this.outdir}`);
     }
 
-    // fix the file
-    new TextFile(this, '.gitmodules', {
-      lines: [
-        `[submodule "blog/themes/${hugoThemeName}"]`,
-        `  path = blog/themes/${hugoThemeName}`,
-        `  url = ${hugoThemeGitRepo}`,
-        `  branch = ${hugoThemeGitRepoBranch}`,
-      ],
-    });
+    // TODO: fix the file. in test we have the entry twice...
+    // new TextFile(this, '.gitmodules', {
+    //   lines: [
+    //     `[submodule "blog/themes/${hugoThemeName}"]`,
+    //     `  path = blog/themes/${hugoThemeName}`,
+    //     `  url = ${hugoThemeGitRepo}`,
+    //     `  branch = ${hugoThemeGitRepoBranch}`,
+    //   ],
+    // });
 
     // copy example site
     // TODO add check if already copied
@@ -224,9 +220,9 @@ class SampleCode extends Component {
   public synthesize() {
     const outdir = this.project.outdir;
     const srcdir = path.join(outdir, this.appProject.srcdir);
-    console.log('test dir ls -lash', execOrUndefined(`ls -lash ${outdir}`, { cwd: this.project.outdir }));
-    console.log('test cat .gitmodules', execOrUndefined(`cat .gitmodules ${outdir}/.gitmodules`, { cwd: this.project.outdir }));
-    console.log('test dir ls -lash blog', execOrUndefined(`ls -lash ${outdir}/blog`, { cwd: this.project.outdir }));
+    console.log(execOrUndefined(`ls -lash ${outdir}`, { cwd: this.project.outdir }));
+    console.log(execOrUndefined(`cat ${outdir}/.gitmodules`, { cwd: this.project.outdir }));
+    console.log(execOrUndefined(`ls -lash ${outdir}/blog`, { cwd: this.project.outdir }));
     // console.log(`srcdir: ${srcdir}`);
     // console.log('src ls la', execOrUndefined(`ls -lash ${srcdir}`, { cwd: this.project.outdir }));
     // console.log('cat', execOrUndefined(`cat ${srcdir}/main.ts`, { cwd: this.project.outdir }));
@@ -308,7 +304,7 @@ class SampleCode extends Component {
       testCode,
     );
 
-    console.log('test ls la', execOrUndefined(`ls -lash ${testdir}`, { cwd: this.project.outdir }));
-    console.log('test cat', execOrUndefined(`cat ${testdir}/main.test.ts`, { cwd: this.project.outdir }));
+    console.log(execOrUndefined(`ls -lash ${testdir}`, { cwd: this.project.outdir }));
+    console.log(execOrUndefined(`cat ${testdir}/main.test.ts`, { cwd: this.project.outdir }));
   }
 }
