@@ -156,8 +156,8 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     ];
     for (const file of filesToCopyFromThemeDir) {
       // if target file exists yet
-      if (fs.existsSync(path.join(this.outdir, file))) {
-        console.log(`Target file ${this.outdir}/${file} already exists. Skipping copy from theme dir.`);
+      if (fs.existsSync(path.join(this.outdir, 'blog', file))) {
+        console.log(`Target file ${this.outdir}/blog/${file} already exists. Skipping copy from theme dir.`);
         continue;
       }
 
