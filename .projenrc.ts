@@ -8,7 +8,7 @@ const project = new cdk.JsiiProject({
   authorAddress: 'mavogel@posteo.de',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.0.0',
-  name: 'projen-cdk-hugo-pipeline',
+  name: '@mavogel/projen-cdk-hugo-pipeline',
   projenrcTs: true,
   repositoryUrl: 'git@github.com:mavogel/projen-cdk-hugo-pipeline.git',
   releaseToNpm: true,
@@ -17,7 +17,6 @@ const project = new cdk.JsiiProject({
 
   deps: dependencies,
   peerDeps: dependencies,
-  // devDeps: dependencies,
   description: 'A external projen component to create a Hugo pipeline with AWS CDK.',
 });
 project.gitignore.exclude('test/hugo-pipe-test-*');
