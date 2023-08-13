@@ -1,5 +1,19 @@
 # projen-cdk-hugo-pipeline
 
+Setup the boilerplate for a hugo blog with a CDK pipeline to deploy it to AWS. See [mavogel/cdk-hugo-pipeline](https://github.com/mavogel/cdk-hugo-pipeline).
+
+## Usage
+
+```sh
+npx projen new \
+    --from @mavogel/projen-cdk-hugo-pipeline@~0 \
+    --domain example.com \
+    --projenrc-ts
+
+npm --prefix blog install
+npm run dev
+```
+
 ## Themes
 You can have multiple themes, and use only one. Configure the `config.toml` accordingly.
 ### Adding
