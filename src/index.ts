@@ -3,7 +3,7 @@ import * as path from 'path';
 import { AwsCdkTypeScriptApp, AwsCdkTypeScriptAppOptions } from 'projen/lib/awscdk/awscdk-app-ts';
 import { Component } from 'projen/lib/component';
 import { TextFile } from 'projen/lib/textfile';
-import { execOrUndefined, isGitRepository } from './util';
+import { execOrUndefined, isGitRepository, fileExists, lineExistsInFile } from './util';
 
 export interface HugoPipelineAwsCdkTypeScriptAppOptions
   extends AwsCdkTypeScriptAppOptions {
@@ -56,12 +56,12 @@ export interface HugoPipelineAwsCdkTypeScriptAppOptions
  * @pjid cdk-hugo-pipeline
  */
 export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
-  private isAlreadyGitRepo: boolean;
+  private gitInitExecuted: boolean;
 
   constructor(options: HugoPipelineAwsCdkTypeScriptAppOptions) {
     super(options);
 
-    this.isAlreadyGitRepo = false;
+    this.gitInitExecuted = false;
     const domain = options.domain;
     const subDomain = options.subDomain || 'dev';
     const hugoThemeName = options.hugoThemeName || 'blist';
@@ -71,60 +71,51 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
 
 
     let ret = undefined;
-    this.isAlreadyGitRepo = isGitRepository(this.outdir);
-    if (!this.isAlreadyGitRepo) {
+    if (!isGitRepository(this.outdir)) {
       ret = execOrUndefined('git init', { cwd: this.outdir });
       if (ret === undefined) {
         throw new Error('Could not "git init"');
       }
-      this.isAlreadyGitRepo = true;
+      this.gitInitExecuted = true;
     }
 
     // Note: as of now not possible with git lib such as 'https://github.com/isomorphic-git/isomorphic-git'
     // checkout theme git repo
-    // TODO add check if already checked out
-    ret = execOrUndefined(`git submodule add ${hugoThemeGitRepo} blog/themes/${hugoThemeName}`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
-    if (ret === undefined) {
-      throw new Error(`Could not add git submodule ${hugoThemeGitRepo} to ${this.outdir}`);
+    if (!lineExistsInFile(path.join(this.outdir, '.gitmodules'), `[submodule "blog/themes/${hugoThemeName}"]`)) {
+      ret = execOrUndefined(`git submodule add ${hugoThemeGitRepo} blog/themes/${hugoThemeName}`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+      if (ret === undefined) {
+        throw new Error(`Could not add git submodule ${hugoThemeGitRepo} to ${this.outdir}`);
+      }
     }
-    // // set branch
+
+    // set branch
     ret = execOrUndefined(`git submodule set-branch --branch ${hugoThemeGitRepoBranch} blog/themes/${hugoThemeName}`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
     if (ret === undefined) {
       throw new Error(`Could not set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} in ${this.outdir}`);
     }
 
-    // TODO: fix the file. in test we have the entry twice...
-    // new TextFile(this, '.gitmodules', {
-    //   lines: [
-    //     `[submodule "blog/themes/${hugoThemeName}"]`,
-    //     `  path = blog/themes/${hugoThemeName}`,
-    //     `  url = ${hugoThemeGitRepo}`,
-    //     `  branch = ${hugoThemeGitRepoBranch}`,
-    //   ],
-    // });
-
     // copy example site
-    // TODO add check if already copied
-    ret = execOrUndefined(`cp -r ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite/*  ${this.outdir}/blog/`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
-    if (ret === undefined) {
-      throw new Error(`Could not copy example site from ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite to ${this.outdir}/blog`);
+    if (!lineExistsInFile(path.join(this.outdir, 'blog/config/_default/config.toml'), `theme = "${hugoThemeName}"`)) {
+      ret = execOrUndefined(`cp -r ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite/*  ${this.outdir}/blog/`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+      if (ret === undefined) {
+        throw new Error(`Could not copy example site from ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite to ${this.outdir}/blog`);
+      }
     }
 
     // create config file structure
-    // TODO add check if already created
+    // Note: no check needed as 'mkdir -p' does not throw an error if the dir already exists
     ret = execOrUndefined('mkdir -p blog/config/_default blog/config/development blog/config/production', { cwd: this.outdir, ignoreEmptyReturnCode: true });
     if (ret === undefined) {
       throw new Error(`Could not create config file structure in ${this.outdir}/blog/config`);
     }
 
-    // TODO add check if already moved
-    ret = execOrUndefined(`mv ${this.outdir}/blog/config.toml ${this.outdir}/blog/config/_default/config.toml`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
-    if (ret === undefined) {
-      throw new Error(`Could not move config.toml to ${this.outdir}/blog/config/_default/config.toml`);
+    if (fileExists(path.join(this.outdir, 'blog/config/_default/config.toml'))) {
+      ret = execOrUndefined(`mv ${this.outdir}/blog/config.toml ${this.outdir}/blog/config/_default/config.toml`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+      if (ret === undefined) {
+        throw new Error(`Could not move config.toml to ${this.outdir}/blog/config/_default/config.toml`);
+      }
     }
 
-    // fs.writeFileSync(path.join(this.outdir, 'blog/config/development', 'config.toml'), `baseurl = "https://${subDomain}.${domain}"\npublishDir = "public-development"`);
-    // fs.writeFileSync(path.join(this.outdir, 'blog/config/production', 'config.toml'), `baseurl = "https://${domain}"\npublishDir = "public-production"`);
     new TextFile(this, 'blog/config/development/config.toml', {
       lines: [
         `baseurl = "https://${subDomain}.${domain}"`,
@@ -156,13 +147,13 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     ];
     for (const file of filesToCopyFromThemeDir) {
       // if target file exists yet
-      if (fs.existsSync(path.join(this.outdir, 'blog', file))) {
+      if (fileExists(path.join(this.outdir, 'blog', file))) {
         console.log(`Target file ${this.outdir}/blog/${file} already exists. Skipping copy from theme dir.`);
         continue;
       }
 
       // Source file does not exist
-      if (!fs.existsSync(path.join(this.outdir, `blog/themes/${hugoThemeName}`, file))) {
+      if (!fileExists(path.join(this.outdir, `blog/themes/${hugoThemeName}`, file))) {
         console.log(`Source file ${this.outdir}/blog/themes/${hugoThemeName}/${file} does not exist. Skipping copy from theme dir.`);
         continue;
       }
@@ -188,7 +179,9 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
       });
     }
 
-    if (this.isAlreadyGitRepo) {
+    // remove .git folder as projen with do it at the end as well
+    // we need to do it here as we need to add the submodule before
+    if (this.gitInitExecuted) {
       ret = execOrUndefined('rm -rf .git', { cwd: this.outdir, ignoreEmptyReturnCode: true });
       if (ret === undefined) {
         throw new Error('Could not "rm -rf .git"');
@@ -220,15 +213,9 @@ class SampleCode extends Component {
   public synthesize() {
     const outdir = this.project.outdir;
     const srcdir = path.join(outdir, this.appProject.srcdir);
-    console.log(execOrUndefined(`ls -lash ${outdir}`, { cwd: this.project.outdir }));
-    console.log(execOrUndefined(`cat ${outdir}/.gitmodules`, { cwd: this.project.outdir }));
-    console.log(execOrUndefined(`ls -lash ${outdir}/blog`, { cwd: this.project.outdir }));
-    // console.log(`srcdir: ${srcdir}`);
-    // console.log('src ls la', execOrUndefined(`ls -lash ${srcdir}`, { cwd: this.project.outdir }));
-    // console.log('cat', execOrUndefined(`cat ${srcdir}/main.ts`, { cwd: this.project.outdir }));
     // Note: there is a main.ts, however with the default content
     if (
-      fs.existsSync(srcdir) &&
+      fileExists(srcdir) &&
       fs.readdirSync(srcdir).filter((x) => x.endsWith('.ts')) &&
       fs.readFileSync(path.join(srcdir, 'main.ts'), 'utf-8').includes('@mavogel/cdk-hugo-pipeline')
     ) {
@@ -282,7 +269,7 @@ class SampleCode extends Component {
 
     const testdir = path.join(outdir, this.appProject.testdir);
     if (
-      fs.existsSync(testdir) &&
+      fileExists(testdir) &&
       fs.readdirSync(testdir).filter((x) => x.endsWith('.ts')) &&
       fs.readFileSync(path.join(testdir, 'main.test.ts'), 'utf-8').includes('expect(true).toBe(true);')
     ) {

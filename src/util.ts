@@ -9,9 +9,11 @@ const MAX_BUFFER = 10 * 1024 * 1024;
  */
 export function execOrUndefined(
   command: string,
-  options: { cwd: string; ignoreEmptyReturnCode?: boolean },
+  options: { cwd: string; ignoreEmptyReturnCode?: boolean; debug?: boolean },
 ): string | undefined {
-  console.log(`execOrUndefined for command\n"${command}"`);
+  if (options.debug !== undefined && options.debug) {
+    console.log(`execOrUndefined for command\n"${command}"`);
+  }
   try {
     const value = child_process
       .execSync(command, {
@@ -47,4 +49,30 @@ export function execOrUndefined(
 export function isGitRepository(dir: string): boolean {
   const gitDir = path.join(dir, '.git');
   return fs.existsSync(gitDir);
+}
+
+/**
+ * Checks if the given file exists.
+ *
+ * @param filePath path to the file
+ * @returns true if the file exists, false otherwise
+ */
+export function fileExists(filePath: string): boolean {
+  return fs.existsSync(filePath);
+}
+
+/**
+ * Checks if the given line exists in the given file.
+ *
+ * @param filePath path to the file
+ * @param line line to check
+ * @returns true if the line exists in the file, false otherwise
+ */
+export function lineExistsInFile(filePath: string, line: string): boolean {
+  if (!fileExists(filePath)) {
+    return false;
+  }
+
+  const fileContent = fs.readFileSync(filePath, 'utf8');
+  return fileContent.indexOf(line) >= 0;
 }
