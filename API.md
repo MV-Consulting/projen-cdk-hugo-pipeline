@@ -1,6 +1,8 @@
 # projen-cdk-hugo-pipeline
 
-Setup the boilerplate for a hugo blog with a CDK pipeline to deploy it to AWS. See [mavogel/cdk-hugo-pipeline](https://github.com/mavogel/cdk-hugo-pipeline).
+This is a [projen](https://github.com/projen/projen) project template to manage the [mavogel/cdk-hugo-pipeline](https://github.com/mavogel/cdk-hugo-pipeline) repository. Please see the [API](./API.md) for documentation.
+
+Setup the boilerplate for a hugo blog with a CDK pipeline to deploy it to AWS :tada:
 
 ## Usage
 
@@ -39,12 +41,12 @@ git submodule deinit -f $PATH_TO_THEME && rm -rf .git/modules/$PATH_TO_THEME && 
 
 ## Structs <a name="Structs" id="Structs"></a>
 
-### HugoPipelineAwsCdkTypeScriptAppOptions <a name="HugoPipelineAwsCdkTypeScriptAppOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions"></a>
+### HugoPipelineAwsCdkTypeScriptAppOptions <a name="HugoPipelineAwsCdkTypeScriptAppOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions"></a>
 
-#### Initializer <a name="Initializer" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.Initializer"></a>
+#### Initializer <a name="Initializer" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.Initializer"></a>
 
 ```typescript
-import { HugoPipelineAwsCdkTypeScriptAppOptions } from 'projen-cdk-hugo-pipeline'
+import { HugoPipelineAwsCdkTypeScriptAppOptions } from '@mavogel/projen-cdk-hugo-pipeline'
 
 const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOptions = { ... }
 ```
@@ -53,176 +55,176 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitIgnoreOptions">gitIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .gitignore file. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorName">authorName</a></code> | <code>string</code> | Author's name. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorOrganization">authorOrganization</a></code> | <code>boolean</code> | Is the author an organization. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorUrl">authorUrl</a></code> | <code>string</code> | Author's URL / Website. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoDetectBin">autoDetectBin</a></code> | <code>boolean</code> | Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bin">bin</a></code> | <code>{[ key: string ]: string}</code> | Binary programs vended with your module. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.entrypoint">entrypoint</a></code> | <code>string</code> | Module entrypoint (`main` in `package.json`). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.keywords">keywords</a></code> | <code>string[]</code> | Keywords to include in `package.json`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.license">license</a></code> | <code>string</code> | License's SPDX identifier. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.licensed">licensed</a></code> | <code>boolean</code> | Indicates if a license should be added. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Minimum node.js version to require via `engines` (inclusive). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum Node.js version to require via package.json `engines` (inclusive). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmAccess">npmAccess</a></code> | <code>projen.javascript.NpmAccess</code> | Access level of the npm package. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.peerDeps">peerDeps</a></code> | <code>string[]</code> | Peer dependencies for this module. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.publishTasks">publishTasks</a></code> | <code>boolean</code> | Define publishing tasks that can be executed manually as well as workflows. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | Find commits that should be considered releasable Used to decide if a release is required. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. Useful if you are releasing on multiple branches with overlapping version numbers. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with `@codeCovTokenSecret`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use github workflows to handle dependency upgrades. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jest">jest</a></code> | <code>boolean</code> | Setup jest unit tests. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jestOptions">jestOptions</a></code> | <code>projen.javascript.JestOptions</code> | Jest options. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mutableBuild">mutableBuild</a></code> | <code>boolean</code> | Automatically update files modified during builds to pull-request branches. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmignore">npmignore</a></code> | <code>string[]</code> | Additional entries to .npmignore. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmignoreEnabled">npmignoreEnabled</a></code> | <code>boolean</code> | Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmIgnoreOptions">npmIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .npmignore file. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prettier">prettier</a></code> | <code>boolean</code> | Setup prettier. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prettierOptions">prettierOptions</a></code> | <code>projen.javascript.PrettierOptions</code> | Prettier options. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenDevDependency">projenDevDependency</a></code> | <code>boolean</code> | Indicates of "projen" should be installed as a devDependency. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJs">projenrcJs</a></code> | <code>boolean</code> | Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJsOptions">projenrcJsOptions</a></code> | <code>projen.javascript.ProjenrcOptions</code> | Options for .projenrc.js. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenVersion">projenVersion</a></code> | <code>string</code> | Version of projen to install. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pullRequestTemplate">pullRequestTemplate</a></code> | <code>boolean</code> | Include a GitHub pull request template. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.release">release</a></code> | <code>boolean</code> | Add release management to this project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflow">releaseWorkflow</a></code> | <code>boolean</code> | DEPRECATED: renamed to `release`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.disableTsconfigDev">disableTsconfigDev</a></code> | <code>boolean</code> | Do not generate a `tsconfig.dev.json` file. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | Docs directory. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.entrypointTypes">entrypointTypes</a></code> | <code>string</code> | The .d.ts file that includes the type declarations for this module. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.eslint">eslint</a></code> | <code>boolean</code> | Setup eslint. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. Tests files should be named `xxx.test.ts`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom TSConfig. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildCommand">buildCommand</a></code> | <code>string</code> | A command to execute before synthesis. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkout">cdkout</a></code> | <code>string</code> | cdk.out directory. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.context">context</a></code> | <code>{[ key: string ]: any}</code> | Additional context to include in `cdk.json`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.featureFlags">featureFlags</a></code> | <code>boolean</code> | Include all feature flags in cdk.json. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.requireApproval">requireApproval</a></code> | <code>projen.awscdk.ApprovalLevel</code> | To protect you against unintended changes that affect your security posture, the AWS CDK Toolkit prompts you to approve security-related changes before deploying them. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.watchExcludes">watchExcludes</a></code> | <code>string[]</code> | Glob patterns to exclude from `cdk watch`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.watchIncludes">watchIncludes</a></code> | <code>string[]</code> | Glob patterns to include in `cdk watch`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkAssert">cdkAssert</a></code> | <code>boolean</code> | Warning: NodeJS only. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkAssertions">cdkAssertions</a></code> | <code>boolean</code> | Install the assertions library? |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkDependencies">cdkDependencies</a></code> | <code>string[]</code> | Which AWS CDKv1 modules this project requires. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkDependenciesAsDeps">cdkDependenciesAsDeps</a></code> | <code>boolean</code> | If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkTestDependencies">cdkTestDependencies</a></code> | <code>string[]</code> | AWS CDK modules required for testing. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkVersionPinning">cdkVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for CDK. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.constructsVersion">constructsVersion</a></code> | <code>string</code> | Minimum version of the `constructs` library to depend on. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.appEntrypoint">appEntrypoint</a></code> | <code>string</code> | The CDK app's entrypoint (relative to the source directory, which is "src" by default). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.edgeLambdaAutoDiscover">edgeLambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.integrationTestAutoDiscover">integrationTestAutoDiscover</a></code> | <code>boolean</code> | Automatically discovers and creates integration tests for each `.integ.ts` file in under your test directory. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaFunction` for each `.lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.domain">domain</a></code> | <code>string</code> | The domain name of the website. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeDevCommand">hugoThemeDevCommand</a></code> | <code>string</code> | The command to run to start the Hugo development server for the specified theme. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepo">hugoThemeGitRepo</a></code> | <code>string</code> | The URL of the Hugo theme Git repository. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepoBranch">hugoThemeGitRepoBranch</a></code> | <code>string</code> | The branch of the Hugo theme Git repository to use. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeName">hugoThemeName</a></code> | <code>string</code> | The name of the Hugo theme to use. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.subDomain">subDomain</a></code> | <code>string</code> | The subdomain of the website to use for the development environment. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitIgnoreOptions">gitIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .gitignore file. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorName">authorName</a></code> | <code>string</code> | Author's name. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorOrganization">authorOrganization</a></code> | <code>boolean</code> | Is the author an organization. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorUrl">authorUrl</a></code> | <code>string</code> | Author's URL / Website. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoDetectBin">autoDetectBin</a></code> | <code>boolean</code> | Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bin">bin</a></code> | <code>{[ key: string ]: string}</code> | Binary programs vended with your module. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.entrypoint">entrypoint</a></code> | <code>string</code> | Module entrypoint (`main` in `package.json`). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.keywords">keywords</a></code> | <code>string[]</code> | Keywords to include in `package.json`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.license">license</a></code> | <code>string</code> | License's SPDX identifier. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.licensed">licensed</a></code> | <code>boolean</code> | Indicates if a license should be added. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Minimum node.js version to require via `engines` (inclusive). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum Node.js version to require via package.json `engines` (inclusive). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmAccess">npmAccess</a></code> | <code>projen.javascript.NpmAccess</code> | Access level of the npm package. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.peerDeps">peerDeps</a></code> | <code>string[]</code> | Peer dependencies for this module. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.publishTasks">publishTasks</a></code> | <code>boolean</code> | Define publishing tasks that can be executed manually as well as workflows. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | Find commits that should be considered releasable Used to decide if a release is required. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. Useful if you are releasing on multiple branches with overlapping version numbers. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with `@codeCovTokenSecret`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use github workflows to handle dependency upgrades. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jest">jest</a></code> | <code>boolean</code> | Setup jest unit tests. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jestOptions">jestOptions</a></code> | <code>projen.javascript.JestOptions</code> | Jest options. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mutableBuild">mutableBuild</a></code> | <code>boolean</code> | Automatically update files modified during builds to pull-request branches. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmignore">npmignore</a></code> | <code>string[]</code> | Additional entries to .npmignore. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmignoreEnabled">npmignoreEnabled</a></code> | <code>boolean</code> | Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmIgnoreOptions">npmIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .npmignore file. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prettier">prettier</a></code> | <code>boolean</code> | Setup prettier. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prettierOptions">prettierOptions</a></code> | <code>projen.javascript.PrettierOptions</code> | Prettier options. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenDevDependency">projenDevDependency</a></code> | <code>boolean</code> | Indicates of "projen" should be installed as a devDependency. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJs">projenrcJs</a></code> | <code>boolean</code> | Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJsOptions">projenrcJsOptions</a></code> | <code>projen.javascript.ProjenrcOptions</code> | Options for .projenrc.js. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenVersion">projenVersion</a></code> | <code>string</code> | Version of projen to install. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pullRequestTemplate">pullRequestTemplate</a></code> | <code>boolean</code> | Include a GitHub pull request template. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.release">release</a></code> | <code>boolean</code> | Add release management to this project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflow">releaseWorkflow</a></code> | <code>boolean</code> | DEPRECATED: renamed to `release`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.disableTsconfigDev">disableTsconfigDev</a></code> | <code>boolean</code> | Do not generate a `tsconfig.dev.json` file. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | Docs directory. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.entrypointTypes">entrypointTypes</a></code> | <code>string</code> | The .d.ts file that includes the type declarations for this module. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.eslint">eslint</a></code> | <code>boolean</code> | Setup eslint. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. Tests files should be named `xxx.test.ts`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom TSConfig. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildCommand">buildCommand</a></code> | <code>string</code> | A command to execute before synthesis. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkout">cdkout</a></code> | <code>string</code> | cdk.out directory. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.context">context</a></code> | <code>{[ key: string ]: any}</code> | Additional context to include in `cdk.json`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.featureFlags">featureFlags</a></code> | <code>boolean</code> | Include all feature flags in cdk.json. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.requireApproval">requireApproval</a></code> | <code>projen.awscdk.ApprovalLevel</code> | To protect you against unintended changes that affect your security posture, the AWS CDK Toolkit prompts you to approve security-related changes before deploying them. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.watchExcludes">watchExcludes</a></code> | <code>string[]</code> | Glob patterns to exclude from `cdk watch`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.watchIncludes">watchIncludes</a></code> | <code>string[]</code> | Glob patterns to include in `cdk watch`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkAssert">cdkAssert</a></code> | <code>boolean</code> | Warning: NodeJS only. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkAssertions">cdkAssertions</a></code> | <code>boolean</code> | Install the assertions library? |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkDependencies">cdkDependencies</a></code> | <code>string[]</code> | Which AWS CDKv1 modules this project requires. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkDependenciesAsDeps">cdkDependenciesAsDeps</a></code> | <code>boolean</code> | If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkTestDependencies">cdkTestDependencies</a></code> | <code>string[]</code> | AWS CDK modules required for testing. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkVersionPinning">cdkVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for CDK. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.constructsVersion">constructsVersion</a></code> | <code>string</code> | Minimum version of the `constructs` library to depend on. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.appEntrypoint">appEntrypoint</a></code> | <code>string</code> | The CDK app's entrypoint (relative to the source directory, which is "src" by default). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.edgeLambdaAutoDiscover">edgeLambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.integrationTestAutoDiscover">integrationTestAutoDiscover</a></code> | <code>boolean</code> | Automatically discovers and creates integration tests for each `.integ.ts` file in under your test directory. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaFunction` for each `.lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.domain">domain</a></code> | <code>string</code> | The domain name of the website. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeDevCommand">hugoThemeDevCommand</a></code> | <code>string</code> | The command to run to start the Hugo development server for the specified theme. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepo">hugoThemeGitRepo</a></code> | <code>string</code> | The URL of the Hugo theme Git repository. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepoBranch">hugoThemeGitRepoBranch</a></code> | <code>string</code> | The branch of the Hugo theme Git repository to use. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeName">hugoThemeName</a></code> | <code>string</code> | The name of the Hugo theme to use. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.subDomain">subDomain</a></code> | <code>string</code> | The subdomain of the website to use for the development environment. |
 
 ---
 
-##### `name`<sup>Required</sup> <a name="name" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.name"></a>
+##### `name`<sup>Required</sup> <a name="name" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -235,7 +237,7 @@ This is the name of your project.
 
 ---
 
-##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.commitGenerated"></a>
+##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.commitGenerated"></a>
 
 ```typescript
 public readonly commitGenerated: boolean;
@@ -248,7 +250,7 @@ Whether to commit the managed files by default.
 
 ---
 
-##### `gitIgnoreOptions`<sup>Optional</sup> <a name="gitIgnoreOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitIgnoreOptions"></a>
+##### `gitIgnoreOptions`<sup>Optional</sup> <a name="gitIgnoreOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitIgnoreOptions"></a>
 
 ```typescript
 public readonly gitIgnoreOptions: IgnoreFileOptions;
@@ -260,7 +262,7 @@ Configuration options for .gitignore file.
 
 ---
 
-##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitOptions"></a>
+##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitOptions"></a>
 
 ```typescript
 public readonly gitOptions: GitOptions;
@@ -272,7 +274,7 @@ Configuration options for git.
 
 ---
 
-##### `logging`<sup>Optional</sup> <a name="logging" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.logging"></a>
+##### `logging`<sup>Optional</sup> <a name="logging" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.logging"></a>
 
 ```typescript
 public readonly logging: LoggerOptions;
@@ -285,7 +287,7 @@ Configure logging options such as verbosity.
 
 ---
 
-##### `outdir`<sup>Optional</sup> <a name="outdir" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.outdir"></a>
+##### `outdir`<sup>Optional</sup> <a name="outdir" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.outdir"></a>
 
 ```typescript
 public readonly outdir: string;
@@ -304,7 +306,7 @@ sub-projects.
 
 ---
 
-##### `parent`<sup>Optional</sup> <a name="parent" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.parent"></a>
+##### `parent`<sup>Optional</sup> <a name="parent" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.parent"></a>
 
 ```typescript
 public readonly parent: Project;
@@ -316,7 +318,7 @@ The parent project, if this project is part of a bigger project.
 
 ---
 
-##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenCommand"></a>
+##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenCommand"></a>
 
 ```typescript
 public readonly projenCommand: string;
@@ -331,7 +333,7 @@ Can be used to customize in special environments.
 
 ---
 
-##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJson"></a>
+##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJson"></a>
 
 ```typescript
 public readonly projenrcJson: boolean;
@@ -344,7 +346,7 @@ Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .pr
 
 ---
 
-##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJsonOptions"></a>
+##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJsonOptions"></a>
 
 ```typescript
 public readonly projenrcJsonOptions: ProjenrcJsonOptions;
@@ -357,7 +359,7 @@ Options for .projenrc.json.
 
 ---
 
-##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.renovatebot"></a>
+##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.renovatebot"></a>
 
 ```typescript
 public readonly renovatebot: boolean;
@@ -370,7 +372,7 @@ Use renovatebot to handle dependency upgrades.
 
 ---
 
-##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.renovatebotOptions"></a>
+##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.renovatebotOptions"></a>
 
 ```typescript
 public readonly renovatebotOptions: RenovatebotOptions;
@@ -383,7 +385,7 @@ Options for renovatebot.
 
 ---
 
-##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoApproveOptions"></a>
+##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoApproveOptions"></a>
 
 ```typescript
 public readonly autoApproveOptions: AutoApproveOptions;
@@ -396,7 +398,7 @@ Enable and configure the 'auto approve' workflow.
 
 ---
 
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoMerge"></a>
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoMerge"></a>
 
 ```typescript
 public readonly autoMerge: boolean;
@@ -412,7 +414,7 @@ is set to false.
 
 ---
 
-##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoMergeOptions"></a>
+##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoMergeOptions"></a>
 
 ```typescript
 public readonly autoMergeOptions: AutoMergeOptions;
@@ -428,7 +430,7 @@ Has no effect if
 
 ---
 
-##### `clobber`<sup>Optional</sup> <a name="clobber" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.clobber"></a>
+##### `clobber`<sup>Optional</sup> <a name="clobber" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.clobber"></a>
 
 ```typescript
 public readonly clobber: boolean;
@@ -441,7 +443,7 @@ Add a `clobber` task which resets the repo to origin.
 
 ---
 
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.devContainer"></a>
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.devContainer"></a>
 
 ```typescript
 public readonly devContainer: boolean;
@@ -454,7 +456,7 @@ Add a VSCode development environment (used for GitHub Codespaces).
 
 ---
 
-##### `github`<sup>Optional</sup> <a name="github" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.github"></a>
+##### `github`<sup>Optional</sup> <a name="github" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.github"></a>
 
 ```typescript
 public readonly github: boolean;
@@ -469,7 +471,7 @@ Enabled by default for root projects. Disabled for non-root projects.
 
 ---
 
-##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.githubOptions"></a>
+##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.githubOptions"></a>
 
 ```typescript
 public readonly githubOptions: GitHubOptions;
@@ -482,7 +484,7 @@ Options for GitHub integration.
 
 ---
 
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitpod"></a>
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitpod"></a>
 
 ```typescript
 public readonly gitpod: boolean;
@@ -495,7 +497,7 @@ Add a Gitpod development environment.
 
 ---
 
-##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mergify"></a>
+##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mergify"></a>
 
 - *Deprecated:* use `githubOptions.mergify` instead
 
@@ -510,7 +512,7 @@ Whether mergify should be enabled on this repository or not.
 
 ---
 
-##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mergifyOptions"></a>
+##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mergifyOptions"></a>
 
 - *Deprecated:* use `githubOptions.mergifyOptions` instead
 
@@ -525,7 +527,7 @@ Options for mergify.
 
 ---
 
-##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projectType"></a>
+##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projectType"></a>
 
 - *Deprecated:* no longer supported at the base project level
 
@@ -540,7 +542,7 @@ Which type of project this is (library/app).
 
 ---
 
-##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenCredentials"></a>
+##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenCredentials"></a>
 
 ```typescript
 public readonly projenCredentials: GithubCredentials;
@@ -553,7 +555,7 @@ Choose a method of providing GitHub API access for projen workflows.
 
 ---
 
-##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenTokenSecret"></a>
+##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenTokenSecret"></a>
 
 - *Deprecated:* use `projenCredentials`
 
@@ -571,7 +573,7 @@ and `packages` scope.
 
 ---
 
-##### `readme`<sup>Optional</sup> <a name="readme" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.readme"></a>
+##### `readme`<sup>Optional</sup> <a name="readme" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.readme"></a>
 
 ```typescript
 public readonly readme: SampleReadmeProps;
@@ -591,7 +593,7 @@ The README setup.
 ```
 
 
-##### `stale`<sup>Optional</sup> <a name="stale" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.stale"></a>
+##### `stale`<sup>Optional</sup> <a name="stale" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.stale"></a>
 
 ```typescript
 public readonly stale: boolean;
@@ -606,7 +608,7 @@ See `staleOptions` for options.
 
 ---
 
-##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.staleOptions"></a>
+##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.staleOptions"></a>
 
 ```typescript
 public readonly staleOptions: StaleOptions;
@@ -621,7 +623,7 @@ To disable set `stale` to `false`.
 
 ---
 
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.vscode"></a>
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.vscode"></a>
 
 ```typescript
 public readonly vscode: boolean;
@@ -636,7 +638,7 @@ Enabled by default for root projects. Disabled for non-root projects.
 
 ---
 
-##### `allowLibraryDependencies`<sup>Optional</sup> <a name="allowLibraryDependencies" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.allowLibraryDependencies"></a>
+##### `allowLibraryDependencies`<sup>Optional</sup> <a name="allowLibraryDependencies" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.allowLibraryDependencies"></a>
 
 ```typescript
 public readonly allowLibraryDependencies: boolean;
@@ -652,7 +654,7 @@ for specifying these.
 
 ---
 
-##### `authorEmail`<sup>Optional</sup> <a name="authorEmail" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorEmail"></a>
+##### `authorEmail`<sup>Optional</sup> <a name="authorEmail" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorEmail"></a>
 
 ```typescript
 public readonly authorEmail: string;
@@ -664,7 +666,7 @@ Author's e-mail.
 
 ---
 
-##### `authorName`<sup>Optional</sup> <a name="authorName" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorName"></a>
+##### `authorName`<sup>Optional</sup> <a name="authorName" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorName"></a>
 
 ```typescript
 public readonly authorName: string;
@@ -676,7 +678,7 @@ Author's name.
 
 ---
 
-##### `authorOrganization`<sup>Optional</sup> <a name="authorOrganization" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorOrganization"></a>
+##### `authorOrganization`<sup>Optional</sup> <a name="authorOrganization" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorOrganization"></a>
 
 ```typescript
 public readonly authorOrganization: boolean;
@@ -688,7 +690,7 @@ Is the author an organization.
 
 ---
 
-##### `authorUrl`<sup>Optional</sup> <a name="authorUrl" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorUrl"></a>
+##### `authorUrl`<sup>Optional</sup> <a name="authorUrl" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.authorUrl"></a>
 
 ```typescript
 public readonly authorUrl: string;
@@ -700,7 +702,7 @@ Author's URL / Website.
 
 ---
 
-##### `autoDetectBin`<sup>Optional</sup> <a name="autoDetectBin" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoDetectBin"></a>
+##### `autoDetectBin`<sup>Optional</sup> <a name="autoDetectBin" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoDetectBin"></a>
 
 ```typescript
 public readonly autoDetectBin: boolean;
@@ -713,7 +715,7 @@ Automatically add all executables under the `bin` directory to your `package.jso
 
 ---
 
-##### `bin`<sup>Optional</sup> <a name="bin" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bin"></a>
+##### `bin`<sup>Optional</sup> <a name="bin" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bin"></a>
 
 ```typescript
 public readonly bin: {[ key: string ]: string};
@@ -729,7 +731,7 @@ executable file under `bin` will automatically be added to this section.
 
 ---
 
-##### `bugsEmail`<sup>Optional</sup> <a name="bugsEmail" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bugsEmail"></a>
+##### `bugsEmail`<sup>Optional</sup> <a name="bugsEmail" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bugsEmail"></a>
 
 ```typescript
 public readonly bugsEmail: string;
@@ -741,7 +743,7 @@ The email address to which issues should be reported.
 
 ---
 
-##### `bugsUrl`<sup>Optional</sup> <a name="bugsUrl" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bugsUrl"></a>
+##### `bugsUrl`<sup>Optional</sup> <a name="bugsUrl" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bugsUrl"></a>
 
 ```typescript
 public readonly bugsUrl: string;
@@ -753,7 +755,7 @@ The url to your project's issue tracker.
 
 ---
 
-##### `bundledDeps`<sup>Optional</sup> <a name="bundledDeps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bundledDeps"></a>
+##### `bundledDeps`<sup>Optional</sup> <a name="bundledDeps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bundledDeps"></a>
 
 ```typescript
 public readonly bundledDeps: string[];
@@ -776,7 +778,7 @@ this will be what you `package.json` will eventually include.
 
 ---
 
-##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeArtifactOptions"></a>
+##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeArtifactOptions"></a>
 
 ```typescript
 public readonly codeArtifactOptions: CodeArtifactOptions;
@@ -791,7 +793,7 @@ This is required if publishing packages to, or installing scoped packages from A
 
 ---
 
-##### `deps`<sup>Optional</sup> <a name="deps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.deps"></a>
+##### `deps`<sup>Optional</sup> <a name="deps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.deps"></a>
 
 ```typescript
 public readonly deps: string[];
@@ -818,7 +820,7 @@ this will be what you `package.json` will eventually include.
 ```
 
 
-##### `description`<sup>Optional</sup> <a name="description" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.description"></a>
+##### `description`<sup>Optional</sup> <a name="description" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.description"></a>
 
 ```typescript
 public readonly description: string;
@@ -833,7 +835,7 @@ See https://classic.yarnpkg.com/en/docs/package-json/#toc-description
 
 ---
 
-##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.devDeps"></a>
+##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.devDeps"></a>
 
 ```typescript
 public readonly devDeps: string[];
@@ -864,7 +866,7 @@ this will be what you `package.json` will eventually include.
 ```
 
 
-##### `entrypoint`<sup>Optional</sup> <a name="entrypoint" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.entrypoint"></a>
+##### `entrypoint`<sup>Optional</sup> <a name="entrypoint" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.entrypoint"></a>
 
 ```typescript
 public readonly entrypoint: string;
@@ -879,7 +881,7 @@ Set to an empty string to not include `main` in your package.json
 
 ---
 
-##### `homepage`<sup>Optional</sup> <a name="homepage" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.homepage"></a>
+##### `homepage`<sup>Optional</sup> <a name="homepage" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.homepage"></a>
 
 ```typescript
 public readonly homepage: string;
@@ -891,7 +893,7 @@ Package's Homepage / Website.
 
 ---
 
-##### `keywords`<sup>Optional</sup> <a name="keywords" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.keywords"></a>
+##### `keywords`<sup>Optional</sup> <a name="keywords" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.keywords"></a>
 
 ```typescript
 public readonly keywords: string[];
@@ -903,7 +905,7 @@ Keywords to include in `package.json`.
 
 ---
 
-##### `license`<sup>Optional</sup> <a name="license" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.license"></a>
+##### `license`<sup>Optional</sup> <a name="license" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.license"></a>
 
 ```typescript
 public readonly license: string;
@@ -919,7 +921,7 @@ Use the `licensed` option if you want to no license to be specified.
 
 ---
 
-##### `licensed`<sup>Optional</sup> <a name="licensed" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.licensed"></a>
+##### `licensed`<sup>Optional</sup> <a name="licensed" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.licensed"></a>
 
 ```typescript
 public readonly licensed: boolean;
@@ -932,7 +934,7 @@ Indicates if a license should be added.
 
 ---
 
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.maxNodeVersion"></a>
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.maxNodeVersion"></a>
 
 ```typescript
 public readonly maxNodeVersion: string;
@@ -945,7 +947,7 @@ Minimum node.js version to require via `engines` (inclusive).
 
 ---
 
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.minNodeVersion"></a>
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.minNodeVersion"></a>
 
 ```typescript
 public readonly minNodeVersion: string;
@@ -958,7 +960,7 @@ Minimum Node.js version to require via package.json `engines` (inclusive).
 
 ---
 
-##### `npmAccess`<sup>Optional</sup> <a name="npmAccess" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmAccess"></a>
+##### `npmAccess`<sup>Optional</sup> <a name="npmAccess" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmAccess"></a>
 
 ```typescript
 public readonly npmAccess: NpmAccess;
@@ -971,7 +973,7 @@ Access level of the npm package.
 
 ---
 
-##### ~~`npmRegistry`~~<sup>Optional</sup> <a name="npmRegistry" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmRegistry"></a>
+##### ~~`npmRegistry`~~<sup>Optional</sup> <a name="npmRegistry" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmRegistry"></a>
 
 - *Deprecated:* use `npmRegistryUrl` instead
 
@@ -987,7 +989,7 @@ Cannot be set together with `npmRegistryUrl`.
 
 ---
 
-##### `npmRegistryUrl`<sup>Optional</sup> <a name="npmRegistryUrl" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmRegistryUrl"></a>
+##### `npmRegistryUrl`<sup>Optional</sup> <a name="npmRegistryUrl" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmRegistryUrl"></a>
 
 ```typescript
 public readonly npmRegistryUrl: string;
@@ -1002,7 +1004,7 @@ Must be a URL (e.g. start with "https://" or "http://")
 
 ---
 
-##### `npmTokenSecret`<sup>Optional</sup> <a name="npmTokenSecret" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmTokenSecret"></a>
+##### `npmTokenSecret`<sup>Optional</sup> <a name="npmTokenSecret" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmTokenSecret"></a>
 
 ```typescript
 public readonly npmTokenSecret: string;
@@ -1015,7 +1017,7 @@ GitHub secret which contains the NPM token to use when publishing packages.
 
 ---
 
-##### `packageManager`<sup>Optional</sup> <a name="packageManager" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.packageManager"></a>
+##### `packageManager`<sup>Optional</sup> <a name="packageManager" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.packageManager"></a>
 
 ```typescript
 public readonly packageManager: NodePackageManager;
@@ -1028,7 +1030,7 @@ The Node Package Manager used to execute scripts.
 
 ---
 
-##### `packageName`<sup>Optional</sup> <a name="packageName" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.packageName"></a>
+##### `packageName`<sup>Optional</sup> <a name="packageName" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.packageName"></a>
 
 ```typescript
 public readonly packageName: string;
@@ -1041,7 +1043,7 @@ The "name" in package.json.
 
 ---
 
-##### `peerDependencyOptions`<sup>Optional</sup> <a name="peerDependencyOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.peerDependencyOptions"></a>
+##### `peerDependencyOptions`<sup>Optional</sup> <a name="peerDependencyOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.peerDependencyOptions"></a>
 
 ```typescript
 public readonly peerDependencyOptions: PeerDependencyOptions;
@@ -1053,7 +1055,7 @@ Options for `peerDeps`.
 
 ---
 
-##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.peerDeps"></a>
+##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.peerDeps"></a>
 
 ```typescript
 public readonly peerDeps: string[];
@@ -1080,7 +1082,7 @@ test your module against the lowest peer version required.
 
 ---
 
-##### `pnpmVersion`<sup>Optional</sup> <a name="pnpmVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pnpmVersion"></a>
+##### `pnpmVersion`<sup>Optional</sup> <a name="pnpmVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pnpmVersion"></a>
 
 ```typescript
 public readonly pnpmVersion: string;
@@ -1093,7 +1095,7 @@ The version of PNPM to use if using PNPM as a package manager.
 
 ---
 
-##### `repository`<sup>Optional</sup> <a name="repository" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.repository"></a>
+##### `repository`<sup>Optional</sup> <a name="repository" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.repository"></a>
 
 ```typescript
 public readonly repository: string;
@@ -1107,7 +1109,7 @@ See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
 
 ---
 
-##### `repositoryDirectory`<sup>Optional</sup> <a name="repositoryDirectory" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.repositoryDirectory"></a>
+##### `repositoryDirectory`<sup>Optional</sup> <a name="repositoryDirectory" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.repositoryDirectory"></a>
 
 ```typescript
 public readonly repositoryDirectory: string;
@@ -1119,7 +1121,7 @@ If the package.json for your package is not in the root directory (for example i
 
 ---
 
-##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.scopedPackagesOptions"></a>
+##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.scopedPackagesOptions"></a>
 
 ```typescript
 public readonly scopedPackagesOptions: ScopedPackagesOptions[];
@@ -1132,7 +1134,7 @@ Options for privately hosted scoped packages.
 
 ---
 
-##### ~~`scripts`~~<sup>Optional</sup> <a name="scripts" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.scripts"></a>
+##### ~~`scripts`~~<sup>Optional</sup> <a name="scripts" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.scripts"></a>
 
 - *Deprecated:* use `project.addTask()` or `package.setScript()`
 
@@ -1151,7 +1153,7 @@ Also adds the script as a task.
 
 ---
 
-##### `stability`<sup>Optional</sup> <a name="stability" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.stability"></a>
+##### `stability`<sup>Optional</sup> <a name="stability" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.stability"></a>
 
 ```typescript
 public readonly stability: string;
@@ -1163,7 +1165,7 @@ Package's Stability.
 
 ---
 
-##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jsiiReleaseVersion"></a>
+##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jsiiReleaseVersion"></a>
 
 ```typescript
 public readonly jsiiReleaseVersion: string;
@@ -1176,7 +1178,7 @@ Version requirement of `publib` which is used to publish modules to npm.
 
 ---
 
-##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.majorVersion"></a>
+##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.majorVersion"></a>
 
 ```typescript
 public readonly majorVersion: number;
@@ -1192,7 +1194,7 @@ If not specified, we bump the global latest version.
 
 ---
 
-##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.minMajorVersion"></a>
+##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.minMajorVersion"></a>
 
 ```typescript
 public readonly minMajorVersion: number;
@@ -1210,7 +1212,7 @@ Can not be set together with `majorVersion`.
 
 ---
 
-##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmDistTag"></a>
+##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmDistTag"></a>
 
 ```typescript
 public readonly npmDistTag: string;
@@ -1226,7 +1228,7 @@ for each branch.
 
 ---
 
-##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.postBuildSteps"></a>
+##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.postBuildSteps"></a>
 
 ```typescript
 public readonly postBuildSteps: JobStep[];
@@ -1239,7 +1241,7 @@ Steps to execute after build as part of the release workflow.
 
 ---
 
-##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prerelease"></a>
+##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prerelease"></a>
 
 ```typescript
 public readonly prerelease: string;
@@ -1252,7 +1254,7 @@ Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pr
 
 ---
 
-##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.publishDryRun"></a>
+##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.publishDryRun"></a>
 
 ```typescript
 public readonly publishDryRun: boolean;
@@ -1265,7 +1267,7 @@ Instead of actually publishing to package managers, just print the publishing co
 
 ---
 
-##### `publishTasks`<sup>Optional</sup> <a name="publishTasks" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.publishTasks"></a>
+##### `publishTasks`<sup>Optional</sup> <a name="publishTasks" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.publishTasks"></a>
 
 ```typescript
 public readonly publishTasks: boolean;
@@ -1281,7 +1283,7 @@ in order to create a publishing task for each publishing activity.
 
 ---
 
-##### `releasableCommits`<sup>Optional</sup> <a name="releasableCommits" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releasableCommits"></a>
+##### `releasableCommits`<sup>Optional</sup> <a name="releasableCommits" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releasableCommits"></a>
 
 ```typescript
 public readonly releasableCommits: ReleasableCommits;
@@ -1294,7 +1296,7 @@ Find commits that should be considered releasable Used to decide if a release is
 
 ---
 
-##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseBranches"></a>
+##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseBranches"></a>
 
 ```typescript
 public readonly releaseBranches: {[ key: string ]: BranchOptions};
@@ -1314,7 +1316,7 @@ be provided for the default branch.
 
 ---
 
-##### ~~`releaseEveryCommit`~~<sup>Optional</sup> <a name="releaseEveryCommit" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseEveryCommit"></a>
+##### ~~`releaseEveryCommit`~~<sup>Optional</sup> <a name="releaseEveryCommit" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseEveryCommit"></a>
 
 - *Deprecated:* Use `releaseTrigger: ReleaseTrigger.continuous()` instead
 
@@ -1329,7 +1331,7 @@ Automatically release new versions every commit to one of branches in `releaseBr
 
 ---
 
-##### `releaseFailureIssue`<sup>Optional</sup> <a name="releaseFailureIssue" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseFailureIssue"></a>
+##### `releaseFailureIssue`<sup>Optional</sup> <a name="releaseFailureIssue" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseFailureIssue"></a>
 
 ```typescript
 public readonly releaseFailureIssue: boolean;
@@ -1342,7 +1344,7 @@ Create a github issue on every failed publishing task.
 
 ---
 
-##### `releaseFailureIssueLabel`<sup>Optional</sup> <a name="releaseFailureIssueLabel" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseFailureIssueLabel"></a>
+##### `releaseFailureIssueLabel`<sup>Optional</sup> <a name="releaseFailureIssueLabel" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseFailureIssueLabel"></a>
 
 ```typescript
 public readonly releaseFailureIssueLabel: string;
@@ -1357,7 +1359,7 @@ Only applies if `releaseFailureIssue` is true.
 
 ---
 
-##### ~~`releaseSchedule`~~<sup>Optional</sup> <a name="releaseSchedule" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseSchedule"></a>
+##### ~~`releaseSchedule`~~<sup>Optional</sup> <a name="releaseSchedule" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseSchedule"></a>
 
 - *Deprecated:* Use `releaseTrigger: ReleaseTrigger.scheduled()` instead
 
@@ -1372,7 +1374,7 @@ CRON schedule to trigger new releases.
 
 ---
 
-##### `releaseTagPrefix`<sup>Optional</sup> <a name="releaseTagPrefix" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseTagPrefix"></a>
+##### `releaseTagPrefix`<sup>Optional</sup> <a name="releaseTagPrefix" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseTagPrefix"></a>
 
 ```typescript
 public readonly releaseTagPrefix: string;
@@ -1390,7 +1392,7 @@ with the new prefix.
 
 ---
 
-##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseTrigger"></a>
+##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseTrigger"></a>
 
 ```typescript
 public readonly releaseTrigger: ReleaseTrigger;
@@ -1403,7 +1405,7 @@ The release trigger to use.
 
 ---
 
-##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflowName"></a>
+##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflowName"></a>
 
 ```typescript
 public readonly releaseWorkflowName: string;
@@ -1416,7 +1418,7 @@ The name of the default release workflow.
 
 ---
 
-##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflowSetupSteps"></a>
+##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflowSetupSteps"></a>
 
 ```typescript
 public readonly releaseWorkflowSetupSteps: JobStep[];
@@ -1428,7 +1430,7 @@ A set of workflow steps to execute in order to setup the workflow container.
 
 ---
 
-##### `versionrcOptions`<sup>Optional</sup> <a name="versionrcOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.versionrcOptions"></a>
+##### `versionrcOptions`<sup>Optional</sup> <a name="versionrcOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.versionrcOptions"></a>
 
 ```typescript
 public readonly versionrcOptions: {[ key: string ]: any};
@@ -1443,7 +1445,7 @@ Given values either append to default configuration or overwrite values in it.
 
 ---
 
-##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowContainerImage"></a>
+##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowContainerImage"></a>
 
 ```typescript
 public readonly workflowContainerImage: string;
@@ -1456,7 +1458,7 @@ Container image to use for GitHub workflows.
 
 ---
 
-##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowRunsOn"></a>
+##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowRunsOn"></a>
 
 ```typescript
 public readonly workflowRunsOn: string[];
@@ -1469,7 +1471,7 @@ Github Runner selection labels.
 
 ---
 
-##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.defaultReleaseBranch"></a>
+##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.defaultReleaseBranch"></a>
 
 ```typescript
 public readonly defaultReleaseBranch: string;
@@ -1482,7 +1484,7 @@ The name of the main release branch.
 
 ---
 
-##### `artifactsDirectory`<sup>Optional</sup> <a name="artifactsDirectory" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.artifactsDirectory"></a>
+##### `artifactsDirectory`<sup>Optional</sup> <a name="artifactsDirectory" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.artifactsDirectory"></a>
 
 ```typescript
 public readonly artifactsDirectory: string;
@@ -1495,7 +1497,7 @@ A directory which will contain build artifacts.
 
 ---
 
-##### `autoApproveUpgrades`<sup>Optional</sup> <a name="autoApproveUpgrades" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoApproveUpgrades"></a>
+##### `autoApproveUpgrades`<sup>Optional</sup> <a name="autoApproveUpgrades" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoApproveUpgrades"></a>
 
 ```typescript
 public readonly autoApproveUpgrades: boolean;
@@ -1510,7 +1512,7 @@ Throw if set to true but `autoApproveOptions` are not defined.
 
 ---
 
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildWorkflow"></a>
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildWorkflow"></a>
 
 ```typescript
 public readonly buildWorkflow: boolean;
@@ -1523,7 +1525,7 @@ Define a GitHub workflow for building PRs.
 
 ---
 
-##### `buildWorkflowTriggers`<sup>Optional</sup> <a name="buildWorkflowTriggers" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildWorkflowTriggers"></a>
+##### `buildWorkflowTriggers`<sup>Optional</sup> <a name="buildWorkflowTriggers" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildWorkflowTriggers"></a>
 
 ```typescript
 public readonly buildWorkflowTriggers: Triggers;
@@ -1536,7 +1538,7 @@ Build workflow triggers.
 
 ---
 
-##### `bundlerOptions`<sup>Optional</sup> <a name="bundlerOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bundlerOptions"></a>
+##### `bundlerOptions`<sup>Optional</sup> <a name="bundlerOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bundlerOptions"></a>
 
 ```typescript
 public readonly bundlerOptions: BundlerOptions;
@@ -1548,7 +1550,7 @@ Options for `Bundler`.
 
 ---
 
-##### `codeCov`<sup>Optional</sup> <a name="codeCov" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeCov"></a>
+##### `codeCov`<sup>Optional</sup> <a name="codeCov" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeCov"></a>
 
 ```typescript
 public readonly codeCov: boolean;
@@ -1561,7 +1563,7 @@ Define a GitHub workflow step for sending code coverage metrics to https://codec
 
 ---
 
-##### `codeCovTokenSecret`<sup>Optional</sup> <a name="codeCovTokenSecret" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeCovTokenSecret"></a>
+##### `codeCovTokenSecret`<sup>Optional</sup> <a name="codeCovTokenSecret" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeCovTokenSecret"></a>
 
 ```typescript
 public readonly codeCovTokenSecret: string;
@@ -1574,7 +1576,7 @@ Define the secret name for a specified https://codecov.io/ token A secret is req
 
 ---
 
-##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.copyrightOwner"></a>
+##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.copyrightOwner"></a>
 
 ```typescript
 public readonly copyrightOwner: string;
@@ -1587,7 +1589,7 @@ License copyright owner.
 
 ---
 
-##### `copyrightPeriod`<sup>Optional</sup> <a name="copyrightPeriod" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.copyrightPeriod"></a>
+##### `copyrightPeriod`<sup>Optional</sup> <a name="copyrightPeriod" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.copyrightPeriod"></a>
 
 ```typescript
 public readonly copyrightPeriod: string;
@@ -1600,7 +1602,7 @@ The copyright years to put in the LICENSE file.
 
 ---
 
-##### `dependabot`<sup>Optional</sup> <a name="dependabot" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.dependabot"></a>
+##### `dependabot`<sup>Optional</sup> <a name="dependabot" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.dependabot"></a>
 
 ```typescript
 public readonly dependabot: boolean;
@@ -1615,7 +1617,7 @@ Cannot be used in conjunction with `depsUpgrade`.
 
 ---
 
-##### `dependabotOptions`<sup>Optional</sup> <a name="dependabotOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.dependabotOptions"></a>
+##### `dependabotOptions`<sup>Optional</sup> <a name="dependabotOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.dependabotOptions"></a>
 
 ```typescript
 public readonly dependabotOptions: DependabotOptions;
@@ -1628,7 +1630,7 @@ Options for dependabot.
 
 ---
 
-##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgrade"></a>
+##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgrade"></a>
 
 ```typescript
 public readonly depsUpgrade: boolean;
@@ -1643,7 +1645,7 @@ Cannot be used in conjunction with `dependabot`.
 
 ---
 
-##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgradeOptions"></a>
+##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgradeOptions"></a>
 
 ```typescript
 public readonly depsUpgradeOptions: UpgradeDependenciesOptions;
@@ -1656,7 +1658,7 @@ Options for `UpgradeDependencies`.
 
 ---
 
-##### `gitignore`<sup>Optional</sup> <a name="gitignore" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitignore"></a>
+##### `gitignore`<sup>Optional</sup> <a name="gitignore" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitignore"></a>
 
 ```typescript
 public readonly gitignore: string[];
@@ -1668,7 +1670,7 @@ Additional entries to .gitignore.
 
 ---
 
-##### `jest`<sup>Optional</sup> <a name="jest" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jest"></a>
+##### `jest`<sup>Optional</sup> <a name="jest" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jest"></a>
 
 ```typescript
 public readonly jest: boolean;
@@ -1681,7 +1683,7 @@ Setup jest unit tests.
 
 ---
 
-##### `jestOptions`<sup>Optional</sup> <a name="jestOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jestOptions"></a>
+##### `jestOptions`<sup>Optional</sup> <a name="jestOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jestOptions"></a>
 
 ```typescript
 public readonly jestOptions: JestOptions;
@@ -1694,7 +1696,7 @@ Jest options.
 
 ---
 
-##### `mutableBuild`<sup>Optional</sup> <a name="mutableBuild" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mutableBuild"></a>
+##### `mutableBuild`<sup>Optional</sup> <a name="mutableBuild" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.mutableBuild"></a>
 
 ```typescript
 public readonly mutableBuild: boolean;
@@ -1713,7 +1715,7 @@ Implies that PR builds do not have anti-tamper checks.
 
 ---
 
-##### ~~`npmignore`~~<sup>Optional</sup> <a name="npmignore" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmignore"></a>
+##### ~~`npmignore`~~<sup>Optional</sup> <a name="npmignore" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmignore"></a>
 
 - *Deprecated:* - use `project.addPackageIgnore`
 
@@ -1727,7 +1729,7 @@ Additional entries to .npmignore.
 
 ---
 
-##### `npmignoreEnabled`<sup>Optional</sup> <a name="npmignoreEnabled" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmignoreEnabled"></a>
+##### `npmignoreEnabled`<sup>Optional</sup> <a name="npmignoreEnabled" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmignoreEnabled"></a>
 
 ```typescript
 public readonly npmignoreEnabled: boolean;
@@ -1740,7 +1742,7 @@ Defines an .npmignore file. Normally this is only needed for libraries that are 
 
 ---
 
-##### `npmIgnoreOptions`<sup>Optional</sup> <a name="npmIgnoreOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmIgnoreOptions"></a>
+##### `npmIgnoreOptions`<sup>Optional</sup> <a name="npmIgnoreOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.npmIgnoreOptions"></a>
 
 ```typescript
 public readonly npmIgnoreOptions: IgnoreFileOptions;
@@ -1752,7 +1754,7 @@ Configuration options for .npmignore file.
 
 ---
 
-##### `package`<sup>Optional</sup> <a name="package" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.package"></a>
+##### `package`<sup>Optional</sup> <a name="package" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.package"></a>
 
 ```typescript
 public readonly package: boolean;
@@ -1765,7 +1767,7 @@ Defines a `package` task that will produce an npm tarball under the artifacts di
 
 ---
 
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prettier"></a>
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prettier"></a>
 
 ```typescript
 public readonly prettier: boolean;
@@ -1778,7 +1780,7 @@ Setup prettier.
 
 ---
 
-##### `prettierOptions`<sup>Optional</sup> <a name="prettierOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prettierOptions"></a>
+##### `prettierOptions`<sup>Optional</sup> <a name="prettierOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.prettierOptions"></a>
 
 ```typescript
 public readonly prettierOptions: PrettierOptions;
@@ -1791,7 +1793,7 @@ Prettier options.
 
 ---
 
-##### `projenDevDependency`<sup>Optional</sup> <a name="projenDevDependency" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenDevDependency"></a>
+##### `projenDevDependency`<sup>Optional</sup> <a name="projenDevDependency" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenDevDependency"></a>
 
 ```typescript
 public readonly projenDevDependency: boolean;
@@ -1804,7 +1806,7 @@ Indicates of "projen" should be installed as a devDependency.
 
 ---
 
-##### `projenrcJs`<sup>Optional</sup> <a name="projenrcJs" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJs"></a>
+##### `projenrcJs`<sup>Optional</sup> <a name="projenrcJs" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJs"></a>
 
 ```typescript
 public readonly projenrcJs: boolean;
@@ -1817,7 +1819,7 @@ Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable
 
 ---
 
-##### `projenrcJsOptions`<sup>Optional</sup> <a name="projenrcJsOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJsOptions"></a>
+##### `projenrcJsOptions`<sup>Optional</sup> <a name="projenrcJsOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcJsOptions"></a>
 
 ```typescript
 public readonly projenrcJsOptions: ProjenrcOptions;
@@ -1830,7 +1832,7 @@ Options for .projenrc.js.
 
 ---
 
-##### `projenVersion`<sup>Optional</sup> <a name="projenVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenVersion"></a>
+##### `projenVersion`<sup>Optional</sup> <a name="projenVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenVersion"></a>
 
 ```typescript
 public readonly projenVersion: string;
@@ -1843,7 +1845,7 @@ Version of projen to install.
 
 ---
 
-##### `pullRequestTemplate`<sup>Optional</sup> <a name="pullRequestTemplate" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pullRequestTemplate"></a>
+##### `pullRequestTemplate`<sup>Optional</sup> <a name="pullRequestTemplate" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pullRequestTemplate"></a>
 
 ```typescript
 public readonly pullRequestTemplate: boolean;
@@ -1856,7 +1858,7 @@ Include a GitHub pull request template.
 
 ---
 
-##### `pullRequestTemplateContents`<sup>Optional</sup> <a name="pullRequestTemplateContents" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pullRequestTemplateContents"></a>
+##### `pullRequestTemplateContents`<sup>Optional</sup> <a name="pullRequestTemplateContents" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.pullRequestTemplateContents"></a>
 
 ```typescript
 public readonly pullRequestTemplateContents: string[];
@@ -1869,7 +1871,7 @@ The contents of the pull request template.
 
 ---
 
-##### `release`<sup>Optional</sup> <a name="release" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.release"></a>
+##### `release`<sup>Optional</sup> <a name="release" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.release"></a>
 
 ```typescript
 public readonly release: boolean;
@@ -1882,7 +1884,7 @@ Add release management to this project.
 
 ---
 
-##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseToNpm"></a>
+##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseToNpm"></a>
 
 ```typescript
 public readonly releaseToNpm: boolean;
@@ -1895,7 +1897,7 @@ Automatically release to npm when new versions are introduced.
 
 ---
 
-##### ~~`releaseWorkflow`~~<sup>Optional</sup> <a name="releaseWorkflow" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflow"></a>
+##### ~~`releaseWorkflow`~~<sup>Optional</sup> <a name="releaseWorkflow" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.releaseWorkflow"></a>
 
 - *Deprecated:* see `release`.
 
@@ -1910,7 +1912,7 @@ DEPRECATED: renamed to `release`.
 
 ---
 
-##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowBootstrapSteps"></a>
+##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowBootstrapSteps"></a>
 
 ```typescript
 public readonly workflowBootstrapSteps: JobStep[];
@@ -1923,7 +1925,7 @@ Workflow steps to use in order to bootstrap this repo.
 
 ---
 
-##### `workflowGitIdentity`<sup>Optional</sup> <a name="workflowGitIdentity" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowGitIdentity"></a>
+##### `workflowGitIdentity`<sup>Optional</sup> <a name="workflowGitIdentity" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowGitIdentity"></a>
 
 ```typescript
 public readonly workflowGitIdentity: GitIdentity;
@@ -1936,7 +1938,7 @@ The git identity to use in workflows.
 
 ---
 
-##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowNodeVersion"></a>
+##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowNodeVersion"></a>
 
 ```typescript
 public readonly workflowNodeVersion: string;
@@ -1949,7 +1951,7 @@ The node version to use in GitHub workflows.
 
 ---
 
-##### `workflowPackageCache`<sup>Optional</sup> <a name="workflowPackageCache" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowPackageCache"></a>
+##### `workflowPackageCache`<sup>Optional</sup> <a name="workflowPackageCache" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowPackageCache"></a>
 
 ```typescript
 public readonly workflowPackageCache: boolean;
@@ -1962,7 +1964,7 @@ Enable Node.js package cache in GitHub workflows.
 
 ---
 
-##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.disableTsconfig"></a>
+##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.disableTsconfig"></a>
 
 ```typescript
 public readonly disableTsconfig: boolean;
@@ -1975,7 +1977,7 @@ Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.jso
 
 ---
 
-##### `disableTsconfigDev`<sup>Optional</sup> <a name="disableTsconfigDev" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.disableTsconfigDev"></a>
+##### `disableTsconfigDev`<sup>Optional</sup> <a name="disableTsconfigDev" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.disableTsconfigDev"></a>
 
 ```typescript
 public readonly disableTsconfigDev: boolean;
@@ -1988,7 +1990,7 @@ Do not generate a `tsconfig.dev.json` file.
 
 ---
 
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.docgen"></a>
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.docgen"></a>
 
 ```typescript
 public readonly docgen: boolean;
@@ -2001,7 +2003,7 @@ Docgen by Typedoc.
 
 ---
 
-##### `docsDirectory`<sup>Optional</sup> <a name="docsDirectory" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.docsDirectory"></a>
+##### `docsDirectory`<sup>Optional</sup> <a name="docsDirectory" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.docsDirectory"></a>
 
 ```typescript
 public readonly docsDirectory: string;
@@ -2014,7 +2016,7 @@ Docs directory.
 
 ---
 
-##### `entrypointTypes`<sup>Optional</sup> <a name="entrypointTypes" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.entrypointTypes"></a>
+##### `entrypointTypes`<sup>Optional</sup> <a name="entrypointTypes" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.entrypointTypes"></a>
 
 ```typescript
 public readonly entrypointTypes: string;
@@ -2027,7 +2029,7 @@ The .d.ts file that includes the type declarations for this module.
 
 ---
 
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.eslint"></a>
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.eslint"></a>
 
 ```typescript
 public readonly eslint: boolean;
@@ -2040,7 +2042,7 @@ Setup eslint.
 
 ---
 
-##### `eslintOptions`<sup>Optional</sup> <a name="eslintOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.eslintOptions"></a>
+##### `eslintOptions`<sup>Optional</sup> <a name="eslintOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.eslintOptions"></a>
 
 ```typescript
 public readonly eslintOptions: EslintOptions;
@@ -2053,7 +2055,7 @@ Eslint options.
 
 ---
 
-##### `libdir`<sup>Optional</sup> <a name="libdir" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.libdir"></a>
+##### `libdir`<sup>Optional</sup> <a name="libdir" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.libdir"></a>
 
 ```typescript
 public readonly libdir: string;
@@ -2066,7 +2068,7 @@ Typescript  artifacts output directory.
 
 ---
 
-##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcTs"></a>
+##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcTs"></a>
 
 ```typescript
 public readonly projenrcTs: boolean;
@@ -2079,7 +2081,7 @@ Use TypeScript for your projenrc file (`.projenrc.ts`).
 
 ---
 
-##### `projenrcTsOptions`<sup>Optional</sup> <a name="projenrcTsOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcTsOptions"></a>
+##### `projenrcTsOptions`<sup>Optional</sup> <a name="projenrcTsOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.projenrcTsOptions"></a>
 
 ```typescript
 public readonly projenrcTsOptions: ProjenrcOptions;
@@ -2091,7 +2093,7 @@ Options for .projenrc.ts.
 
 ---
 
-##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.sampleCode"></a>
+##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.sampleCode"></a>
 
 ```typescript
 public readonly sampleCode: boolean;
@@ -2104,7 +2106,7 @@ Generate one-time sample in `src/` and `test/` if there are no files there.
 
 ---
 
-##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.srcdir"></a>
+##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.srcdir"></a>
 
 ```typescript
 public readonly srcdir: string;
@@ -2117,7 +2119,7 @@ Typescript sources directory.
 
 ---
 
-##### `testdir`<sup>Optional</sup> <a name="testdir" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.testdir"></a>
+##### `testdir`<sup>Optional</sup> <a name="testdir" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.testdir"></a>
 
 ```typescript
 public readonly testdir: string;
@@ -2135,7 +2137,7 @@ compile the code in-memory.
 
 ---
 
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfig"></a>
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfig"></a>
 
 ```typescript
 public readonly tsconfig: TypescriptConfigOptions;
@@ -2148,7 +2150,7 @@ Custom TSConfig.
 
 ---
 
-##### `tsconfigDev`<sup>Optional</sup> <a name="tsconfigDev" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfigDev"></a>
+##### `tsconfigDev`<sup>Optional</sup> <a name="tsconfigDev" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfigDev"></a>
 
 ```typescript
 public readonly tsconfigDev: TypescriptConfigOptions;
@@ -2161,7 +2163,7 @@ Custom tsconfig options for the development tsconfig.json file (used for testing
 
 ---
 
-##### `tsconfigDevFile`<sup>Optional</sup> <a name="tsconfigDevFile" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfigDevFile"></a>
+##### `tsconfigDevFile`<sup>Optional</sup> <a name="tsconfigDevFile" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.tsconfigDevFile"></a>
 
 ```typescript
 public readonly tsconfigDevFile: string;
@@ -2174,7 +2176,7 @@ The name of the development tsconfig.json file.
 
 ---
 
-##### `typescriptVersion`<sup>Optional</sup> <a name="typescriptVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.typescriptVersion"></a>
+##### `typescriptVersion`<sup>Optional</sup> <a name="typescriptVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.typescriptVersion"></a>
 
 ```typescript
 public readonly typescriptVersion: string;
@@ -2190,7 +2192,7 @@ same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
 
 ---
 
-##### `buildCommand`<sup>Optional</sup> <a name="buildCommand" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildCommand"></a>
+##### `buildCommand`<sup>Optional</sup> <a name="buildCommand" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildCommand"></a>
 
 ```typescript
 public readonly buildCommand: string;
@@ -2207,7 +2209,7 @@ code before redeployment.
 
 ---
 
-##### `cdkout`<sup>Optional</sup> <a name="cdkout" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkout"></a>
+##### `cdkout`<sup>Optional</sup> <a name="cdkout" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkout"></a>
 
 ```typescript
 public readonly cdkout: string;
@@ -2220,7 +2222,7 @@ cdk.out directory.
 
 ---
 
-##### `context`<sup>Optional</sup> <a name="context" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.context"></a>
+##### `context`<sup>Optional</sup> <a name="context" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.context"></a>
 
 ```typescript
 public readonly context: {[ key: string ]: any};
@@ -2233,7 +2235,7 @@ Additional context to include in `cdk.json`.
 
 ---
 
-##### `featureFlags`<sup>Optional</sup> <a name="featureFlags" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.featureFlags"></a>
+##### `featureFlags`<sup>Optional</sup> <a name="featureFlags" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.featureFlags"></a>
 
 ```typescript
 public readonly featureFlags: boolean;
@@ -2246,7 +2248,7 @@ Include all feature flags in cdk.json.
 
 ---
 
-##### `requireApproval`<sup>Optional</sup> <a name="requireApproval" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.requireApproval"></a>
+##### `requireApproval`<sup>Optional</sup> <a name="requireApproval" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.requireApproval"></a>
 
 ```typescript
 public readonly requireApproval: ApprovalLevel;
@@ -2259,7 +2261,7 @@ To protect you against unintended changes that affect your security posture, the
 
 ---
 
-##### `watchExcludes`<sup>Optional</sup> <a name="watchExcludes" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.watchExcludes"></a>
+##### `watchExcludes`<sup>Optional</sup> <a name="watchExcludes" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.watchExcludes"></a>
 
 ```typescript
 public readonly watchExcludes: string[];
@@ -2272,7 +2274,7 @@ Glob patterns to exclude from `cdk watch`.
 
 ---
 
-##### `watchIncludes`<sup>Optional</sup> <a name="watchIncludes" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.watchIncludes"></a>
+##### `watchIncludes`<sup>Optional</sup> <a name="watchIncludes" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.watchIncludes"></a>
 
 ```typescript
 public readonly watchIncludes: string[];
@@ -2285,7 +2287,7 @@ Glob patterns to include in `cdk watch`.
 
 ---
 
-##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkVersion"></a>
+##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkVersion"></a>
 
 ```typescript
 public readonly cdkVersion: string;
@@ -2298,7 +2300,7 @@ Minimum version of the AWS CDK to depend on.
 
 ---
 
-##### ~~`cdkAssert`~~<sup>Optional</sup> <a name="cdkAssert" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkAssert"></a>
+##### ~~`cdkAssert`~~<sup>Optional</sup> <a name="cdkAssert" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkAssert"></a>
 
 - *Deprecated:* The
 
@@ -2315,7 +2317,7 @@ Install the
 
 ---
 
-##### `cdkAssertions`<sup>Optional</sup> <a name="cdkAssertions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkAssertions"></a>
+##### `cdkAssertions`<sup>Optional</sup> <a name="cdkAssertions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkAssertions"></a>
 
 ```typescript
 public readonly cdkAssertions: boolean;
@@ -2331,7 +2333,7 @@ assertions is already included in 'aws-cdk-lib'
 
 ---
 
-##### ~~`cdkDependencies`~~<sup>Optional</sup> <a name="cdkDependencies" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkDependencies"></a>
+##### ~~`cdkDependencies`~~<sup>Optional</sup> <a name="cdkDependencies" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkDependencies"></a>
 
 - *Deprecated:* For CDK 2.x use "deps" instead. (or "peerDeps" if you're building a library)
 
@@ -2345,7 +2347,7 @@ Which AWS CDKv1 modules this project requires.
 
 ---
 
-##### ~~`cdkDependenciesAsDeps`~~<sup>Optional</sup> <a name="cdkDependenciesAsDeps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkDependenciesAsDeps"></a>
+##### ~~`cdkDependenciesAsDeps`~~<sup>Optional</sup> <a name="cdkDependenciesAsDeps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkDependenciesAsDeps"></a>
 
 - *Deprecated:* Not supported in CDK v2.
 
@@ -2367,7 +2369,7 @@ Note: this setting only applies to construct library projects
 
 ---
 
-##### ~~`cdkTestDependencies`~~<sup>Optional</sup> <a name="cdkTestDependencies" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkTestDependencies"></a>
+##### ~~`cdkTestDependencies`~~<sup>Optional</sup> <a name="cdkTestDependencies" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkTestDependencies"></a>
 
 - *Deprecated:* For CDK 2.x use 'devDeps' (in node.js projects) or 'testDeps' (in java projects) instead
 
@@ -2381,7 +2383,7 @@ AWS CDK modules required for testing.
 
 ---
 
-##### `cdkVersionPinning`<sup>Optional</sup> <a name="cdkVersionPinning" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkVersionPinning"></a>
+##### `cdkVersionPinning`<sup>Optional</sup> <a name="cdkVersionPinning" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkVersionPinning"></a>
 
 ```typescript
 public readonly cdkVersionPinning: boolean;
@@ -2396,7 +2398,7 @@ If you use experimental features this will let you define the moment you include
 
 ---
 
-##### `constructsVersion`<sup>Optional</sup> <a name="constructsVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.constructsVersion"></a>
+##### `constructsVersion`<sup>Optional</sup> <a name="constructsVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.constructsVersion"></a>
 
 ```typescript
 public readonly constructsVersion: string;
@@ -2409,7 +2411,7 @@ Minimum version of the `constructs` library to depend on.
 
 ---
 
-##### `appEntrypoint`<sup>Optional</sup> <a name="appEntrypoint" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.appEntrypoint"></a>
+##### `appEntrypoint`<sup>Optional</sup> <a name="appEntrypoint" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.appEntrypoint"></a>
 
 ```typescript
 public readonly appEntrypoint: string;
@@ -2422,7 +2424,7 @@ The CDK app's entrypoint (relative to the source directory, which is "src" by de
 
 ---
 
-##### `edgeLambdaAutoDiscover`<sup>Optional</sup> <a name="edgeLambdaAutoDiscover" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.edgeLambdaAutoDiscover"></a>
+##### `edgeLambdaAutoDiscover`<sup>Optional</sup> <a name="edgeLambdaAutoDiscover" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.edgeLambdaAutoDiscover"></a>
 
 ```typescript
 public readonly edgeLambdaAutoDiscover: boolean;
@@ -2435,7 +2437,7 @@ Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lam
 
 ---
 
-##### `integrationTestAutoDiscover`<sup>Optional</sup> <a name="integrationTestAutoDiscover" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.integrationTestAutoDiscover"></a>
+##### `integrationTestAutoDiscover`<sup>Optional</sup> <a name="integrationTestAutoDiscover" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.integrationTestAutoDiscover"></a>
 
 ```typescript
 public readonly integrationTestAutoDiscover: boolean;
@@ -2448,7 +2450,7 @@ Automatically discovers and creates integration tests for each `.integ.ts` file 
 
 ---
 
-##### `lambdaAutoDiscover`<sup>Optional</sup> <a name="lambdaAutoDiscover" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaAutoDiscover"></a>
+##### `lambdaAutoDiscover`<sup>Optional</sup> <a name="lambdaAutoDiscover" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaAutoDiscover"></a>
 
 ```typescript
 public readonly lambdaAutoDiscover: boolean;
@@ -2461,7 +2463,7 @@ Automatically adds an `awscdk.LambdaFunction` for each `.lambda.ts` handler in y
 
 ---
 
-##### `lambdaExtensionAutoDiscover`<sup>Optional</sup> <a name="lambdaExtensionAutoDiscover" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaExtensionAutoDiscover"></a>
+##### `lambdaExtensionAutoDiscover`<sup>Optional</sup> <a name="lambdaExtensionAutoDiscover" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaExtensionAutoDiscover"></a>
 
 ```typescript
 public readonly lambdaExtensionAutoDiscover: boolean;
@@ -2474,7 +2476,7 @@ Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` e
 
 ---
 
-##### `lambdaOptions`<sup>Optional</sup> <a name="lambdaOptions" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaOptions"></a>
+##### `lambdaOptions`<sup>Optional</sup> <a name="lambdaOptions" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaOptions"></a>
 
 ```typescript
 public readonly lambdaOptions: LambdaFunctionCommonOptions;
@@ -2487,7 +2489,7 @@ Common options for all AWS Lambda functions.
 
 ---
 
-##### `domain`<sup>Required</sup> <a name="domain" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.domain"></a>
+##### `domain`<sup>Required</sup> <a name="domain" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.domain"></a>
 
 ```typescript
 public readonly domain: string;
@@ -2499,7 +2501,7 @@ The domain name of the website.
 
 ---
 
-##### `hugoThemeDevCommand`<sup>Optional</sup> <a name="hugoThemeDevCommand" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeDevCommand"></a>
+##### `hugoThemeDevCommand`<sup>Optional</sup> <a name="hugoThemeDevCommand" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeDevCommand"></a>
 
 ```typescript
 public readonly hugoThemeDevCommand: string;
@@ -2512,7 +2514,7 @@ The command to run to start the Hugo development server for the specified theme.
 
 ---
 
-##### `hugoThemeGitRepo`<sup>Optional</sup> <a name="hugoThemeGitRepo" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepo"></a>
+##### `hugoThemeGitRepo`<sup>Optional</sup> <a name="hugoThemeGitRepo" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepo"></a>
 
 ```typescript
 public readonly hugoThemeGitRepo: string;
@@ -2525,7 +2527,7 @@ The URL of the Hugo theme Git repository.
 
 ---
 
-##### `hugoThemeGitRepoBranch`<sup>Optional</sup> <a name="hugoThemeGitRepoBranch" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepoBranch"></a>
+##### `hugoThemeGitRepoBranch`<sup>Optional</sup> <a name="hugoThemeGitRepoBranch" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepoBranch"></a>
 
 ```typescript
 public readonly hugoThemeGitRepoBranch: string;
@@ -2538,7 +2540,7 @@ The branch of the Hugo theme Git repository to use.
 
 ---
 
-##### `hugoThemeName`<sup>Optional</sup> <a name="hugoThemeName" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeName"></a>
+##### `hugoThemeName`<sup>Optional</sup> <a name="hugoThemeName" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeName"></a>
 
 ```typescript
 public readonly hugoThemeName: string;
@@ -2553,7 +2555,7 @@ Will also be the folder the theme is stored in under 'blog/themes/${hugoThemeNam
 
 ---
 
-##### `subDomain`<sup>Optional</sup> <a name="subDomain" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.subDomain"></a>
+##### `subDomain`<sup>Optional</sup> <a name="subDomain" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.subDomain"></a>
 
 ```typescript
 public readonly subDomain: string;
@@ -2568,27 +2570,27 @@ The subdomain of the website to use for the development environment.
 
 ## Classes <a name="Classes" id="Classes"></a>
 
-### HugoPipelineAwsCdkTypeScriptApp <a name="HugoPipelineAwsCdkTypeScriptApp" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp"></a>
+### HugoPipelineAwsCdkTypeScriptApp <a name="HugoPipelineAwsCdkTypeScriptApp" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp"></a>
 
 External projen module to create a Hugo pipeline with AWS CDK from '@mavogel/cdk-hugo-pipeline'.
 
-#### Initializers <a name="Initializers" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.Initializer"></a>
+#### Initializers <a name="Initializers" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.Initializer"></a>
 
 ```typescript
-import { HugoPipelineAwsCdkTypeScriptApp } from 'projen-cdk-hugo-pipeline'
+import { HugoPipelineAwsCdkTypeScriptApp } from '@mavogel/projen-cdk-hugo-pipeline'
 
 new HugoPipelineAwsCdkTypeScriptApp(options: HugoPipelineAwsCdkTypeScriptAppOptions)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.Initializer.parameter.options">options</a></code> | <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions">HugoPipelineAwsCdkTypeScriptAppOptions</a></code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.Initializer.parameter.options">options</a></code> | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions">HugoPipelineAwsCdkTypeScriptAppOptions</a></code> | *No description.* |
 
 ---
 
-##### `options`<sup>Required</sup> <a name="options" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.Initializer.parameter.options"></a>
+##### `options`<sup>Required</sup> <a name="options" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.Initializer.parameter.options"></a>
 
-- *Type:* <a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions">HugoPipelineAwsCdkTypeScriptAppOptions</a>
+- *Type:* <a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions">HugoPipelineAwsCdkTypeScriptAppOptions</a>
 
 ---
 
@@ -2596,40 +2598,40 @@ new HugoPipelineAwsCdkTypeScriptApp(options: HugoPipelineAwsCdkTypeScriptAppOpti
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTask">addTask</a></code> | Adds a new task to this project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeTask">removeTask</a></code> | Removes a task from a project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.synth">synth</a></code> | Synthesize all project files into `outdir`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBins">addBins</a></code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDeps">addDeps</a></code> | Defines normal dependencies. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addFields">addFields</a></code> | Directly set fields in `package.json`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCdkDependency">addCdkDependency</a></code> | Adds an AWS CDK module dependencies. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCdkDependency">addCdkDependency</a></code> | Adds an AWS CDK module dependencies. |
 
 ---
 
-##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addExcludeFromCleanup"></a>
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addExcludeFromCleanup"></a>
 
 ```typescript
 public addExcludeFromCleanup(globs: string): void
@@ -2640,7 +2642,7 @@ Exclude the matching files from pre-synth cleanup.
 Can be used when, for example, some
 source files include the projen marker and we don't want them to be erased during synth.
 
-###### `globs`<sup>Required</sup> <a name="globs" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addExcludeFromCleanup.parameter.globs"></a>
+###### `globs`<sup>Required</sup> <a name="globs" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addExcludeFromCleanup.parameter.globs"></a>
 
 - *Type:* string
 
@@ -2648,7 +2650,7 @@ The glob patterns to match.
 
 ---
 
-##### `addGitIgnore` <a name="addGitIgnore" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addGitIgnore"></a>
+##### `addGitIgnore` <a name="addGitIgnore" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addGitIgnore"></a>
 
 ```typescript
 public addGitIgnore(pattern: string): void
@@ -2656,7 +2658,7 @@ public addGitIgnore(pattern: string): void
 
 Adds a .gitignore pattern.
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addGitIgnore.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addGitIgnore.parameter.pattern"></a>
 
 - *Type:* string
 
@@ -2664,7 +2666,7 @@ The glob pattern to ignore.
 
 ---
 
-##### `addPackageIgnore` <a name="addPackageIgnore" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPackageIgnore"></a>
+##### `addPackageIgnore` <a name="addPackageIgnore" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPackageIgnore"></a>
 
 ```typescript
 public addPackageIgnore(pattern: string): void
@@ -2675,13 +2677,13 @@ Exclude these files from the bundled package.
 Implemented by project types based on the
 packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPackageIgnore.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPackageIgnore.parameter.pattern"></a>
 
 - *Type:* string
 
 ---
 
-##### `addTask` <a name="addTask" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTask"></a>
+##### `addTask` <a name="addTask" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTask"></a>
 
 ```typescript
 public addTask(name: string, props?: TaskOptions): Task
@@ -2692,7 +2694,7 @@ Adds a new task to this project.
 This will fail if the project already has
 a task with this name.
 
-###### `name`<sup>Required</sup> <a name="name" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTask.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTask.parameter.name"></a>
 
 - *Type:* string
 
@@ -2700,7 +2702,7 @@ The task name to add.
 
 ---
 
-###### `props`<sup>Optional</sup> <a name="props" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTask.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTask.parameter.props"></a>
 
 - *Type:* projen.TaskOptions
 
@@ -2708,7 +2710,7 @@ Task properties.
 
 ---
 
-##### ~~`addTip`~~ <a name="addTip" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTip"></a>
+##### ~~`addTip`~~ <a name="addTip" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTip"></a>
 
 ```typescript
 public addTip(message: string): void
@@ -2716,7 +2718,7 @@ public addTip(message: string): void
 
 Prints a "tip" message during synthesis.
 
-###### `message`<sup>Required</sup> <a name="message" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTip.parameter.message"></a>
+###### `message`<sup>Required</sup> <a name="message" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTip.parameter.message"></a>
 
 - *Type:* string
 
@@ -2724,7 +2726,7 @@ The message.
 
 ---
 
-##### `annotateGenerated` <a name="annotateGenerated" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.annotateGenerated"></a>
+##### `annotateGenerated` <a name="annotateGenerated" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.annotateGenerated"></a>
 
 ```typescript
 public annotateGenerated(glob: string): void
@@ -2738,7 +2740,7 @@ repository statistics and language breakdown.
 
 > [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
 
-###### `glob`<sup>Required</sup> <a name="glob" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.annotateGenerated.parameter.glob"></a>
+###### `glob`<sup>Required</sup> <a name="glob" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.annotateGenerated.parameter.glob"></a>
 
 - *Type:* string
 
@@ -2746,7 +2748,7 @@ the glob pattern to match (could be a file path).
 
 ---
 
-##### `postSynthesize` <a name="postSynthesize" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.postSynthesize"></a>
+##### `postSynthesize` <a name="postSynthesize" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.postSynthesize"></a>
 
 ```typescript
 public postSynthesize(): void
@@ -2756,7 +2758,7 @@ Called after all components are synthesized.
 
 Order is *not* guaranteed.
 
-##### `preSynthesize` <a name="preSynthesize" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.preSynthesize"></a>
+##### `preSynthesize` <a name="preSynthesize" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.preSynthesize"></a>
 
 ```typescript
 public preSynthesize(): void
@@ -2764,7 +2766,7 @@ public preSynthesize(): void
 
 Called before all components are synthesized.
 
-##### `removeTask` <a name="removeTask" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeTask"></a>
+##### `removeTask` <a name="removeTask" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeTask"></a>
 
 ```typescript
 public removeTask(name: string): Task
@@ -2772,7 +2774,7 @@ public removeTask(name: string): Task
 
 Removes a task from a project.
 
-###### `name`<sup>Required</sup> <a name="name" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeTask.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeTask.parameter.name"></a>
 
 - *Type:* string
 
@@ -2780,7 +2782,7 @@ The name of the task to remove.
 
 ---
 
-##### `runTaskCommand` <a name="runTaskCommand" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.runTaskCommand"></a>
+##### `runTaskCommand` <a name="runTaskCommand" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.runTaskCommand"></a>
 
 ```typescript
 public runTaskCommand(task: Task): string
@@ -2791,7 +2793,7 @@ Returns the shell command to execute in order to run a task.
 This will
 typically be `npx projen TASK`.
 
-###### `task`<sup>Required</sup> <a name="task" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.runTaskCommand.parameter.task"></a>
+###### `task`<sup>Required</sup> <a name="task" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.runTaskCommand.parameter.task"></a>
 
 - *Type:* projen.Task
 
@@ -2799,7 +2801,7 @@ The task for which the command is required.
 
 ---
 
-##### `synth` <a name="synth" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.synth"></a>
+##### `synth` <a name="synth" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.synth"></a>
 
 ```typescript
 public synth(): void
@@ -2814,7 +2816,7 @@ Synthesize all project files into `outdir`.
 5. Call "postSynthesize()" for all components of this project
 6. Call "this.postSynthesize()"
 
-##### `tryFindFile` <a name="tryFindFile" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindFile"></a>
+##### `tryFindFile` <a name="tryFindFile" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindFile"></a>
 
 ```typescript
 public tryFindFile(filePath: string): FileBase
@@ -2822,7 +2824,7 @@ public tryFindFile(filePath: string): FileBase
 
 Finds a file at the specified relative path within this project and all its subprojects.
 
-###### `filePath`<sup>Required</sup> <a name="filePath" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindFile.parameter.filePath"></a>
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindFile.parameter.filePath"></a>
 
 - *Type:* string
 
@@ -2833,7 +2835,7 @@ from the root of _this_ project.
 
 ---
 
-##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindJsonFile"></a>
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindJsonFile"></a>
 
 ```typescript
 public tryFindJsonFile(filePath: string): JsonFile
@@ -2841,7 +2843,7 @@ public tryFindJsonFile(filePath: string): JsonFile
 
 Finds a json file by name.
 
-###### `filePath`<sup>Required</sup> <a name="filePath" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindJsonFile.parameter.filePath"></a>
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindJsonFile.parameter.filePath"></a>
 
 - *Type:* string
 
@@ -2849,7 +2851,7 @@ The file path.
 
 ---
 
-##### `tryFindObjectFile` <a name="tryFindObjectFile" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindObjectFile"></a>
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindObjectFile"></a>
 
 ```typescript
 public tryFindObjectFile(filePath: string): ObjectFile
@@ -2857,7 +2859,7 @@ public tryFindObjectFile(filePath: string): ObjectFile
 
 Finds an object file (like JsonFile, YamlFile, etc.) by name.
 
-###### `filePath`<sup>Required</sup> <a name="filePath" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindObjectFile.parameter.filePath"></a>
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryFindObjectFile.parameter.filePath"></a>
 
 - *Type:* string
 
@@ -2865,7 +2867,7 @@ The file path.
 
 ---
 
-##### `tryRemoveFile` <a name="tryRemoveFile" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryRemoveFile"></a>
+##### `tryRemoveFile` <a name="tryRemoveFile" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryRemoveFile"></a>
 
 ```typescript
 public tryRemoveFile(filePath: string): FileBase
@@ -2873,7 +2875,7 @@ public tryRemoveFile(filePath: string): FileBase
 
 Finds a file at the specified relative path within this project and removes it.
 
-###### `filePath`<sup>Required</sup> <a name="filePath" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryRemoveFile.parameter.filePath"></a>
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.tryRemoveFile.parameter.filePath"></a>
 
 - *Type:* string
 
@@ -2884,19 +2886,19 @@ resolved from the root of _this_ project.
 
 ---
 
-##### `addBins` <a name="addBins" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBins"></a>
+##### `addBins` <a name="addBins" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBins"></a>
 
 ```typescript
 public addBins(bins: {[ key: string ]: string}): void
 ```
 
-###### `bins`<sup>Required</sup> <a name="bins" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBins.parameter.bins"></a>
+###### `bins`<sup>Required</sup> <a name="bins" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBins.parameter.bins"></a>
 
 - *Type:* {[ key: string ]: string}
 
 ---
 
-##### `addBundledDeps` <a name="addBundledDeps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBundledDeps"></a>
+##### `addBundledDeps` <a name="addBundledDeps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBundledDeps"></a>
 
 ```typescript
 public addBundledDeps(deps: string): void
@@ -2907,7 +2909,7 @@ Defines bundled dependencies.
 Bundled dependencies will be added as normal dependencies as well as to the
 `bundledDependencies` section of your `package.json`.
 
-###### `deps`<sup>Required</sup> <a name="deps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBundledDeps.parameter.deps"></a>
+###### `deps`<sup>Required</sup> <a name="deps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addBundledDeps.parameter.deps"></a>
 
 - *Type:* string
 
@@ -2921,7 +2923,7 @@ add/upgrade`. If you wish to specify a version range use this syntax:
 
 ---
 
-##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCompileCommand"></a>
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCompileCommand"></a>
 
 ```typescript
 public addCompileCommand(commands: string): void
@@ -2929,13 +2931,13 @@ public addCompileCommand(commands: string): void
 
 DEPRECATED.
 
-###### `commands`<sup>Required</sup> <a name="commands" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCompileCommand.parameter.commands"></a>
+###### `commands`<sup>Required</sup> <a name="commands" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCompileCommand.parameter.commands"></a>
 
 - *Type:* string
 
 ---
 
-##### `addDeps` <a name="addDeps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDeps"></a>
+##### `addDeps` <a name="addDeps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDeps"></a>
 
 ```typescript
 public addDeps(deps: string): void
@@ -2943,7 +2945,7 @@ public addDeps(deps: string): void
 
 Defines normal dependencies.
 
-###### `deps`<sup>Required</sup> <a name="deps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDeps.parameter.deps"></a>
+###### `deps`<sup>Required</sup> <a name="deps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDeps.parameter.deps"></a>
 
 - *Type:* string
 
@@ -2957,7 +2959,7 @@ add/upgrade`. If you wish to specify a version range use this syntax:
 
 ---
 
-##### `addDevDeps` <a name="addDevDeps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDevDeps"></a>
+##### `addDevDeps` <a name="addDevDeps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDevDeps"></a>
 
 ```typescript
 public addDevDeps(deps: string): void
@@ -2965,7 +2967,7 @@ public addDevDeps(deps: string): void
 
 Defines development/test dependencies.
 
-###### `deps`<sup>Required</sup> <a name="deps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDevDeps.parameter.deps"></a>
+###### `deps`<sup>Required</sup> <a name="deps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addDevDeps.parameter.deps"></a>
 
 - *Type:* string
 
@@ -2979,7 +2981,7 @@ add/upgrade`. If you wish to specify a version range use this syntax:
 
 ---
 
-##### `addFields` <a name="addFields" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addFields"></a>
+##### `addFields` <a name="addFields" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addFields"></a>
 
 ```typescript
 public addFields(fields: {[ key: string ]: any}): void
@@ -2987,7 +2989,7 @@ public addFields(fields: {[ key: string ]: any}): void
 
 Directly set fields in `package.json`.
 
-###### `fields`<sup>Required</sup> <a name="fields" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addFields.parameter.fields"></a>
+###### `fields`<sup>Required</sup> <a name="fields" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addFields.parameter.fields"></a>
 
 - *Type:* {[ key: string ]: any}
 
@@ -2995,7 +2997,7 @@ The fields to set.
 
 ---
 
-##### `addKeywords` <a name="addKeywords" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addKeywords"></a>
+##### `addKeywords` <a name="addKeywords" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addKeywords"></a>
 
 ```typescript
 public addKeywords(keywords: string): void
@@ -3003,7 +3005,7 @@ public addKeywords(keywords: string): void
 
 Adds keywords to package.json (deduplicated).
 
-###### `keywords`<sup>Required</sup> <a name="keywords" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addKeywords.parameter.keywords"></a>
+###### `keywords`<sup>Required</sup> <a name="keywords" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addKeywords.parameter.keywords"></a>
 
 - *Type:* string
 
@@ -3011,7 +3013,7 @@ The keywords to add.
 
 ---
 
-##### `addPeerDeps` <a name="addPeerDeps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPeerDeps"></a>
+##### `addPeerDeps` <a name="addPeerDeps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPeerDeps"></a>
 
 ```typescript
 public addPeerDeps(deps: string): void
@@ -3023,7 +3025,7 @@ When adding peer dependencies, a devDependency will also be added on the
 pinned version of the declared peer. This will ensure that you are testing
 your code against the minimum version required from your consumers.
 
-###### `deps`<sup>Required</sup> <a name="deps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPeerDeps.parameter.deps"></a>
+###### `deps`<sup>Required</sup> <a name="deps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPeerDeps.parameter.deps"></a>
 
 - *Type:* string
 
@@ -3037,7 +3039,7 @@ add/upgrade`. If you wish to specify a version range use this syntax:
 
 ---
 
-##### `addScripts` <a name="addScripts" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addScripts"></a>
+##### `addScripts` <a name="addScripts" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addScripts"></a>
 
 ```typescript
 public addScripts(scripts: {[ key: string ]: string}): void
@@ -3045,7 +3047,7 @@ public addScripts(scripts: {[ key: string ]: string}): void
 
 Replaces the contents of multiple npm package.json scripts.
 
-###### `scripts`<sup>Required</sup> <a name="scripts" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addScripts.parameter.scripts"></a>
+###### `scripts`<sup>Required</sup> <a name="scripts" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addScripts.parameter.scripts"></a>
 
 - *Type:* {[ key: string ]: string}
 
@@ -3053,7 +3055,7 @@ The scripts to set.
 
 ---
 
-##### ~~`addTestCommand`~~ <a name="addTestCommand" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTestCommand"></a>
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTestCommand"></a>
 
 ```typescript
 public addTestCommand(commands: string): void
@@ -3061,13 +3063,13 @@ public addTestCommand(commands: string): void
 
 DEPRECATED.
 
-###### `commands`<sup>Required</sup> <a name="commands" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTestCommand.parameter.commands"></a>
+###### `commands`<sup>Required</sup> <a name="commands" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addTestCommand.parameter.commands"></a>
 
 - *Type:* string
 
 ---
 
-##### ~~`hasScript`~~ <a name="hasScript" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.hasScript"></a>
+##### ~~`hasScript`~~ <a name="hasScript" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.hasScript"></a>
 
 ```typescript
 public hasScript(name: string): boolean
@@ -3075,7 +3077,7 @@ public hasScript(name: string): boolean
 
 Indicates if a script by the name name is defined.
 
-###### `name`<sup>Required</sup> <a name="name" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.hasScript.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.hasScript.parameter.name"></a>
 
 - *Type:* string
 
@@ -3083,7 +3085,7 @@ The name of the script.
 
 ---
 
-##### `removeScript` <a name="removeScript" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeScript"></a>
+##### `removeScript` <a name="removeScript" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeScript"></a>
 
 ```typescript
 public removeScript(name: string): void
@@ -3091,7 +3093,7 @@ public removeScript(name: string): void
 
 Removes the npm script (always successful).
 
-###### `name`<sup>Required</sup> <a name="name" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeScript.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.removeScript.parameter.name"></a>
 
 - *Type:* string
 
@@ -3099,7 +3101,7 @@ The name of the script.
 
 ---
 
-##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.renderWorkflowSetup"></a>
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.renderWorkflowSetup"></a>
 
 ```typescript
 public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
@@ -3107,7 +3109,7 @@ public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
 
 Returns the set of workflow steps which should be executed to bootstrap a workflow.
 
-###### `options`<sup>Optional</sup> <a name="options" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.renderWorkflowSetup.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.renderWorkflowSetup.parameter.options"></a>
 
 - *Type:* projen.javascript.RenderWorkflowSetupOptions
 
@@ -3115,7 +3117,7 @@ Options.
 
 ---
 
-##### `setScript` <a name="setScript" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.setScript"></a>
+##### `setScript` <a name="setScript" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.setScript"></a>
 
 ```typescript
 public setScript(name: string, command: string): void
@@ -3123,7 +3125,7 @@ public setScript(name: string, command: string): void
 
 Replaces the contents of an npm package.json script.
 
-###### `name`<sup>Required</sup> <a name="name" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.setScript.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.setScript.parameter.name"></a>
 
 - *Type:* string
 
@@ -3131,7 +3133,7 @@ The script name.
 
 ---
 
-###### `command`<sup>Required</sup> <a name="command" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.setScript.parameter.command"></a>
+###### `command`<sup>Required</sup> <a name="command" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.setScript.parameter.command"></a>
 
 - *Type:* string
 
@@ -3139,7 +3141,7 @@ The command to execute.
 
 ---
 
-##### `addCdkDependency` <a name="addCdkDependency" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCdkDependency"></a>
+##### `addCdkDependency` <a name="addCdkDependency" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCdkDependency"></a>
 
 ```typescript
 public addCdkDependency(modules: string): void
@@ -3147,7 +3149,7 @@ public addCdkDependency(modules: string): void
 
 Adds an AWS CDK module dependencies.
 
-###### `modules`<sup>Required</sup> <a name="modules" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCdkDependency.parameter.modules"></a>
+###### `modules`<sup>Required</sup> <a name="modules" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addCdkDependency.parameter.modules"></a>
 
 - *Type:* string
 
@@ -3160,76 +3162,76 @@ The list of modules to depend on.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.name">name</a></code> | <code>string</code> | Project name. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.appEntrypoint">appEntrypoint</a></code> | <code>string</code> | The CDK app entrypoint. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkConfig">cdkConfig</a></code> | <code>projen.awscdk.CdkConfig</code> | cdk.json configuration. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkDeps">cdkDeps</a></code> | <code>projen.awscdk.AwsCdkDeps</code> | *No description.* |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkTasks">cdkTasks</a></code> | <code>projen.awscdk.CdkTasks</code> | Common CDK tasks. |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | The CDK version this app is using. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.appEntrypoint">appEntrypoint</a></code> | <code>string</code> | The CDK app entrypoint. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkConfig">cdkConfig</a></code> | <code>projen.awscdk.CdkConfig</code> | cdk.json configuration. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkDeps">cdkDeps</a></code> | <code>projen.awscdk.AwsCdkDeps</code> | *No description.* |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkTasks">cdkTasks</a></code> | <code>projen.awscdk.CdkTasks</code> | Common CDK tasks. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | The CDK version this app is using. |
 
 ---
 
-##### `buildTask`<sup>Required</sup> <a name="buildTask" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildTask"></a>
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildTask"></a>
 
 ```typescript
 public readonly buildTask: Task;
@@ -3239,7 +3241,7 @@ public readonly buildTask: Task;
 
 ---
 
-##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.commitGenerated"></a>
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.commitGenerated"></a>
 
 ```typescript
 public readonly commitGenerated: boolean;
@@ -3251,7 +3253,7 @@ Whether to commit the managed files by default.
 
 ---
 
-##### `compileTask`<sup>Required</sup> <a name="compileTask" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.compileTask"></a>
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.compileTask"></a>
 
 ```typescript
 public readonly compileTask: Task;
@@ -3261,7 +3263,7 @@ public readonly compileTask: Task;
 
 ---
 
-##### `components`<sup>Required</sup> <a name="components" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.components"></a>
+##### `components`<sup>Required</sup> <a name="components" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.components"></a>
 
 ```typescript
 public readonly components: Component[];
@@ -3273,7 +3275,7 @@ Returns all the components within this project.
 
 ---
 
-##### `deps`<sup>Required</sup> <a name="deps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.deps"></a>
+##### `deps`<sup>Required</sup> <a name="deps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.deps"></a>
 
 ```typescript
 public readonly deps: Dependencies;
@@ -3285,7 +3287,7 @@ Project dependencies.
 
 ---
 
-##### `ejected`<sup>Required</sup> <a name="ejected" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.ejected"></a>
+##### `ejected`<sup>Required</sup> <a name="ejected" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.ejected"></a>
 
 ```typescript
 public readonly ejected: boolean;
@@ -3297,7 +3299,7 @@ Whether or not the project is being ejected.
 
 ---
 
-##### `files`<sup>Required</sup> <a name="files" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.files"></a>
+##### `files`<sup>Required</sup> <a name="files" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.files"></a>
 
 ```typescript
 public readonly files: FileBase[];
@@ -3309,7 +3311,7 @@ All files in this project.
 
 ---
 
-##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitattributes"></a>
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitattributes"></a>
 
 ```typescript
 public readonly gitattributes: GitAttributesFile;
@@ -3321,7 +3323,7 @@ The .gitattributes file for this repository.
 
 ---
 
-##### `gitignore`<sup>Required</sup> <a name="gitignore" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitignore"></a>
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitignore"></a>
 
 ```typescript
 public readonly gitignore: IgnoreFile;
@@ -3333,7 +3335,7 @@ public readonly gitignore: IgnoreFile;
 
 ---
 
-##### `logger`<sup>Required</sup> <a name="logger" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.logger"></a>
+##### `logger`<sup>Required</sup> <a name="logger" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.logger"></a>
 
 ```typescript
 public readonly logger: Logger;
@@ -3345,7 +3347,7 @@ Logging utilities.
 
 ---
 
-##### `name`<sup>Required</sup> <a name="name" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.name"></a>
+##### `name`<sup>Required</sup> <a name="name" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -3357,7 +3359,7 @@ Project name.
 
 ---
 
-##### `outdir`<sup>Required</sup> <a name="outdir" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.outdir"></a>
+##### `outdir`<sup>Required</sup> <a name="outdir" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.outdir"></a>
 
 ```typescript
 public readonly outdir: string;
@@ -3369,7 +3371,7 @@ Absolute output directory of this project.
 
 ---
 
-##### `packageTask`<sup>Required</sup> <a name="packageTask" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.packageTask"></a>
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.packageTask"></a>
 
 ```typescript
 public readonly packageTask: Task;
@@ -3379,7 +3381,7 @@ public readonly packageTask: Task;
 
 ---
 
-##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.postCompileTask"></a>
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.postCompileTask"></a>
 
 ```typescript
 public readonly postCompileTask: Task;
@@ -3389,7 +3391,7 @@ public readonly postCompileTask: Task;
 
 ---
 
-##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.preCompileTask"></a>
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.preCompileTask"></a>
 
 ```typescript
 public readonly preCompileTask: Task;
@@ -3399,7 +3401,7 @@ public readonly preCompileTask: Task;
 
 ---
 
-##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projectBuild"></a>
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projectBuild"></a>
 
 ```typescript
 public readonly projectBuild: ProjectBuild;
@@ -3411,7 +3413,7 @@ Manages the build process of the project.
 
 ---
 
-##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projenCommand"></a>
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projenCommand"></a>
 
 ```typescript
 public readonly projenCommand: string;
@@ -3423,7 +3425,7 @@ The command to use in order to run the projen CLI.
 
 ---
 
-##### `root`<sup>Required</sup> <a name="root" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.root"></a>
+##### `root`<sup>Required</sup> <a name="root" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.root"></a>
 
 ```typescript
 public readonly root: Project;
@@ -3435,7 +3437,7 @@ The root project.
 
 ---
 
-##### `subprojects`<sup>Required</sup> <a name="subprojects" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.subprojects"></a>
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.subprojects"></a>
 
 ```typescript
 public readonly subprojects: Project[];
@@ -3447,7 +3449,7 @@ Returns all the subprojects within this project.
 
 ---
 
-##### `tasks`<sup>Required</sup> <a name="tasks" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tasks"></a>
+##### `tasks`<sup>Required</sup> <a name="tasks" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tasks"></a>
 
 ```typescript
 public readonly tasks: Tasks;
@@ -3459,7 +3461,7 @@ Project tasks.
 
 ---
 
-##### `testTask`<sup>Required</sup> <a name="testTask" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.testTask"></a>
+##### `testTask`<sup>Required</sup> <a name="testTask" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.testTask"></a>
 
 ```typescript
 public readonly testTask: Task;
@@ -3469,7 +3471,7 @@ public readonly testTask: Task;
 
 ---
 
-##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.defaultTask"></a>
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.defaultTask"></a>
 
 ```typescript
 public readonly defaultTask: Task;
@@ -3484,7 +3486,7 @@ the project is being ejected.
 
 ---
 
-##### `initProject`<sup>Optional</sup> <a name="initProject" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.initProject"></a>
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.initProject"></a>
 
 ```typescript
 public readonly initProject: InitProject;
@@ -3500,7 +3502,7 @@ FQN of the project type.
 
 ---
 
-##### `parent`<sup>Optional</sup> <a name="parent" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.parent"></a>
+##### `parent`<sup>Optional</sup> <a name="parent" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.parent"></a>
 
 ```typescript
 public readonly parent: Project;
@@ -3514,7 +3516,7 @@ If undefined, this is the root project.
 
 ---
 
-##### `projectType`<sup>Required</sup> <a name="projectType" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projectType"></a>
+##### `projectType`<sup>Required</sup> <a name="projectType" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.projectType"></a>
 
 ```typescript
 public readonly projectType: ProjectType;
@@ -3524,7 +3526,7 @@ public readonly projectType: ProjectType;
 
 ---
 
-##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.autoApprove"></a>
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.autoApprove"></a>
 
 ```typescript
 public readonly autoApprove: AutoApprove;
@@ -3536,7 +3538,7 @@ Auto approve set up for this project.
 
 ---
 
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.devContainer"></a>
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.devContainer"></a>
 
 ```typescript
 public readonly devContainer: DevContainer;
@@ -3550,7 +3552,7 @@ This will be `undefined` if devContainer boolean is false
 
 ---
 
-##### `github`<sup>Optional</sup> <a name="github" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.github"></a>
+##### `github`<sup>Optional</sup> <a name="github" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.github"></a>
 
 ```typescript
 public readonly github: GitHub;
@@ -3564,7 +3566,7 @@ This will be `undefined` for subprojects.
 
 ---
 
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitpod"></a>
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.gitpod"></a>
 
 ```typescript
 public readonly gitpod: Gitpod;
@@ -3578,7 +3580,7 @@ This will be `undefined` if gitpod boolean is false
 
 ---
 
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.vscode"></a>
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.vscode"></a>
 
 ```typescript
 public readonly vscode: VsCode;
@@ -3592,7 +3594,7 @@ This will be `undefined` for subprojects.
 
 ---
 
-##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.allowLibraryDependencies"></a>
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.allowLibraryDependencies"></a>
 
 - *Deprecated:* use `package.allowLibraryDependencies`
 
@@ -3604,7 +3606,7 @@ public readonly allowLibraryDependencies: boolean;
 
 ---
 
-##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.artifactsDirectory"></a>
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.artifactsDirectory"></a>
 
 ```typescript
 public readonly artifactsDirectory: string;
@@ -3620,7 +3622,7 @@ tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
 
 ---
 
-##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.artifactsJavascriptDirectory"></a>
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.artifactsJavascriptDirectory"></a>
 
 ```typescript
 public readonly artifactsJavascriptDirectory: string;
@@ -3632,7 +3634,7 @@ The location of the npm tarball after build (`${artifactsDirectory}/js`).
 
 ---
 
-##### `bundler`<sup>Required</sup> <a name="bundler" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.bundler"></a>
+##### `bundler`<sup>Required</sup> <a name="bundler" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.bundler"></a>
 
 ```typescript
 public readonly bundler: Bundler;
@@ -3642,7 +3644,7 @@ public readonly bundler: Bundler;
 
 ---
 
-##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.entrypoint"></a>
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.entrypoint"></a>
 
 - *Deprecated:* use `package.entrypoint`
 
@@ -3654,7 +3656,7 @@ public readonly entrypoint: string;
 
 ---
 
-##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.manifest"></a>
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.manifest"></a>
 
 - *Deprecated:* use `package.addField(x, y)`
 
@@ -3666,7 +3668,7 @@ public readonly manifest: any;
 
 ---
 
-##### `npmrc`<sup>Required</sup> <a name="npmrc" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.npmrc"></a>
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.npmrc"></a>
 
 ```typescript
 public readonly npmrc: NpmConfig;
@@ -3678,7 +3680,7 @@ The .npmrc file.
 
 ---
 
-##### `package`<sup>Required</sup> <a name="package" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.package"></a>
+##### `package`<sup>Required</sup> <a name="package" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.package"></a>
 
 ```typescript
 public readonly package: NodePackage;
@@ -3690,7 +3692,7 @@ API for managing the node package.
 
 ---
 
-##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.packageManager"></a>
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.packageManager"></a>
 
 - *Deprecated:* use `package.packageManager`
 
@@ -3704,7 +3706,7 @@ The package manager to use.
 
 ---
 
-##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.runScriptCommand"></a>
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.runScriptCommand"></a>
 
 ```typescript
 public readonly runScriptCommand: string;
@@ -3716,7 +3718,7 @@ The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the p
 
 ---
 
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.autoMerge"></a>
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.autoMerge"></a>
 
 ```typescript
 public readonly autoMerge: AutoMerge;
@@ -3728,7 +3730,7 @@ Component that sets up mergify for merging approved pull requests.
 
 ---
 
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildWorkflow"></a>
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildWorkflow"></a>
 
 ```typescript
 public readonly buildWorkflow: BuildWorkflow;
@@ -3742,7 +3744,7 @@ The PR build GitHub workflow.
 
 ---
 
-##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildWorkflowJobId"></a>
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.buildWorkflowJobId"></a>
 
 ```typescript
 public readonly buildWorkflowJobId: string;
@@ -3754,7 +3756,7 @@ The job ID of the build workflow.
 
 ---
 
-##### `jest`<sup>Optional</sup> <a name="jest" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.jest"></a>
+##### `jest`<sup>Optional</sup> <a name="jest" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.jest"></a>
 
 ```typescript
 public readonly jest: Jest;
@@ -3766,7 +3768,7 @@ The Jest configuration (if enabled).
 
 ---
 
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.maxNodeVersion"></a>
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.maxNodeVersion"></a>
 
 ```typescript
 public readonly maxNodeVersion: string;
@@ -3778,7 +3780,7 @@ Maximum node version required by this package.
 
 ---
 
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.minNodeVersion"></a>
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.minNodeVersion"></a>
 
 ```typescript
 public readonly minNodeVersion: string;
@@ -3790,7 +3792,7 @@ Minimum node.js version required by this package.
 
 ---
 
-##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.npmignore"></a>
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.npmignore"></a>
 
 ```typescript
 public readonly npmignore: IgnoreFile;
@@ -3802,7 +3804,7 @@ The .npmignore file.
 
 ---
 
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.prettier"></a>
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.prettier"></a>
 
 ```typescript
 public readonly prettier: Prettier;
@@ -3812,7 +3814,7 @@ public readonly prettier: Prettier;
 
 ---
 
-##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.publisher"></a>
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.publisher"></a>
 
 - *Deprecated:* use `release.publisher`.
 
@@ -3829,7 +3831,7 @@ release workflow.
 
 ---
 
-##### `release`<sup>Optional</sup> <a name="release" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.release"></a>
+##### `release`<sup>Optional</sup> <a name="release" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.release"></a>
 
 ```typescript
 public readonly release: Release;
@@ -3841,7 +3843,7 @@ Release management.
 
 ---
 
-##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.upgradeWorkflow"></a>
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.upgradeWorkflow"></a>
 
 ```typescript
 public readonly upgradeWorkflow: UpgradeDependencies;
@@ -3853,7 +3855,7 @@ The upgrade workflow.
 
 ---
 
-##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.docsDirectory"></a>
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.docsDirectory"></a>
 
 ```typescript
 public readonly docsDirectory: string;
@@ -3863,7 +3865,7 @@ public readonly docsDirectory: string;
 
 ---
 
-##### `libdir`<sup>Required</sup> <a name="libdir" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.libdir"></a>
+##### `libdir`<sup>Required</sup> <a name="libdir" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.libdir"></a>
 
 ```typescript
 public readonly libdir: string;
@@ -3875,7 +3877,7 @@ The directory in which compiled .js files reside.
 
 ---
 
-##### `srcdir`<sup>Required</sup> <a name="srcdir" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.srcdir"></a>
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.srcdir"></a>
 
 ```typescript
 public readonly srcdir: string;
@@ -3887,7 +3889,7 @@ The directory in which the .ts sources reside.
 
 ---
 
-##### `testdir`<sup>Required</sup> <a name="testdir" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.testdir"></a>
+##### `testdir`<sup>Required</sup> <a name="testdir" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.testdir"></a>
 
 ```typescript
 public readonly testdir: string;
@@ -3899,7 +3901,7 @@ The directory in which tests reside.
 
 ---
 
-##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfigDev"></a>
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfigDev"></a>
 
 ```typescript
 public readonly tsconfigDev: TypescriptConfig;
@@ -3911,7 +3913,7 @@ A typescript configuration file which covers all files (sources, tests, projen).
 
 ---
 
-##### `watchTask`<sup>Required</sup> <a name="watchTask" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.watchTask"></a>
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.watchTask"></a>
 
 ```typescript
 public readonly watchTask: Task;
@@ -3923,7 +3925,7 @@ The "watch" task.
 
 ---
 
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.docgen"></a>
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.docgen"></a>
 
 ```typescript
 public readonly docgen: boolean;
@@ -3933,7 +3935,7 @@ public readonly docgen: boolean;
 
 ---
 
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.eslint"></a>
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.eslint"></a>
 
 ```typescript
 public readonly eslint: Eslint;
@@ -3943,7 +3945,7 @@ public readonly eslint: Eslint;
 
 ---
 
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfig"></a>
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfig"></a>
 
 ```typescript
 public readonly tsconfig: TypescriptConfig;
@@ -3953,7 +3955,7 @@ public readonly tsconfig: TypescriptConfig;
 
 ---
 
-##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfigEslint"></a>
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.tsconfigEslint"></a>
 
 ```typescript
 public readonly tsconfigEslint: TypescriptConfig;
@@ -3963,7 +3965,7 @@ public readonly tsconfigEslint: TypescriptConfig;
 
 ---
 
-##### `appEntrypoint`<sup>Required</sup> <a name="appEntrypoint" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.appEntrypoint"></a>
+##### `appEntrypoint`<sup>Required</sup> <a name="appEntrypoint" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.appEntrypoint"></a>
 
 ```typescript
 public readonly appEntrypoint: string;
@@ -3975,7 +3977,7 @@ The CDK app entrypoint.
 
 ---
 
-##### `cdkConfig`<sup>Required</sup> <a name="cdkConfig" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkConfig"></a>
+##### `cdkConfig`<sup>Required</sup> <a name="cdkConfig" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkConfig"></a>
 
 ```typescript
 public readonly cdkConfig: CdkConfig;
@@ -3987,7 +3989,7 @@ cdk.json configuration.
 
 ---
 
-##### `cdkDeps`<sup>Required</sup> <a name="cdkDeps" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkDeps"></a>
+##### `cdkDeps`<sup>Required</sup> <a name="cdkDeps" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkDeps"></a>
 
 ```typescript
 public readonly cdkDeps: AwsCdkDeps;
@@ -3997,7 +3999,7 @@ public readonly cdkDeps: AwsCdkDeps;
 
 ---
 
-##### `cdkTasks`<sup>Required</sup> <a name="cdkTasks" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkTasks"></a>
+##### `cdkTasks`<sup>Required</sup> <a name="cdkTasks" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkTasks"></a>
 
 ```typescript
 public readonly cdkTasks: CdkTasks;
@@ -4009,7 +4011,7 @@ Common CDK tasks.
 
 ---
 
-##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkVersion"></a>
+##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.cdkVersion"></a>
 
 ```typescript
 public readonly cdkVersion: string;
@@ -4025,11 +4027,11 @@ The CDK version this app is using.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
 
 ---
 
-##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.DEFAULT_TASK"></a>
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.property.DEFAULT_TASK"></a>
 
 ```typescript
 public readonly DEFAULT_TASK: string;
