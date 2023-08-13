@@ -9,13 +9,13 @@ describe('cdkVersion is >= 2.0.0', () => {
       name: 'test',
       domain: 'example.com',
     });
-    const snap = synthSnapshot(project);
+    const snap = synthSnapshot(project, { parseJson: false });
     expect(snap['cdk.json'].context).toBeUndefined();
   });
 });
 
 describe('default configuration', () => {
-  test.only('main and main.test.ts files written', () => {
+  test('main and main.test.ts files written', () => {
     // const outdir = mkdtemp({ cleanup: false, dir: `${process.cwd()}/test` });
     // mkdirSync(join(outdir, 'src'));
     // writeFileSync(join(outdir, 'src', 'my.lambda.ts'), '// dummy');
