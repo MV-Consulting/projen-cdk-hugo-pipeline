@@ -1,6 +1,8 @@
 # projen-cdk-hugo-pipeline
 
-Setup the boilerplate for a hugo blog with a CDK pipeline to deploy it to AWS. See [mavogel/cdk-hugo-pipeline](https://github.com/mavogel/cdk-hugo-pipeline).
+This is a [projen](https://github.com/projen/projen) project template to manage the [mavogel/cdk-hugo-pipeline](https://github.com/mavogel/cdk-hugo-pipeline) repository. Please see the [API](./API.md) for documentation.
+
+Setup the boilerplate for a hugo blog with a CDK pipeline to deploy it to AWS :tada:
 
 ## Usage
 
