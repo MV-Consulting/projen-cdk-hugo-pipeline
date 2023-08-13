@@ -290,8 +290,5 @@ class SampleCode extends Component {
       path.join(testdir, `${appEntrypointName}.test.ts`),
       testCode,
     );
-
-    console.log(execOrUndefined(`ls -lash ${testdir}`, { cwd: this.project.outdir }));
-    console.log(execOrUndefined(`cat ${testdir}/main.test.ts`, { cwd: this.project.outdir }));
   }
 }
