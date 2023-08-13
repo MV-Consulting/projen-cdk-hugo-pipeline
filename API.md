@@ -2556,6 +2556,8 @@ The subdomain of the website to use for the development environment.
 
 ### HugoPipelineAwsCdkTypeScriptApp <a name="HugoPipelineAwsCdkTypeScriptApp" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp"></a>
 
+External projen module to create a Hugo pipeline with AWS CDK from '@mavogel/cdk-hugo-pipeline'.
+
 #### Initializers <a name="Initializers" id="projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.Initializer"></a>
 
 ```typescript
