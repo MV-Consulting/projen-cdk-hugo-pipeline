@@ -109,7 +109,7 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
       throw new Error(`Could not create config file structure in ${this.outdir}/blog/config`);
     }
 
-    if (fileExists(path.join(this.outdir, 'blog/config/_default/config.toml'))) {
+    if (!fileExists(path.join(this.outdir, 'blog/config/_default/config.toml'))) {
       ret = execOrUndefined(`mv ${this.outdir}/blog/config.toml ${this.outdir}/blog/config/_default/config.toml`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
       if (ret === undefined) {
         throw new Error(`Could not move config.toml to ${this.outdir}/blog/config/_default/config.toml`);

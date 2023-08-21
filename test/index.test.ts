@@ -15,11 +15,7 @@ describe('cdkVersion is >= 2.0.0', () => {
 });
 
 describe('default configuration', () => {
-  test('main and main.test.ts files written', () => {
-    // const outdir = mkdtemp({ cleanup: false, dir: `${process.cwd()}/test` });
-    // mkdirSync(join(outdir, 'src'));
-    // writeFileSync(join(outdir, 'src', 'my.lambda.ts'), '// dummy');
-
+  test('all files are written', () => {
     const domain = 'example.com';
     const subDomain = 'my-sub';
     const project = new HugoPipelineAwsCdkTypeScriptApp({
@@ -28,7 +24,6 @@ describe('default configuration', () => {
       name: 'test',
       domain: domain,
       subDomain: subDomain,
-      // outdir: outdir,
     });
     const snap = synthSnapshot(project, { parseJson: false });
     expect(snap['src/main.ts']).not.toBeUndefined();
@@ -55,7 +50,7 @@ describe('default configuration', () => {
     expect(
       snap['.gitignore'].indexOf('blog/themes/blist/.hugo_build.lock'),
     ).not.toEqual(-1);
-    // expect(snap['blog/config/_default/config.toml']).not.toBeUndefined();
+    expect(snap['blog/config/_default/config.toml']).not.toBeUndefined();
     expect(snap['blog/config/development/config.toml']).not.toBeUndefined();
     expect(
       snap['blog/config/development/config.toml'].indexOf(`baseurl = "https://${subDomain}.${domain}"`),
