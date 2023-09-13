@@ -184,6 +184,7 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
@@ -196,7 +197,7 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
-| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use github workflows to handle dependency upgrades. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use tasks and github workflows to handle dependency upgrades. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.jest">jest</a></code> | <code>boolean</code> | Setup jest unit tests. |
@@ -1515,6 +1516,18 @@ Github Runner selection labels.
 
 ---
 
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
+
+---
+
 ##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.defaultReleaseBranch"></a>
 
 ```typescript
@@ -1683,7 +1696,7 @@ public readonly depsUpgrade: boolean;
 - *Type:* boolean
 - *Default:* true
 
-Use github workflows to handle dependency upgrades.
+Use tasks and github workflows to handle dependency upgrades.
 
 Cannot be used in conjunction with `dependabot`.
 
