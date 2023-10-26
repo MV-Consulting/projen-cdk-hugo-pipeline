@@ -18,6 +18,16 @@ const project = new cdk.JsiiProject({
   deps: dependencies,
   peerDeps: dependencies,
   description: 'A external projen component to create a Hugo pipeline with AWS CDK.',
+  keywords: ['aws', 'cdk', 'hugo', 'projen'],
+  autoApproveOptions: {
+    allowedUsernames: ['mavogel'],
+  },
+  autoApproveUpgrades: true,
+  depsUpgradeOptions: {
+    workflowOptions: {
+      labels: ['auto-approve'],
+    },
+  },
 });
 project.gitignore.exclude('test/hugo-pipe-test-*');
 project.synth();
