@@ -63,6 +63,12 @@
   "dependencies": {
     "projen": "~0"
   },
+  "keywords": [
+    "aws",
+    "cdk",
+    "hugo",
+    "projen"
+  ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "publishConfig": {
