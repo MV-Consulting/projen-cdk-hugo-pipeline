@@ -348,7 +348,7 @@ Relative to this directory, all files are synthesized.
 
 If this project has a parent, this directory is relative to the parent
 directory and it cannot be the same as the parent or any of it's other
-sub-projects.
+subprojects.
 
 ---
 
@@ -1070,7 +1070,7 @@ public readonly packageManager: NodePackageManager;
 ```
 
 - *Type:* projen.javascript.NodePackageManager
-- *Default:* NodePackageManager.YARN
+- *Default:* NodePackageManager.YARN_CLASSIC
 
 The Node Package Manager used to execute scripts.
 
@@ -2882,7 +2882,7 @@ Synthesize all project files into `outdir`.
 
 1. Call "this.preSynthesize()"
 2. Delete all generated files
-3. Synthesize all sub-projects
+3. Synthesize all subprojects
 4. Synthesize all components of this project
 5. Call "postSynthesize()" for all components of this project
 6. Call "this.postSynthesize()"
