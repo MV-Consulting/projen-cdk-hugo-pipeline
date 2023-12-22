@@ -1766,6 +1766,7 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with `@codeCovTokenSecret`. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
@@ -3193,6 +3194,21 @@ public readonly bundlerOptions: BundlerOptions;
 - *Type:* projen.javascript.BundlerOptions
 
 Options for `Bundler`.
+
+---
+
+##### `checkLicenses`<sup>Optional</sup> <a name="checkLicenses" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.checkLicenses"></a>
+
+```typescript
+public readonly checkLicenses: LicenseCheckerOptions;
+```
+
+- *Type:* projen.javascript.LicenseCheckerOptions
+- *Default:* no license checks are run during the build and all licenses will be accepted
+
+Configure which licenses should be deemed acceptable for use by dependencies.
+
+This setting will cause the build to fail, if any prohibited or not allowed licenses ares encountered.
 
 ---
 
