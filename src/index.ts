@@ -3,7 +3,7 @@ import * as path from 'path';
 import { AwsCdkTypeScriptApp, AwsCdkTypeScriptAppOptions } from 'projen/lib/awscdk/awscdk-app-ts';
 import { Component } from 'projen/lib/component';
 import { TextFile } from 'projen/lib/textfile';
-import { execOrUndefined, isGitRepository, fileExists, lineExistsInFile } from './util';
+import { execOrUndefined, isGitRepository, fileOrDirectoyExists, lineExistsInFile } from './util';
 
 export interface HugoPipelineAwsCdkTypeScriptAppOptions
   extends AwsCdkTypeScriptAppOptions {
@@ -26,6 +26,13 @@ export interface HugoPipelineAwsCdkTypeScriptAppOptions
    * @default blist
    */
   readonly hugoThemeName?: string;
+
+  /**
+   * The name of the Hugo theme config file.
+   *
+   * @default config.toml
+   */
+  readonly hugoThemeConfigFile?: string;
 
   /**
    * The URL of the Hugo theme Git repository.
@@ -65,6 +72,7 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     const domain = options.domain;
     const subDomain = options.subDomain || 'dev';
     const hugoThemeName = options.hugoThemeName || 'blist';
+    const hugoThemeConfigFile = options.hugoThemeConfigFile || 'config.toml';
     const hugoThemeGitRepo = options.hugoThemeGitRepo || 'https://github.com/apvarun/blist-hugo-theme.git';
     const hugoThemeGitRepoBranch = options.hugoThemeGitRepoBranch || 'v2.1.0';
     const hugoThemeDevCommand = options.hugoThemeDevCommand || 'npm --prefix blog run start';
@@ -101,9 +109,13 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
 
     // copy example site
     if (!lineExistsInFile(path.join(this.outdir, 'blog/config/_default/config.toml'), `theme = "${hugoThemeName}"`)) {
-      ret = execOrUndefined(`cp -r ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite/*  ${this.outdir}/blog/`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
-      if (ret === undefined) {
-        throw new Error(`Could not copy example site from ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite to ${this.outdir}/blog`);
+      if (fileOrDirectoyExists(path.join(this.outdir, `blog/themes/${hugoThemeName}/exampleSite`))) {
+        ret = execOrUndefined(`cp -r ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite/*  ${this.outdir}/blog/`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+        if (ret === undefined) {
+          throw new Error(`Could not copy example site from ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite to ${this.outdir}/blog`);
+        }
+      } else {
+        console.log(`Could not find example site in ${this.outdir}/blog/themes/${hugoThemeName}/exampleSite. No copying`);
       }
     }
 
@@ -114,10 +126,10 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
       throw new Error(`Could not create config file structure in ${this.outdir}/blog/config`);
     }
 
-    if (!fileExists(path.join(this.outdir, 'blog/config/_default/config.toml'))) {
-      ret = execOrUndefined(`mv ${this.outdir}/blog/config.toml ${this.outdir}/blog/config/_default/config.toml`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+    if (!fileOrDirectoyExists(path.join(this.outdir, 'blog/config/_default/config.toml'))) {
+      ret = execOrUndefined(`mv ${this.outdir}/blog/${hugoThemeConfigFile} ${this.outdir}/blog/config/_default/config.toml`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
       if (ret === undefined) {
-        throw new Error(`Could not move config.toml to ${this.outdir}/blog/config/_default/config.toml`);
+        throw new Error(`Could not move '${hugoThemeConfigFile}' to '${this.outdir}/blog/config/_default/config.toml'`);
       }
     }
 
@@ -152,13 +164,13 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     ];
     for (const file of filesToCopyFromThemeDir) {
       // if target file exists yet
-      if (fileExists(path.join(this.outdir, 'blog', file))) {
+      if (fileOrDirectoyExists(path.join(this.outdir, 'blog', file))) {
         console.log(`Target file ${this.outdir}/blog/${file} already exists. Skipping copy from theme dir.`);
         continue;
       }
 
       // Source file does not exist
-      if (!fileExists(path.join(this.outdir, `blog/themes/${hugoThemeName}`, file))) {
+      if (!fileOrDirectoyExists(path.join(this.outdir, `blog/themes/${hugoThemeName}`, file))) {
         console.log(`Source file ${this.outdir}/blog/themes/${hugoThemeName}/${file} does not exist. Skipping copy from theme dir.`);
         continue;
       }
@@ -220,7 +232,7 @@ class SampleCode extends Component {
     const srcdir = path.join(outdir, this.appProject.srcdir);
     // Note: there is a main.ts, however with the default content
     if (
-      fileExists(srcdir) &&
+      fileOrDirectoyExists(srcdir) &&
       fs.readdirSync(srcdir).filter((x) => x.endsWith('.ts')) &&
       fs.readFileSync(path.join(srcdir, 'main.ts'), 'utf-8').includes('@mavogel/cdk-hugo-pipeline')
     ) {
@@ -274,7 +286,7 @@ class SampleCode extends Component {
 
     const testdir = path.join(outdir, this.appProject.testdir);
     if (
-      fileExists(testdir) &&
+      fileOrDirectoyExists(testdir) &&
       fs.readdirSync(testdir).filter((x) => x.endsWith('.ts')) &&
       fs.readFileSync(path.join(testdir, 'main.test.ts'), 'utf-8').includes('expect(true).toBe(true);')
     ) {
