@@ -26,6 +26,10 @@ npx projen new \
 
 # 3. run the hugo development server
 npm run dev
+
+# 4. see if it builds correctly
+npm run build-dev
+npm run build # for production
 ```
 
 ### General
@@ -46,6 +50,10 @@ npm --prefix blog install
 
 # 4. run the hugo development server
 npm run dev
+
+# 5. see if it builds correctly
+npm run build-dev
+npm run build # for production
 ```
 Now open your browser and go to [http://localhost:1313](http://localhost:1313) to see the the website :tada:
 
