@@ -76,7 +76,7 @@ describe('configurations', () => {
       name: 'test',
       domain: domain,
       subDomain: subDomain,
-      hugoThemeGitRepo: 'git@github.com:kkeles/awsug-hugo.git',
+      hugoThemeGitRepo: 'https://github.com:kkeles/awsug-hugo.git',
       hugoThemeGitRepoBranch: '45d0f4605802d311db4a9f1288ffa8ea9f1cf689',
       hugoThemeName: 'awsug',
       hugoThemeConfigFile: 'themes/awsug/hugo.toml',
