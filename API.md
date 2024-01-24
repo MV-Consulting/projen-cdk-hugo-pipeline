@@ -19,8 +19,8 @@ npx projen new \
     --domain example.com \
     --hugoThemeGitRepo 'https://github.com/kkeles/awsug-hugo.git' \
     --hugoThemeGitRepoBranch '45d0f4605802d311db4a9f1288ffa8ea9f1cf689' \
-    --hugoThemeName 'awsug' \
-    --hugoThemeConfigFile 'themes/awsug/hugo.toml' \
+    --hugoThemeSubmoduleStructure 'blog' \
+    --hugoThemeConfigFile 'hugo.toml' \
     --hugoThemeDevCommand 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender' \
     --projenrc-ts
 
@@ -1878,7 +1878,7 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeDevCommand">hugoThemeDevCommand</a></code> | <code>string</code> | The command to run to start the Hugo development server for the specified theme. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepo">hugoThemeGitRepo</a></code> | <code>string</code> | The URL of the Hugo theme Git repository. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepoBranch">hugoThemeGitRepoBranch</a></code> | <code>string</code> | The branch of the Hugo theme Git repository to use. |
-| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeName">hugoThemeName</a></code> | <code>string</code> | The name of the Hugo theme to use. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleStructure">hugoThemeSubmoduleStructure</a></code> | <code>string</code> | The structure of the Hugo theme submodule folder without trailing slash. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.subDomain">subDomain</a></code> | <code>string</code> | The subdomain of the website to use for the development environment. |
 
 ---
@@ -4277,18 +4277,16 @@ The branch of the Hugo theme Git repository to use.
 
 ---
 
-##### `hugoThemeName`<sup>Optional</sup> <a name="hugoThemeName" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeName"></a>
+##### `hugoThemeSubmoduleStructure`<sup>Optional</sup> <a name="hugoThemeSubmoduleStructure" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleStructure"></a>
 
 ```typescript
-public readonly hugoThemeName: string;
+public readonly hugoThemeSubmoduleStructure: string;
 ```
 
 - *Type:* string
-- *Default:* blist
+- *Default:* blog/themes/blist
 
-The name of the Hugo theme to use.
-
-Will also be the folder the theme is stored in under 'blog/themes/${hugoThemeName}
+The structure of the Hugo theme submodule folder without trailing slash.
 
 ---
 
