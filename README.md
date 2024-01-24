@@ -16,12 +16,12 @@ mkdir my-website &&  cd my-website
 # 2. set up the project using the projen new command
 npx projen new \
     --from @mavogel/projen-cdk-hugo-pipeline@~0 \
-    --domain example.com \
-    --hugoThemeGitRepo 'https://github.com/kkeles/awsug-hugo.git' \
-    --hugoThemeGitRepoBranch '45d0f4605802d311db4a9f1288ffa8ea9f1cf689' \
-    --hugoThemeSubmoduleStructure 'blog' \
-    --hugoThemeConfigFile 'hugo.toml' \
-    --hugoThemeDevCommand 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender' \
+    --domain='example.com' \
+    --hugoThemeGitRepo='https://github.com/kkeles/awsug-hugo.git' \
+    --hugoThemeGitRepoBranch='45d0f4605802d311db4a9f1288ffa8ea9f1cf689' \
+    --hugoThemeSubmoduleStructure='blog' \
+    --hugoThemeConfigFile='hugo.toml' \
+    --hugoThemeDevCommand='cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender' \
     --projenrc-ts
 
 # 3. run the hugo development server
@@ -38,7 +38,7 @@ mkdir my-website &&  cd my-website
 # 2. set up the project using the projen new command
 npx projen new \
     --from @mavogel/projen-cdk-hugo-pipeline@~0 \
-    --domain example.com \
+    --domain='example.com' \
     --projenrc-ts
 
 # 3. install dependencies for the theme (blist by default)
