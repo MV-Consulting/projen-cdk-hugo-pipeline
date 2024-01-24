@@ -19,8 +19,8 @@ npx projen new \
     --domain example.com \
     --hugoThemeGitRepo 'https://github.com/kkeles/awsug-hugo.git' \
     --hugoThemeGitRepoBranch '45d0f4605802d311db4a9f1288ffa8ea9f1cf689' \
-    --hugoThemeName 'awsug' \
-    --hugoThemeConfigFile 'themes/awsug/hugo.toml' \
+    --hugoThemeSubmoduleStructure 'blog' \
+    --hugoThemeConfigFile 'hugo.toml' \
     --hugoThemeDevCommand 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender' \
     --projenrc-ts
 

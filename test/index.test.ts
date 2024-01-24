@@ -78,8 +78,8 @@ describe('configurations', () => {
       subDomain: subDomain,
       hugoThemeGitRepo: 'https://github.com/kkeles/awsug-hugo.git',
       hugoThemeGitRepoBranch: '45d0f4605802d311db4a9f1288ffa8ea9f1cf689',
-      hugoThemeName: 'awsug',
-      hugoThemeConfigFile: 'themes/awsug/hugo.toml',
+      hugoThemeSubmoduleStructure: 'blog',
+      hugoThemeConfigFile: 'hugo.toml',
       hugoThemeDevCommand: 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender',
     });
     const snap = synthSnapshot(project, { parseJson: false });
@@ -93,19 +93,19 @@ describe('configurations', () => {
     ).not.toEqual(-1);
     expect(snap['.gitmodules']).not.toBeUndefined();
     expect(
-      snap['.gitmodules'].indexOf('[submodule "blog/themes/awsug"]'),
+      snap['.gitmodules'].indexOf('[submodule "blog"]'),
     ).not.toEqual(-1);
     expect(
-      snap['.gitignore'].indexOf('blog/themes/awsug/public*'),
+      snap['.gitignore'].indexOf('blog/public*'),
     ).not.toEqual(-1);
     expect(
-      snap['.gitignore'].indexOf('blog/themes/awsug/resources/_gen'),
+      snap['.gitignore'].indexOf('blog/resources/_gen'),
     ).not.toEqual(-1);
     expect(
-      snap['.gitignore'].indexOf('blog/themes/awsug/.DS_Store'),
+      snap['.gitignore'].indexOf('blog/.DS_Store'),
     ).not.toEqual(-1);
     expect(
-      snap['.gitignore'].indexOf('blog/themes/awsug/.hugo_build.lock'),
+      snap['.gitignore'].indexOf('blog/.hugo_build.lock'),
     ).not.toEqual(-1);
     expect(snap['blog/config/_default/config.toml']).not.toBeUndefined();
     expect(snap['blog/config/development/config.toml']).not.toBeUndefined();
