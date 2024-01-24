@@ -52,12 +52,12 @@ export function isGitRepository(dir: string): boolean {
 }
 
 /**
- * Checks if the given file exists.
+ * Checks if the given file or directory (aka path) exists.
  *
- * @param filePath path to the file
- * @returns true if the file exists, false otherwise
+ * @param filePath the path
+ * @returns true if the path exists, false otherwise
  */
-export function fileExists(filePath: string): boolean {
+export function fileOrDirectoyExists(filePath: string): boolean {
   return fs.existsSync(filePath);
 }
 
@@ -69,7 +69,7 @@ export function fileExists(filePath: string): boolean {
  * @returns true if the line exists in the file, false otherwise
  */
 export function lineExistsInFile(filePath: string, line: string): boolean {
-  if (!fileExists(filePath)) {
+  if (!fileOrDirectoyExists(filePath)) {
     return false;
   }
 
