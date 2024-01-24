@@ -6,6 +6,31 @@ Setup the boilerplate for a hugo blog with a CDK pipeline to deploy it to AWS :t
 
 ## Usage
 
+### For the AWS UG theme
+from [Kadir](https://github.com/kkeles) as a template for all AWS UGs. See here for the [repo](https://github.com/kkeles/awsug-hugo)
+
+```sh
+# 1. create a new project directory
+mkdir my-website &&  cd my-website
+
+# 2. set up the project using the projen new command
+npx projen new \
+    --from @mavogel/projen-cdk-hugo-pipeline@~0 \
+    --domain example.com \
+    --hugoThemeGitRepo 'https://github.com/kkeles/awsug-hugo.git' \
+    --hugoThemeGitRepoBranch '45d0f4605802d311db4a9f1288ffa8ea9f1cf689' \
+    --hugoThemeName 'awsug' \
+    --hugoThemeConfigFile 'themes/awsug/hugo.toml' \
+    --hugoThemeDevCommand 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender' \
+    --projenrc-ts
+
+# 3. run the hugo development server
+npm run dev
+```
+
+### General
+which uses the [blist](https://github.com/apvarun/blist-hugo-theme) in `v2.1.0` by default:
+
 ```sh
 # 1. create a new project directory
 mkdir my-website &&  cd my-website
