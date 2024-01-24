@@ -1849,6 +1849,7 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.domain">domain</a></code> | <code>string</code> | The domain name of the website. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeConfigFile">hugoThemeConfigFile</a></code> | <code>string</code> | The name of the Hugo theme config file. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeDevCommand">hugoThemeDevCommand</a></code> | <code>string</code> | The command to run to start the Hugo development server for the specified theme. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepo">hugoThemeGitRepo</a></code> | <code>string</code> | The URL of the Hugo theme Git repository. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepoBranch">hugoThemeGitRepoBranch</a></code> | <code>string</code> | The branch of the Hugo theme Git repository to use. |
@@ -4196,6 +4197,19 @@ public readonly domain: string;
 - *Type:* string
 
 The domain name of the website.
+
+---
+
+##### `hugoThemeConfigFile`<sup>Optional</sup> <a name="hugoThemeConfigFile" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeConfigFile"></a>
+
+```typescript
+public readonly hugoThemeConfigFile: string;
+```
+
+- *Type:* string
+- *Default:* config.toml
+
+The name of the Hugo theme config file.
 
 ---
 
