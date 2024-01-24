@@ -91,7 +91,12 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     // set branch
     ret = execOrUndefined(`git submodule set-branch --branch ${hugoThemeGitRepoBranch} blog/themes/${hugoThemeName}`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
     if (ret === undefined) {
-      throw new Error(`Could not set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} in ${this.outdir}`);
+      throw new Error(`Could not set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} via 'set-branch' in ${this.outdir}`);
+    }
+
+    ret = execOrUndefined(`git checkout ${hugoThemeGitRepoBranch}`, { cwd: `${this.outdir}/blog/themes/${hugoThemeName}`, ignoreEmptyReturnCode: true });
+    if (ret === undefined) {
+      throw new Error(`Could not set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} via 'checkout' in ${this.outdir}/blog/themes/${hugoThemeName}`);
     }
 
     // copy example site
