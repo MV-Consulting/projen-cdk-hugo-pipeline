@@ -144,3 +144,21 @@ describe('configurations', () => {
     ).not.toEqual(-1);
   });
 });
+
+describe('updates', () => {
+  test('add a new script', () => {
+    const domain = 'example.com';
+    const subDomain = 'my-sub';
+    const project = new HugoPipelineAwsCdkTypeScriptApp({
+      cdkVersion: '2.0.0-rc.1',
+      defaultReleaseBranch: 'main',
+      name: 'test',
+      domain: domain,
+      subDomain: subDomain,
+    });
+    const snap = synthSnapshot(project, { parseJson: false });
+    expect(
+      snap['.projenrc.ts'].indexOf('project.synth();'),
+    ).not.toEqual(-1);
+  });
+});

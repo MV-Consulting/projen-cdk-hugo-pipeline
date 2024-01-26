@@ -76,3 +76,43 @@ export function lineExistsInFile(filePath: string, line: string): boolean {
   const fileContent = fs.readFileSync(filePath, 'utf8');
   return fileContent.indexOf(line) >= 0;
 }
+
+/**
+ * Appends the given line to the given file if the line does not exist in the file.
+ * 
+ * @param filePath path to the file
+ * @param line the line to append
+ * @returns 
+ */
+export function appendLineToFile(filePath: string, line: string): void {
+  if (!fileOrDirectoyExists(filePath)) {
+    return;
+  }
+
+  const fileContent = fs.readFileSync(filePath, 'utf8');
+  if (fileContent.indexOf(line) >= 0) {
+    return;
+  }
+
+  fs.appendFileSync(filePath, `${line}\n`);
+}
+
+/**
+ * Removes the given line from the given file if the line exists in the file.
+ * 
+ * @param filePath the path to the file
+ * @param line the line to remove
+ * @returns 
+ */
+export function removeLineFromFile(filePath: string, line: string): void {
+  if (!fileOrDirectoyExists(filePath)) {
+    return;
+  }
+
+  const fileContent = fs.readFileSync(filePath, 'utf8');
+  if (fileContent.indexOf(line) < 0) {
+    return;
+  }
+
+  fs.writeFileSync(filePath, fileContent.replace(line, ''));
+}
