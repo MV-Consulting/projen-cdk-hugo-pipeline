@@ -264,9 +264,7 @@ class SampleCode extends Component {
         domainName: props.domainName,
         siteSubDomain: '${this.options.subDomain}',
         hugoProjectPath: '../../../../blog',
-        hugoBuildCommand: 'npm --prefix blog run start',
-        // or use the following if you want to use the Hugo CLI directly
-        // hugoBuildCommand: 'hugo --gc --cleanDestinationDir --minify',
+        hugoBuildCommand: 'hugo --gc --cleanDestinationDir --minify',
       });
     }
   }
