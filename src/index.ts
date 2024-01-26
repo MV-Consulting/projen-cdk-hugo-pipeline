@@ -184,7 +184,10 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     }
 
     // add conditional dev task to package.json
+    const hugoThemeTopFolder = hugoThemeSubmoduleStructure.indexOf('/') > 0 ? hugoThemeSubmoduleStructure.substring(0, hugoThemeSubmoduleStructure.indexOf('/')) : hugoThemeSubmoduleStructure;
     this.package.setScript('dev', hugoThemeDevCommand);
+    this.package.setScript('build-dev', `cd ${hugoThemeTopFolder} && hugo --gc --minify --cleanDestinationDir --environment development`);
+    this.package.setScript('build', `cd ${hugoThemeTopFolder} && hugo --gc --minify --cleanDestinationDir --environment production`);
 
     // add dependencies
     this.addDeps('@mavogel/cdk-hugo-pipeline');

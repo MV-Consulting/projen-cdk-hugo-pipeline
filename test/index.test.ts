@@ -18,6 +18,7 @@ describe('configurations', () => {
   test('default all files are written', () => {
     const domain = 'example.com';
     const subDomain = 'my-sub';
+    const defaultHugoThemeDevCommand = 'npm --prefix blog run start';
     const project = new HugoPipelineAwsCdkTypeScriptApp({
       cdkVersion: '2.0.0-rc.1',
       defaultReleaseBranch: 'main',
@@ -65,11 +66,21 @@ describe('configurations', () => {
     expect(
       snap['blog/config/production/config.toml'].indexOf('publishDir = "public-production"'),
     ).not.toEqual(-1);
+    expect(
+      snap['package.json'].indexOf(`"dev": "${defaultHugoThemeDevCommand}"`),
+    ).not.toEqual(-1);
+    expect(
+      snap['package.json'].indexOf('"build-dev": "cd blog && hugo --gc --minify --cleanDestinationDir --environment development"'),
+    ).not.toEqual(-1);
+    expect(
+      snap['package.json'].indexOf('"build": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
+    ).not.toEqual(-1);
   });
 
   test('awsug all files are written', () => {
     const domain = 'example.com';
     const subDomain = 'my-sub';
+    const hugoThemeDevCommand = 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender';
     const project = new HugoPipelineAwsCdkTypeScriptApp({
       cdkVersion: '2.0.0-rc.1',
       defaultReleaseBranch: 'main',
@@ -80,7 +91,7 @@ describe('configurations', () => {
       hugoThemeGitRepoBranch: '45d0f4605802d311db4a9f1288ffa8ea9f1cf689',
       hugoThemeSubmoduleStructure: 'blog',
       hugoThemeConfigFile: 'hugo.toml',
-      hugoThemeDevCommand: 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender',
+      hugoThemeDevCommand: hugoThemeDevCommand,
     });
     const snap = synthSnapshot(project, { parseJson: false });
     expect(snap['src/main.ts']).not.toBeUndefined();
@@ -121,6 +132,15 @@ describe('configurations', () => {
     ).not.toEqual(-1);
     expect(
       snap['blog/config/production/config.toml'].indexOf('publishDir = "public-production"'),
+    ).not.toEqual(-1);
+    expect(
+      snap['package.json'].indexOf(`"dev": "${hugoThemeDevCommand}"`),
+    ).not.toEqual(-1);
+    expect(
+      snap['package.json'].indexOf('"build-dev": "cd blog && hugo --gc --minify --cleanDestinationDir --environment development"'),
+    ).not.toEqual(-1);
+    expect(
+      snap['package.json'].indexOf('"build": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
     ).not.toEqual(-1);
   });
 });
