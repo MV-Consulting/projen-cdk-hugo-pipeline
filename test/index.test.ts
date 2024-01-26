@@ -73,7 +73,7 @@ describe('configurations', () => {
       snap['package.json'].indexOf('"build-dev": "cd blog && hugo --gc --minify --cleanDestinationDir --environment development"'),
     ).not.toEqual(-1);
     expect(
-      snap['package.json'].indexOf('"build": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
+      snap['package.json'].indexOf('"build-prod": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
     ).not.toEqual(-1);
   });
 
@@ -140,7 +140,7 @@ describe('configurations', () => {
       snap['package.json'].indexOf('"build-dev": "cd blog && hugo --gc --minify --cleanDestinationDir --environment development"'),
     ).not.toEqual(-1);
     expect(
-      snap['package.json'].indexOf('"build": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
+      snap['package.json'].indexOf('"build-prod": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
     ).not.toEqual(-1);
   });
 });
