@@ -79,10 +79,10 @@ export function lineExistsInFile(filePath: string, line: string): boolean {
 
 /**
  * Appends the given line to the given file if the line does not exist in the file.
- * 
+ *
  * @param filePath path to the file
  * @param line the line to append
- * @returns 
+ * @returns
  */
 export function appendLineToFile(filePath: string, line: string): void {
   if (!fileOrDirectoyExists(filePath)) {
@@ -99,10 +99,10 @@ export function appendLineToFile(filePath: string, line: string): void {
 
 /**
  * Removes the given line from the given file if the line exists in the file.
- * 
+ *
  * @param filePath the path to the file
  * @param line the line to remove
- * @returns 
+ * @returns
  */
 export function removeLineFromFile(filePath: string, line: string): void {
   if (!fileOrDirectoyExists(filePath)) {

@@ -29,7 +29,7 @@ npm run dev
 
 # 4. see if it builds correctly
 npm run build-dev
-npm run build # for production
+npm run build-prod # for production
 ```
 
 ### General

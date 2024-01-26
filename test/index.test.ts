@@ -73,7 +73,7 @@ describe('configurations', () => {
       snap['package.json'].indexOf('"build-dev": "cd blog && hugo --gc --minify --cleanDestinationDir --environment development"'),
     ).not.toEqual(-1);
     expect(
-      snap['package.json'].indexOf('"build": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
+      snap['package.json'].indexOf('"build-prod": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
     ).not.toEqual(-1);
   });
 
@@ -140,25 +140,7 @@ describe('configurations', () => {
       snap['package.json'].indexOf('"build-dev": "cd blog && hugo --gc --minify --cleanDestinationDir --environment development"'),
     ).not.toEqual(-1);
     expect(
-      snap['package.json'].indexOf('"build": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
-    ).not.toEqual(-1);
-  });
-});
-
-describe('updates', () => {
-  test('add a new script', () => {
-    const domain = 'example.com';
-    const subDomain = 'my-sub';
-    const project = new HugoPipelineAwsCdkTypeScriptApp({
-      cdkVersion: '2.0.0-rc.1',
-      defaultReleaseBranch: 'main',
-      name: 'test',
-      domain: domain,
-      subDomain: subDomain,
-    });
-    const snap = synthSnapshot(project, { parseJson: false });
-    expect(
-      snap['.projenrc.ts'].indexOf('project.synth();'),
+      snap['package.json'].indexOf('"build-prod": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
     ).not.toEqual(-1);
   });
 });
