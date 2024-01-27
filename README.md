@@ -22,7 +22,8 @@ npx projen new \
     --hugoThemeSubmoduleStructure='blog' \
     --hugoThemeConfigFile='hugo.toml' \
     --hugoThemeDevCommand='cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender' \
-    --projenrc-ts
+    --projenrc-ts \
+    --no-git
 
 # 3. run the hugo development server
 npm run dev
@@ -43,7 +44,8 @@ mkdir my-website &&  cd my-website
 npx projen new \
     --from @mavogel/projen-cdk-hugo-pipeline@~0 \
     --domain='example.com' \
-    --projenrc-ts
+    --projenrc-ts \
+    --no-git
 
 # 3. install dependencies for the theme (blist by default)
 npm --prefix blog install
