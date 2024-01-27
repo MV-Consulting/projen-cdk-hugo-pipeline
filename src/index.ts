@@ -64,12 +64,10 @@ export interface HugoPipelineAwsCdkTypeScriptAppOptions
  * @pjid cdk-hugo-pipeline
  */
 export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
-  private gitInitExecuted: boolean;
-
   constructor(options: HugoPipelineAwsCdkTypeScriptAppOptions) {
     super(options);
 
-    this.gitInitExecuted = false;
+    // TODO fix hard coded values, such as '/blog'
     const domain = options.domain;
     const subDomain = options.subDomain || 'dev';
     const hugoThemeSubmoduleStructure = options.hugoThemeSubmoduleStructure || 'blog/themes/blist';
@@ -85,7 +83,6 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
       if (ret === undefined) {
         throw new Error('Could not "git init"');
       }
-      this.gitInitExecuted = true;
     }
 
     // Note: as of now not possible with git lib such as 'https://github.com/isomorphic-git/isomorphic-git'
@@ -199,15 +196,6 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
         subDomain: subDomain,
       });
     }
-
-    // remove .git folder as projen with do it at the end as well
-    // we need to do it here as we need to add the submodule before
-    if (this.gitInitExecuted) {
-      ret = execOrUndefined('rm -rf .git', { cwd: this.outdir, ignoreEmptyReturnCode: true });
-      if (ret === undefined) {
-        throw new Error('Could not "rm -rf .git"');
-      }
-    }
   }
 }
 
@@ -263,8 +251,6 @@ class SampleCode extends Component {
         name: '${this.normalizedHugoBlogName}',
         domainName: props.domainName,
         siteSubDomain: '${this.options.subDomain}',
-        hugoProjectPath: '../../../../blog',
-        hugoBuildCommand: 'hugo --gc --cleanDestinationDir --minify',
       });
     }
   }
