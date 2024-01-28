@@ -1888,7 +1888,8 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeDevCommand">hugoThemeDevCommand</a></code> | <code>string</code> | The command to run to start the Hugo development server for the specified theme. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepo">hugoThemeGitRepo</a></code> | <code>string</code> | The URL of the Hugo theme Git repository. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepoBranch">hugoThemeGitRepoBranch</a></code> | <code>string</code> | The branch of the Hugo theme Git repository to use. |
-| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleStructure">hugoThemeSubmoduleStructure</a></code> | <code>string</code> | The structure of the Hugo theme submodule folder without trailing slash. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleExampleSiteDirectory">hugoThemeSubmoduleExampleSiteDirectory</a></code> | <code>string</code> | The directory of the Hugo theme example site below the 'blog' folder. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleStructure">hugoThemeSubmoduleStructure</a></code> | <code>string</code> | The structure of the Hugo theme submodule folder without trailing slash below the 'blog' folder. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.subDomain">subDomain</a></code> | <code>string</code> | The subdomain of the website to use for the development environment. |
 
 ---
@@ -4287,6 +4288,19 @@ The branch of the Hugo theme Git repository to use.
 
 ---
 
+##### `hugoThemeSubmoduleExampleSiteDirectory`<sup>Optional</sup> <a name="hugoThemeSubmoduleExampleSiteDirectory" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleExampleSiteDirectory"></a>
+
+```typescript
+public readonly hugoThemeSubmoduleExampleSiteDirectory: string;
+```
+
+- *Type:* string
+- *Default:* themes/blist/exampleSite
+
+The directory of the Hugo theme example site below the 'blog' folder.
+
+---
+
 ##### `hugoThemeSubmoduleStructure`<sup>Optional</sup> <a name="hugoThemeSubmoduleStructure" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleStructure"></a>
 
 ```typescript
@@ -4294,9 +4308,9 @@ public readonly hugoThemeSubmoduleStructure: string;
 ```
 
 - *Type:* string
-- *Default:* blog/themes/blist
+- *Default:* themes/blist
 
-The structure of the Hugo theme submodule folder without trailing slash.
+The structure of the Hugo theme submodule folder without trailing slash below the 'blog' folder.
 
 ---
 
