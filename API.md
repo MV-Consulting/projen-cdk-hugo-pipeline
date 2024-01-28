@@ -5,33 +5,7 @@ This is a [projen](https://github.com/projen/projen) project template to manage 
 Setup the boilerplate for a hugo blog with a CDK pipeline to deploy it to AWS :tada:
 
 ## Usage
-
-### For the AWS UG theme
-from [Kadir](https://github.com/kkeles) as a template for all AWS UGs. See here for the [repo](https://github.com/kkeles/awsug-hugo)
-
-```sh
-# 1. create a new project directory
-mkdir my-website &&  cd my-website
-
-# 2. set up the project using the projen new command
-npx projen new \
-    --from @mavogel/projen-cdk-hugo-pipeline@~0 \
-    --domain='example.com' \
-    --hugoThemeGitRepo='https://github.com/kkeles/awsug-hugo.git' \
-    --hugoThemeGitRepoBranch='45d0f4605802d311db4a9f1288ffa8ea9f1cf689' \
-    --hugoThemeSubmoduleStructure='blog' \
-    --hugoThemeConfigFile='hugo.toml' \
-    --hugoThemeDevCommand='cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender' \
-    --projenrc-ts \
-    --no-git
-
-# 3. run the hugo development server
-npm run dev
-
-# 4. see if it builds correctly
-npm run build-dev
-npm run build-prod # for production
-```
+Quickly run the generator :tada:
 
 ### General
 which uses the [blist](https://github.com/apvarun/blist-hugo-theme) in `v2.1.0` by default:
@@ -60,6 +34,32 @@ npm run build # for production
 Now open your browser and go to [http://localhost:1313](http://localhost:1313) to see the the website :tada:
 
 See the [API.md](API.md) for more details and all possible configuration options.
+
+### For the AWS UG theme
+from [Kadir](https://github.com/kkeles) as a template for all AWS UGs. See here for the [repo](https://github.com/kkeles/awsug-hugo)
+
+```sh
+# 1. create a new project directory
+mkdir awsug-your-town &&  cd awsug-your-town
+
+# 2. set up the project using the projen new command
+npx projen new \
+    --from @mavogel/projen-cdk-hugo-pipeline@~0 \
+    --domain='awsug-frankfurt.de' \
+    --hugoThemeGitRepo='https://github.com/mvogel/awsug-hugo.git' \
+    --hugoThemeGitRepoBranch='feat/example-site' \
+    --hugoThemeSubmoduleStructure='themes/awsug' \
+    --hugoThemeConfigFile='hugo.toml' \
+    --projenrc-ts \
+    --no-git
+
+# 3. run the hugo development server
+npm run dev
+
+# 4. see if it builds correctly
+npm run build-dev
+npm run build-prod # for production
+```
 
 ## Configuring the themes
 You can have multiple themes, and use only one. Configure the `hugo.toml` or `config.toml` accordingly. See the setup andc configuring instructions [here](https://gohugo.io/getting-started/quick-start/).
@@ -1888,7 +1888,8 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeDevCommand">hugoThemeDevCommand</a></code> | <code>string</code> | The command to run to start the Hugo development server for the specified theme. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepo">hugoThemeGitRepo</a></code> | <code>string</code> | The URL of the Hugo theme Git repository. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeGitRepoBranch">hugoThemeGitRepoBranch</a></code> | <code>string</code> | The branch of the Hugo theme Git repository to use. |
-| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleStructure">hugoThemeSubmoduleStructure</a></code> | <code>string</code> | The structure of the Hugo theme submodule folder without trailing slash. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleExampleSiteDirectory">hugoThemeSubmoduleExampleSiteDirectory</a></code> | <code>string</code> | The directory of the Hugo theme example site below the 'blog' folder. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleStructure">hugoThemeSubmoduleStructure</a></code> | <code>string</code> | The structure of the Hugo theme submodule folder without trailing slash below the 'blog' folder. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.subDomain">subDomain</a></code> | <code>string</code> | The subdomain of the website to use for the development environment. |
 
 ---
@@ -4287,6 +4288,19 @@ The branch of the Hugo theme Git repository to use.
 
 ---
 
+##### `hugoThemeSubmoduleExampleSiteDirectory`<sup>Optional</sup> <a name="hugoThemeSubmoduleExampleSiteDirectory" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleExampleSiteDirectory"></a>
+
+```typescript
+public readonly hugoThemeSubmoduleExampleSiteDirectory: string;
+```
+
+- *Type:* string
+- *Default:* themes/blist/exampleSite
+
+The directory of the Hugo theme example site below the 'blog' folder.
+
+---
+
 ##### `hugoThemeSubmoduleStructure`<sup>Optional</sup> <a name="hugoThemeSubmoduleStructure" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.hugoThemeSubmoduleStructure"></a>
 
 ```typescript
@@ -4294,9 +4308,9 @@ public readonly hugoThemeSubmoduleStructure: string;
 ```
 
 - *Type:* string
-- *Default:* blog/themes/blist
+- *Default:* themes/blist
 
-The structure of the Hugo theme submodule folder without trailing slash.
+The structure of the Hugo theme submodule folder without trailing slash below the 'blog' folder.
 
 ---
 
