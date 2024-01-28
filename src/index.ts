@@ -29,13 +29,6 @@ export interface HugoPipelineAwsCdkTypeScriptAppOptions
   readonly hugoThemeSubmoduleStructure?: string;
 
   /**
-   * The directory of the Hugo theme example site below the 'blog' folder.
-   *
-   * @default themes/blist/exampleSite
-   */
-  readonly hugoThemeSubmoduleExampleSiteDirectory?: string;
-
-  /**
    * The name of the Hugo theme config file.
    *
    * @default config.toml
@@ -77,9 +70,10 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     // TODO fix hard coded values, such as '/blog'
     const domain = options.domain;
     const fixedHugoProjectPath = 'blog';
+    const fixedHugoExampleSiteDirectoryName = 'exampleSite';
     const subDomain = options.subDomain || 'dev';
     const hugoThemeSubmoduleStructure = options.hugoThemeSubmoduleStructure ? `${fixedHugoProjectPath}/${options.hugoThemeSubmoduleStructure}` : `${fixedHugoProjectPath}/themes/blist`;
-    const hugoThemeSubmoduleExampleSiteDirectory = options.hugoThemeSubmoduleExampleSiteDirectory ? `${fixedHugoProjectPath}/${options.hugoThemeSubmoduleExampleSiteDirectory}` : `${fixedHugoProjectPath}/themes/blist/exampleSite`;
+    const hugoThemeSubmoduleExampleSiteDirectory = `${hugoThemeSubmoduleStructure}/${fixedHugoExampleSiteDirectoryName}`;
     const hugoThemeConfigFile = options.hugoThemeConfigFile || 'config.toml';
     const hugoThemeGitRepo = options.hugoThemeGitRepo || 'https://github.com/apvarun/blist-hugo-theme.git';
     const hugoThemeGitRepoBranch = options.hugoThemeGitRepoBranch || 'v2.1.0';

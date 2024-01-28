@@ -89,7 +89,6 @@ describe('configurations', () => {
       hugoThemeGitRepo: 'https://github.com/mavogel/awsug-hugo.git',
       hugoThemeGitRepoBranch: 'feat/example-site',
       hugoThemeSubmoduleStructure: 'themes/awsug',
-      hugoThemeSubmoduleExampleSiteDirectory: 'themes/awsug/exampleSite',
       hugoThemeConfigFile: 'hugo.toml',
     });
     const snap = synthSnapshot(project, { parseJson: false });
