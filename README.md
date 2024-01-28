@@ -46,7 +46,7 @@ mkdir awsug-your-town &&  cd awsug-your-town
 npx projen new \
     --from @mavogel/projen-cdk-hugo-pipeline@~0 \
     --domain='awsug-frankfurt.de' \
-    --hugoThemeGitRepo='https://github.com/mvogel/awsug-hugo.git' \
+    --hugoThemeGitRepo='https://github.com/mavogel/awsug-hugo.git' \
     --hugoThemeGitRepoBranch='feat/example-site' \
     --hugoThemeSubmoduleStructure='themes/awsug' \
     --hugoThemeConfigFile='hugo.toml' \
