@@ -21,7 +21,7 @@ npx projen new \
     --hugoThemeGitRepoBranch='45d0f4605802d311db4a9f1288ffa8ea9f1cf689' \
     --hugoThemeSubmoduleStructure='blog' \
     --hugoThemeConfigFile='hugo.toml' \
-    --hugoThemeDevCommand='cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender' \
+    --hugoThemeDevCommand='hugo server --source blog --watch --buildFuture --cleanDestinationDir --disableFastRender' \
     --projenrc-ts \
     --no-git
 

@@ -18,7 +18,7 @@ describe('configurations', () => {
   test('default all files are written', () => {
     const domain = 'example.com';
     const subDomain = 'my-sub';
-    const defaultHugoThemeDevCommand = 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender';
+    const defaultHugoThemeDevCommand = 'hugo server --source blog --watch --buildFuture --cleanDestinationDir --disableFastRender';
     const project = new HugoPipelineAwsCdkTypeScriptApp({
       cdkVersion: '2.0.0-rc.1',
       defaultReleaseBranch: 'main',
@@ -70,10 +70,10 @@ describe('configurations', () => {
       snap['package.json'].indexOf(`"dev": "${defaultHugoThemeDevCommand}"`),
     ).not.toEqual(-1);
     expect(
-      snap['package.json'].indexOf('"build-dev": "cd blog && hugo --gc --minify --cleanDestinationDir --environment development"'),
+      snap['package.json'].indexOf('"build-dev": "hugo --source blog --gc --minify --cleanDestinationDir --environment development"'),
     ).not.toEqual(-1);
     expect(
-      snap['package.json'].indexOf('"build-prod": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
+      snap['package.json'].indexOf('"build-prod": "hugo --source blog --gc --minify --cleanDestinationDir --environment production"'),
     ).not.toEqual(-1);
   });
 
@@ -136,13 +136,13 @@ describe('configurations', () => {
       snap['blog/config/production/config.toml'].indexOf('publishDir = "public-production"'),
     ).not.toEqual(-1);
     expect(
-      snap['package.json'].indexOf('"dev": "cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender"'),
+      snap['package.json'].indexOf('"dev": "hugo server --source blog --watch --buildFuture --cleanDestinationDir --disableFastRender"'),
     ).not.toEqual(-1);
     expect(
-      snap['package.json'].indexOf('"build-dev": "cd blog && hugo --gc --minify --cleanDestinationDir --environment development"'),
+      snap['package.json'].indexOf('"build-dev": "hugo --source blog --gc --minify --cleanDestinationDir --environment development"'),
     ).not.toEqual(-1);
     expect(
-      snap['package.json'].indexOf('"build-prod": "cd blog && hugo --gc --minify --cleanDestinationDir --environment production"'),
+      snap['package.json'].indexOf('"build-prod": "hugo --source blog --gc --minify --cleanDestinationDir --environment production"'),
     ).not.toEqual(-1);
   });
 });

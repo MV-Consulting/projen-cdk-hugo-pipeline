@@ -83,7 +83,7 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     const hugoThemeConfigFile = options.hugoThemeConfigFile || 'config.toml';
     const hugoThemeGitRepo = options.hugoThemeGitRepo || 'https://github.com/apvarun/blist-hugo-theme.git';
     const hugoThemeGitRepoBranch = options.hugoThemeGitRepoBranch || 'v2.1.0';
-    const hugoThemeDevCommand = options.hugoThemeDevCommand || `cd ${fixedHugoProjectPath} && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender`;
+    const hugoThemeDevCommand = options.hugoThemeDevCommand || `hugo server --source ${fixedHugoProjectPath} --watch --buildFuture --cleanDestinationDir --disableFastRender`;
 
     let ret = undefined;
     if (!isGitRepository(this.outdir)) {
@@ -190,8 +190,8 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
 
     // add conditional dev task to package.json
     this.package.setScript('dev', hugoThemeDevCommand);
-    this.package.setScript('build-dev', `cd ${fixedHugoProjectPath} && hugo --gc --minify --cleanDestinationDir --environment development`);
-    this.package.setScript('build-prod', `cd ${fixedHugoProjectPath} && hugo --gc --minify --cleanDestinationDir --environment production`);
+    this.package.setScript('build-dev', `hugo --source ${fixedHugoProjectPath} --gc --minify --cleanDestinationDir --environment development`);
+    this.package.setScript('build-prod', `hugo --source ${fixedHugoProjectPath} --gc --minify --cleanDestinationDir --environment production`);
 
     // add dependencies
     this.addDeps('@mavogel/cdk-hugo-pipeline');
