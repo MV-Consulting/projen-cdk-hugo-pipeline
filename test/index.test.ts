@@ -18,7 +18,7 @@ describe('configurations', () => {
   test('default all files are written', () => {
     const domain = 'example.com';
     const subDomain = 'my-sub';
-    const defaultHugoThemeDevCommand = 'npm --prefix blog run start';
+    const defaultHugoThemeDevCommand = 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender';
     const project = new HugoPipelineAwsCdkTypeScriptApp({
       cdkVersion: '2.0.0-rc.1',
       defaultReleaseBranch: 'main',
@@ -80,23 +80,25 @@ describe('configurations', () => {
   test('awsug all files are written', () => {
     const domain = 'example.com';
     const subDomain = 'my-sub';
-    const hugoThemeDevCommand = 'cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender';
     const project = new HugoPipelineAwsCdkTypeScriptApp({
       cdkVersion: '2.0.0-rc.1',
       defaultReleaseBranch: 'main',
       name: 'test',
       domain: domain,
       subDomain: subDomain,
-      hugoThemeGitRepo: 'https://github.com/kkeles/awsug-hugo.git',
-      hugoThemeGitRepoBranch: '45d0f4605802d311db4a9f1288ffa8ea9f1cf689',
-      hugoThemeSubmoduleStructure: 'blog',
+      hugoThemeGitRepo: 'https://github.com/mavogel/awsug-hugo.git',
+      hugoThemeGitRepoBranch: 'feat/example-site',
+      hugoThemeSubmoduleStructure: 'themes/awsug',
+      hugoThemeSubmoduleExampleSiteDirectory: 'themes/awsug/exampleSite',
       hugoThemeConfigFile: 'hugo.toml',
-      hugoThemeDevCommand: hugoThemeDevCommand,
     });
     const snap = synthSnapshot(project, { parseJson: false });
     expect(snap['src/main.ts']).not.toBeUndefined();
     expect(
       snap['src/main.ts'].indexOf('@mavogel/cdk-hugo-pipeline'),
+    ).not.toEqual(-1);
+    expect(
+      snap['src/main.ts'].indexOf("hugoProjectPath: path.join(process.cwd(), 'blog'),"),
     ).not.toEqual(-1);
     expect(snap['test/main.test.ts']).not.toBeUndefined();
     expect(
@@ -104,19 +106,19 @@ describe('configurations', () => {
     ).not.toEqual(-1);
     expect(snap['.gitmodules']).not.toBeUndefined();
     expect(
-      snap['.gitmodules'].indexOf('[submodule "blog"]'),
+      snap['.gitmodules'].indexOf('[submodule "blog/themes/awsug"]'),
     ).not.toEqual(-1);
     expect(
-      snap['.gitignore'].indexOf('blog/public*'),
+      snap['.gitignore'].indexOf('blog/themes/awsug/public*'),
     ).not.toEqual(-1);
     expect(
-      snap['.gitignore'].indexOf('blog/resources/_gen'),
+      snap['.gitignore'].indexOf('blog/themes/awsug/resources/_gen'),
     ).not.toEqual(-1);
     expect(
-      snap['.gitignore'].indexOf('blog/.DS_Store'),
+      snap['.gitignore'].indexOf('blog/themes/awsug/.DS_Store'),
     ).not.toEqual(-1);
     expect(
-      snap['.gitignore'].indexOf('blog/.hugo_build.lock'),
+      snap['.gitignore'].indexOf('blog/themes/awsug/.hugo_build.lock'),
     ).not.toEqual(-1);
     expect(snap['blog/config/_default/config.toml']).not.toBeUndefined();
     expect(snap['blog/config/development/config.toml']).not.toBeUndefined();
@@ -134,7 +136,7 @@ describe('configurations', () => {
       snap['blog/config/production/config.toml'].indexOf('publishDir = "public-production"'),
     ).not.toEqual(-1);
     expect(
-      snap['package.json'].indexOf(`"dev": "${hugoThemeDevCommand}"`),
+      snap['package.json'].indexOf('"dev": "cd blog && hugo server --watch --buildFuture --cleanDestinationDir --disableFastRender"'),
     ).not.toEqual(-1);
     expect(
       snap['package.json'].indexOf('"build-dev": "cd blog && hugo --gc --minify --cleanDestinationDir --environment development"'),
