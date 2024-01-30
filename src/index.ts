@@ -91,6 +91,7 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     // checkout theme git repo
     if (!lineExistsInFile(path.join(this.outdir, '.gitmodules'), `[submodule "${hugoThemeSubmoduleStructure}"]`)) {
       ret = execOrUndefined(`git submodule add ${hugoThemeGitRepo} ${hugoThemeSubmoduleStructure}`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+      console.log(`Added git submodule ${hugoThemeGitRepo} to ${this.outdir}`);
       if (ret === undefined) {
         throw new Error(`Could not add git submodule ${hugoThemeGitRepo} to ${this.outdir}`);
       }
@@ -98,11 +99,13 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
 
     // set branch
     ret = execOrUndefined(`git submodule set-branch --branch ${hugoThemeGitRepoBranch} ${hugoThemeSubmoduleStructure}`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+    console.log(`Set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} via 'set-branch' in ${this.outdir}`);
     if (ret === undefined) {
       throw new Error(`Could not set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} via 'set-branch' in ${this.outdir}`);
     }
 
     ret = execOrUndefined(`git checkout ${hugoThemeGitRepoBranch}`, { cwd: `${this.outdir}/${hugoThemeSubmoduleStructure}`, ignoreEmptyReturnCode: true });
+    console.log(`Set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} via 'checkout' in ${this.outdir}/${hugoThemeSubmoduleStructure}`);
     if (ret === undefined) {
       throw new Error(`Could not set branch ${hugoThemeGitRepoBranch} for git submodule ${hugoThemeGitRepo} via 'checkout' in ${this.outdir}/${hugoThemeSubmoduleStructure}`);
     }
@@ -113,6 +116,7 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
 
     // copy example site
     if (!lineExistsInFile(path.join(this.outdir, 'blog/config/_default/config.toml'), `theme = "${hugoThemeSubmoduleStructure.lastIndexOf('/') > 0 ? hugoThemeSubmoduleStructure.substring(hugoThemeSubmoduleStructure.lastIndexOf('/') + 1) : hugoThemeSubmoduleStructure}"`)) {
+      console.log(`Copying exampleSite directory from ${this.outdir}/${hugoThemeSubmoduleExampleSiteDirectory}`);
       ret = execOrUndefined(`cp -r ${this.outdir}/${hugoThemeSubmoduleExampleSiteDirectory}/*  ${this.outdir}/${fixedHugoProjectPath}/`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
       if (ret === undefined) {
         throw new Error(`Could not copy example site from ${this.outdir}/${hugoThemeSubmoduleExampleSiteDirectory} to ${this.outdir}/${fixedHugoProjectPath}`);
@@ -122,12 +126,14 @@ export class HugoPipelineAwsCdkTypeScriptApp extends AwsCdkTypeScriptApp {
     // create config file structure
     // Note: no check needed as 'mkdir -p' does not throw an error if the dir already exists
     ret = execOrUndefined(`mkdir -p ${fixedHugoProjectPath}/config/_default ${fixedHugoProjectPath}/config/development ${fixedHugoProjectPath}/config/production`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+    console.log(`Created config file structure in ${this.outdir}/${fixedHugoProjectPath}/config`);
     if (ret === undefined) {
       throw new Error(`Could not create config file structure in ${this.outdir}/${fixedHugoProjectPath}/config`);
     }
 
     if (!fileOrDirectoyExists(path.join(this.outdir, `${fixedHugoProjectPath}/config/_default/config.toml`))) {
       ret = execOrUndefined(`mv ${this.outdir}/${fixedHugoProjectPath}/${hugoThemeConfigFile} ${this.outdir}/${fixedHugoProjectPath}/config/_default/config.toml`, { cwd: this.outdir, ignoreEmptyReturnCode: true });
+      console.log(`Moved '${this.outdir}/${fixedHugoProjectPath}/${hugoThemeConfigFile}' to '${this.outdir}/${fixedHugoProjectPath}/config/_default/config.toml'`);
       if (ret === undefined) {
         throw new Error(`Could not move '${this.outdir}/${fixedHugoProjectPath}/${hugoThemeConfigFile}' to '${this.outdir}/${fixedHugoProjectPath}/config/_default/config.toml'`);
       }
