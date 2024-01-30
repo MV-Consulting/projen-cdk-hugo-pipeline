@@ -35,6 +35,8 @@ Now open your browser and go to [http://localhost:1313](http://localhost:1313) t
 
 See the [API.md](API.md) for more details and all possible configuration options.
 
+If you want to deploy it follow the steps [here](https://github.com/MV-Consulting/cdk-hugo-pipeline?tab=readme-ov-file#deploy-it) in the `cdk-hugo-pipeline` repo.
+
 ### For the AWS UG theme
 from [Kadir](https://github.com/kkeles) as a template for all AWS UGs. See here for the [repo](https://github.com/kkeles/awsug-hugo)
 
@@ -45,9 +47,9 @@ mkdir awsug-your-town &&  cd awsug-your-town
 # 2. set up the project using the projen new command
 npx projen new \
     --from @mavogel/projen-cdk-hugo-pipeline@~0 \
-    --domain='awsug-frankfurt.de' \
-    --hugoThemeGitRepo='https://github.com/mavogel/awsug-hugo.git' \
-    --hugoThemeGitRepoBranch='feat/example-site' \
+    --domain='your-domain.com' \
+    --hugoThemeGitRepo='https://github.com/kkeles/awsug-hugo.git' \
+    --hugoThemeGitRepoBranch='v1.2.0' \
     --hugoThemeSubmoduleStructure='themes/awsug' \
     --hugoThemeConfigFile='hugo.toml' \
     --projenrc-ts \
@@ -59,6 +61,21 @@ npm run dev
 # 4. see if it builds correctly
 npm run build-dev
 npm run build-prod # for production
+
+# 5. build it locally via
+npm run build
+# 6. deploy the repository and the pipeline once via
+npm run deploy
+## will create the codecommit repository and the codepipeline. 
+## The pipeline will fail first, so now commit the code
+
+# 7. add the remote, e.g. via GRPC http
+git remote add origin codecommit::<aws-region>://your-blog
+# 8. push the code and let the pipeline run
+git push origin master
+# 9. go to your 
+## url dev.your-comain.com, 
+## enter the basic auth credentials (default: john:doe)
 ```
 
 ## Configuring the themes

@@ -86,8 +86,8 @@ describe('configurations', () => {
       name: 'test',
       domain: domain,
       subDomain: subDomain,
-      hugoThemeGitRepo: 'https://github.com/mavogel/awsug-hugo.git',
-      hugoThemeGitRepoBranch: 'feat/example-site',
+      hugoThemeGitRepo: 'https://github.com/kkeles/awsug-hugo.git',
+      hugoThemeGitRepoBranch: 'v1.2.0',
       hugoThemeSubmoduleStructure: 'themes/awsug',
       hugoThemeConfigFile: 'hugo.toml',
     });
