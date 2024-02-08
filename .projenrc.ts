@@ -7,7 +7,7 @@ const project = new cdk.JsiiProject({
   author: 'Manuel Vogel',
   authorAddress: 'mavogel@posteo.de',
   defaultReleaseBranch: 'main',
-  jsiiVersion: '~5.0.0',
+  jsiiVersion: '~5.3.0',
   name: '@mavogel/projen-cdk-hugo-pipeline',
   projenrcTs: true,
   repositoryUrl: 'git@github.com:mavogel/projen-cdk-hugo-pipeline.git',
