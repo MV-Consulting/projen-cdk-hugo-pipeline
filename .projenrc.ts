@@ -10,7 +10,7 @@ const project = new cdk.JsiiProject({
   jsiiVersion: '~5.3.0',
   name: '@mavogel/projen-cdk-hugo-pipeline',
   projenrcTs: true,
-  repositoryUrl: 'git@github.com:mavogel/projen-cdk-hugo-pipeline.git',
+  repositoryUrl: 'https://github.com/MV-Consulting/projen-cdk-hugo-pipeline',
   releaseToNpm: true,
   npmAccess: NpmAccess.PUBLIC,
   majorVersion: 0,
