@@ -3,7 +3,7 @@
   "description": "A external projen component to create a Hugo pipeline with AWS CDK.",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mavogel/projen-cdk-hugo-pipeline.git"
+    "url": "https://github.com/MV-Consulting/projen-cdk-hugo-pipeline"
   },
   "scripts": {
     "build": "npx projen build",
