@@ -1644,6 +1644,7 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
@@ -1762,6 +1763,7 @@ const hugoPipelineAwsCdkTypeScriptAppOptions: HugoPipelineAwsCdkTypeScriptAppOpt
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkAssert">cdkAssert</a></code> | <code>boolean</code> | Warning: NodeJS only. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkAssertions">cdkAssertions</a></code> | <code>boolean</code> | Install the assertions library? |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkCliVersion">cdkCliVersion</a></code> | <code>string</code> | Version range of the AWS CDK CLI to depend on. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkDependencies">cdkDependencies</a></code> | <code>string[]</code> | Which AWS CDKv1 modules this project requires. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkDependenciesAsDeps">cdkDependenciesAsDeps</a></code> | <code>boolean</code> | If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkTestDependencies">cdkTestDependencies</a></code> | <code>string[]</code> | AWS CDK modules required for testing. |
@@ -2335,6 +2337,19 @@ sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
 the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
 this will be what you `package.json` will eventually include.
+
+---
+
+##### `bunVersion`<sup>Optional</sup> <a name="bunVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.bunVersion"></a>
+
+```typescript
+public readonly bunVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The version of Bun to use if using Bun as a package manager.
 
 ---
 
@@ -4043,6 +4058,24 @@ Install the assertions library?
 
 Only needed for CDK 1.x. If using CDK 2.x then
 assertions is already included in 'aws-cdk-lib'
+
+---
+
+##### `cdkCliVersion`<sup>Optional</sup> <a name="cdkCliVersion" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptAppOptions.property.cdkCliVersion"></a>
+
+```typescript
+public readonly cdkCliVersion: string;
+```
+
+- *Type:* string
+- *Default:* "^2"
+
+Version range of the AWS CDK CLI to depend on.
+
+Can be either a specific version, or an NPM version range.
+
+By default, the latest 2.x version will be installed; you can use this
+option to restrict it to a specific version or version range.
 
 ---
 
