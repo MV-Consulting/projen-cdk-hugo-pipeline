@@ -106,8 +106,7 @@ const project = new cdk.JsiiProject({
 - \`node --version\`:
 - \`npx cdk --version\`:
 - version of the project: \`x.x.x\`
-`
-  ]
+`],
 });
 project.gitignore.exclude('test/hugo-pipe-test-*');
 project.synth();
