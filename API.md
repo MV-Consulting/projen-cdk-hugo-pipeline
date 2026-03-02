@@ -31,6 +31,7 @@ new HugoPipelineAwsCdkTypeScriptApp(options: HugoPipelineAwsCdkTypeScriptAppOpti
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
 | <code><a href="#@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
@@ -71,6 +72,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="@mavogel/projen-cdk-hugo-pipeline.HugoPipelineAwsCdkTypeScriptApp.addExcludeFromCleanup"></a>
 
