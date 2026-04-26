@@ -108,5 +108,14 @@ const project = new cdk.JsiiProject({
 - version of the project: \`x.x.x\`
 `],
 });
+
+// projen's AutoMerge component hardcodes `delete_head_branch: {}` in the
+// mergify rule with no option to disable it. Strip it from the generated
+// .mergify.yml so Mergify does not delete head branches on merge.
+// see https://github.com/MV-Consulting/projen-cdk-hugo-pipeline/pulls
+project.tryFindObjectFile('.mergify.yml')?.addDeletionOverride(
+  'pull_request_rules.0.actions.delete_head_branch',
+);
+
 project.gitignore.exclude('test/hugo-pipe-test-*');
 project.synth();
